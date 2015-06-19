@@ -810,11 +810,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Layouts\Sublayouts\ControlBases\MicrositeControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\ControlBases\UserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
-    <Folder Include="Layouts\Sublayouts\ControlBases\" />
     <Folder Include="Layouts\Sublayouts\Fixed\" />
     <Folder Include="Layouts\Sublayouts\Widgets\" />
     <Folder Include="scripts\" />

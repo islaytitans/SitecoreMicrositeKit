@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKit.WebApp", "JonathanRobbins.MicrositeKit.WebApp\JonathanRobbins.MicrositeKit.WebApp.csproj", "{7BB6316E-428F-4466-9F7D-985A8BBFD42F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKit.Enumerators", "JonathanRobbins.MicrositeKit.Enumerators\JonathanRobbins.MicrositeKit.Enumerators.csproj", "{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7BB6316E-428F-4466-9F7D-985A8BBFD42F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BB6316E-428F-4466-9F7D-985A8BBFD42F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BB6316E-428F-4466-9F7D-985A8BBFD42F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
