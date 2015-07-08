@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
-using JonathanRobbins.MicrositeKit.Interfaces.CMS;
+using JonathanRobbins.MicrositeKit.Interfaces.CMS.Items;
 using Sitecore.Configuration;
 using Sitecore.Data.Items;
 
