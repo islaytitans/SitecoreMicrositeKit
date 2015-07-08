@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using Sitecore.Data.Items;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
@@ -35,7 +37,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                 {
                     micrositeItem = Sitecore.Context.Item.Axes.GetAncestors()
                                             .FirstOrDefault(
-                                                x => x.TemplateID == Microsite.MicroSiteTemplateGuid);
+                                                x => x.TemplateID == Templates.MicroSiteId);
                 }
                 _micrositeItem = micrositeItem;
                 return _micrositeItem;
@@ -57,7 +59,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
                         siteHomeItem = MicrositeItem.Axes.GetDescendants()
-                                                           .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteHomePageTemplateGuid);
+                                                           .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteHomePageId);
                     }
                 }
 
@@ -83,7 +85,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                         siteConfigItem = MicrositeItem.Axes.GetDescendants()
                                                       .FirstOrDefault(
                                                           x =>
-                                                          x.TemplateID == Microsite.MicroSiteSiteConfigTemplateGuid);
+                                                          x.TemplateID == Templates.MicroSiteSiteConfigId);
                     }
                 }
 
@@ -93,7 +95,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
         }
 
         private Item _siteDataItem;
-        protected Item siteDataItem
+        protected Item SiteDataItem
         {
             get
             {
@@ -108,7 +110,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                     {
                         siteDataItem = MicrositeItem.Axes.GetDescendants()
                                                     .FirstOrDefault(
-                                                        x => x.TemplateID == Microsite.MicroSiteSiteDataTemplateGuid);
+                                                        x => x.TemplateID == Templates.MicroSiteSiteDataId);
                     }
                 }
 
@@ -118,7 +120,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
         }
 
         private Item _loginPageItem;
-        protected Item loginPageItem
+        protected Item LoginPageItem
         {
             get
             {
@@ -133,7 +135,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                     {
                         loginPageItem = MicrositeItem.Axes.GetDescendants()
                                                     .FirstOrDefault(
-                                                        x => x.TemplateID == Microsite.MicroSiteLoginPageTemplateGuid);
+                                                        x => x.TemplateID == Templates.MicroSiteLoginPageId);
                     }
                 }
 
@@ -146,7 +148,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
         {
             get
             {
-                return (Sitecore.Context.Item.TemplateID == Microsite.MicroSiteLoginPageTemplateGuid);
+                return (Sitecore.Context.Item.TemplateID == Templates.MicroSiteLoginPageId);
             }
         }
 
@@ -164,7 +166,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                 return DataSource;
             }
 
-            string itemId = ApplyParameterIfPresent(QueryStringNames.Guid);
+            string itemId = ApplyParameterIfPresent(QueryStrings.Guid);
 
             if (!string.IsNullOrEmpty(itemId))
             {

@@ -824,6 +824,12 @@
     <Folder Include="Layouts\Sublayouts\Widgets\" />
     <Folder Include="scripts\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Enumerators\JonathanRobbins.MicrositeKit.Enumerators.csproj">
+      <Project>{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}</Project>
+      <Name>JonathanRobbins.MicrositeKit.Enumerators</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
