@@ -14,47 +14,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 {
     public class UserControlBase : UserControl
     {
-        private Item _dataSource;
-        public Item DataSource
-        {
-            get
-            {
-                if (_dataSource == null)
-                {
-                    var parent = Parent as Sublayout;
-                    if (parent != null)
-                        _dataSource = Sitecore.Context.Database.GetItem(parent.DataSource);
-                }
-                return _dataSource;
-            }
-        }
-
-        private Item _resolvedDataSource;
-        public Item ResolvedDataSource
-        {
-            get
-            {
-                if (_resolvedDataSource == null)
-                {
-                    if (DataSource != null)
-                    {
-                        _resolvedDataSource = DataSource;
-                    }
-                    else
-                    {
-                        _resolvedDataSource = Sitecore.Context.Item;
-                    }
-                }
-
-                return _resolvedDataSource;
-            }
-        }
-
-        public NameValueCollection Parameters
-        {
-            get { return WebUtil.ParseUrlParameters(Sublayout.Parameters); }
-        }
-
         public Sublayout Sublayout
         {
             get { return Parent as Sublayout; }
@@ -70,6 +29,27 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
             get { return Placeholder.Key; }
         }
 
+        private Item _dataSource;
+        public Item DataSource
+        {
+            get
+            {
+                if (_dataSource == null)
+                {
+                    _dataSource = Sitecore.Context.Item;
+
+                    if (Sublayout != null && !string.IsNullOrEmpty(Sublayout.DataSource))
+                        _dataSource = Sitecore.Context.Database.GetItem(Sublayout.DataSource);
+                }
+                return _dataSource;
+            }
+        }
+
+        public NameValueCollection Parameters
+        {
+            get { return WebUtil.ParseUrlParameters(Sublayout.Parameters); }
+        }
+
         public string HomePageUrl
         {
             get
@@ -79,25 +59,57 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
             }
         }
 
-        public static void SetSitecoreControlWithSitecoreItem(ControlCollection controlCollection, Item sitecoreItem)
+        protected override void OnInit(EventArgs e)
         {
-            if (sitecoreItem == null)
+            base.OnInit(e);
+            BindSitecoreControl();
+        }
+
+        public void BindSitecoreControl()
+        {
+            BindSitecoreControl(DataSource);
+        }
+
+        public void BindSitecoreControl(Item item)
+        {
+            Assert.IsNotNull(item, "item");
+
+            if (Controls.Count > 0)
             {
-                Log.Error("Data source is null when passed to SetSitecoreControlWithSitecoreItem", null);
-                return;
+                BindControls(Controls, item);
             }
+        }
 
-            foreach (var scText in controlCollection.Cast<Control>().OfType<Text>().ToList())
-                scText.Item = sitecoreItem;
+        private void BindControls(ControlCollection controls, Item item)
+        {
+            Assert.IsNotNull(controls, "controls");
+            Assert.IsNotNull(item, "item");
 
-            foreach (var scText in controlCollection.Cast<Control>().Select(control => GetAllControls(control).OfType<Text>().ToList()).SelectMany(controls => controls))
-                scText.Item = sitecoreItem;
+            foreach (Control control in controls)
+            {
+                if (control is FieldControl)
+                {
+                    var fieldControl = control as FieldControl;
 
-            foreach (var scLink in controlCollection.Cast<Control>().OfType<Link>().ToList())
-                scLink.Item = sitecoreItem;
+                    if (fieldControl.Item == null)
+                    {
+                        fieldControl.Item = item;
+                    }
+                }
+                else if (control is FieldRenderer)
+                {
+                    var fieldRenderer = control as FieldRenderer;
+                    if (fieldRenderer.Item == null)
+                    {
+                        fieldRenderer.Item = item;
+                    }
+                }
 
-            foreach (var scLink in controlCollection.Cast<Control>().Select(control => GetAllControls(control).OfType<Link>().ToList()).SelectMany(controls => controls))
-                scLink.Item = sitecoreItem;
+                if (control.Controls.Count > 0)
+                {
+                    BindControls(control.Controls, item);
+                }
+            }
         }
 
         public static IEnumerable<Control> GetAllControls(Control parent)
@@ -120,11 +132,15 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 
         public bool ParameterIsPopulated(string param)
         {
+            Assert.ArgumentNotNullOrEmpty(param, "param");
+
             return Request.Params[param] != null && !string.IsNullOrEmpty(Request.Params[param]);
         }
 
         public string ApplyParameterIfPresent(string param)
         {
+            Assert.ArgumentNotNullOrEmpty(param, "param");
+
             string output = string.Empty;
 
             if (ParameterIsPopulated(param))
