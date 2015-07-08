@@ -8,7 +8,7 @@ using JonathanRobbins.MicrositeKit.Interfaces.CMS;
 using Sitecore.Configuration;
 using Sitecore.Data.Items;
 
-namespace JonathanRobbins.MicrositeKey.CMS.Items
+namespace JonathanRobbins.MicrositeKit.CMS.Items
 {
     public class Nodes : INodes
     {
@@ -51,6 +51,7 @@ namespace JonathanRobbins.MicrositeKey.CMS.Items
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
+                        //TODO remove
                         siteHomeItem = MicrositeItem.Axes.GetDescendants()
                                                            .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteHomePageId);
                     }
@@ -77,6 +78,7 @@ namespace JonathanRobbins.MicrositeKey.CMS.Items
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
+                        //TODO remove
                         siteConfigItem = MicrositeItem.Axes.GetDescendants()
                                                       .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSiteConfigId);
                     }
@@ -102,6 +104,7 @@ namespace JonathanRobbins.MicrositeKey.CMS.Items
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
+                        //TODO remove
                         siteDataItem = MicrositeItem.Axes.GetDescendants()
                                                     .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSiteDataId);
                     }
@@ -127,6 +130,7 @@ namespace JonathanRobbins.MicrositeKey.CMS.Items
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
+                        //TODO remove
                         loginPageItem = MicrositeItem.Axes.GetDescendants()
                                                     .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLoginPageId);
                     }

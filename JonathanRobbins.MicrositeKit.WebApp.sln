@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKit.Enumerators", "JonathanRobbins.MicrositeKit.Enumerators\JonathanRobbins.MicrositeKit.Enumerators.csproj", "{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKey.CMS", "JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKey.CMS.csproj", "{CB9DA0B1-EB87-400A-A31B-6B63CC0B7E90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKit.CMS", "JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKit.CMS.csproj", "{CB9DA0B1-EB87-400A-A31B-6B63CC0B7E90}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKit.Interfaces", "JonathanRobbins.MicrositeKit.Interfaces\JonathanRobbins.MicrositeKit.Interfaces.csproj", "{9118C5DB-5DF7-4615-B589-9F7EA1913B2C}"
 EndProject

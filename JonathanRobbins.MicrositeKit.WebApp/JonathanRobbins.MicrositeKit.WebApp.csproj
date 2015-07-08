@@ -825,9 +825,9 @@
     <Folder Include="scripts\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKey.CMS.csproj">
+    <ProjectReference Include="..\JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKit.CMS.csproj">
       <Project>{cb9da0b1-eb87-400a-a31b-6b63cc0b7e90}</Project>
-      <Name>JonathanRobbins.MicrositeKey.CMS</Name>
+      <Name>JonathanRobbins.MicrositeKit.CMS</Name>
     </ProjectReference>
     <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Enumerators\JonathanRobbins.MicrositeKit.Enumerators.csproj">
       <Project>{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}</Project>
