@@ -833,6 +833,10 @@
       <Project>{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}</Project>
       <Name>JonathanRobbins.MicrositeKit.Enumerators</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Interfaces\JonathanRobbins.MicrositeKit.Interfaces.csproj">
+      <Project>{9118c5db-5df7-4615-b589-9f7ea1913b2c}</Project>
+      <Name>JonathanRobbins.MicrositeKit.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

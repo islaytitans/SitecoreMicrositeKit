@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
+using JonathanRobbins.MicrositeKit.Interfaces.CMS;
 using Sitecore.Configuration;
 using Sitecore.Data.Items;
 
 namespace JonathanRobbins.MicrositeKey.CMS.Items
 {
-    public class Nodes
+    public class Nodes : INodes
     {
         private Item _micrositeItem;
         protected Item MicrositeItem
