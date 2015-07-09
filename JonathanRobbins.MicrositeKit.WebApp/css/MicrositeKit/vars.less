@@ -1,0 +1,205 @@
+﻿@import "master.less";
+
+// File should contain CSS objects for re-usable styles / mixins
+/* clearfix tools */
+.clearfix {
+    zoom: 1; /* IE7 Fix */
+    &:after { 
+        content: ".";
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+.clear {
+      content: "";
+      display: table; 
+      clear: both;
+}
+
+/* --- accessibility attributes--- */
+.accessible-hidden {
+    position: absolute;
+    left:-9999px;
+    font-size: 0;
+}
+.gen-box-model
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+}
+
+.gen-full-width
+{
+    width:100%;
+}
+
+.gen-inner
+{    
+    max-width:@sitewidth;     
+    margin:0 auto;
+    //background:url(/css/Images/WelshWaterMicrosite/dev/1272_12_10_10.png) top center no-repeat;
+}
+
+.gen-content
+{
+    background-color:@lightgrey;
+    border-top:1px solid @bordercolor;
+    border-bottom:1px solid @bordercolor;
+}
+
+.lr-gutter
+{
+    margin:0 @gutter;
+}
+.gutter(@marg:0 @gutter 20px @gutter)
+{
+    margin:@marg;
+}
+
+
+.gen-corners(@corners:5px)
+{
+    -moz-border-radius:@corners;
+    -webkit-border-radius:@corners;
+    -o-border-radius:@corners;
+    border-radius:@corners;
+}
+
+.gen-button(@bgcolor: @baseblue, @hover:@btnhover)
+{
+    background: @bgcolor;
+    .gen-corners();
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    font-family: @basefont;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover
+    {
+        background:@hover;
+    }
+} 
+
+// form general elements
+.gen-legend(@marg:0 0 10px 0, @pad:0 0 9px)
+{ 
+    color:@basegrey;    
+    margin:@marg;
+    padding:@pad;
+    width:100%;
+    font-size:18px;
+    .arial-bold();
+}
+.gen-label(@marg:0 0 12px, @pad:0, @font:@secondaryFont, @float:none, @size: 100%, @display:block, @fsize:14px)
+{
+    display:@display;
+    width:@size;
+    float:@float;
+    color:@basegrey;        
+    margin:@marg;
+    padding:@pad; 
+    font-family:@font; 
+    font-size:@fsize;
+}
+.gen-input(@inputcolor:#fff, @border:none)
+{
+    background-color:@inputcolor;
+    border:@border;
+    padding:0 10px;   
+    color:@basegrey; 
+    height:35px;    
+}
+
+.gen-textbox(@border:1px solid @bordercolor, @inputcolor:#fff)
+{
+    background-color:@inputcolor;
+    border:@border;
+    padding:1%;   
+    color:@basegrey; 
+}
+
+.gen-select-box
+{
+    .gen-input();
+}
+
+.gen-form-button(@size:auto)
+{
+    background-color:@baseblue;
+    color:#fff;    
+    text-align:center;
+    display:block;    
+    border:none;
+    cursor:pointer;
+    width:@size;
+    min-height:37px;
+    .gen-corners(@corners:4px);
+    font-size:16px;
+}
+
+
+.gen-pane(@size:@colG6, @float:left, @pad:40px 1%, @borderprop:1px dashed @bordercolor)
+{
+    float: @float;
+    width: @size;
+    .lr-gutter();
+    padding: @pad;
+    border-top: @borderprop;
+    .gen-box-model();
+}
+
+
+.gen-panel(@pad:20px, @border:1px solid @medgrey, @bgcolor:@lightgrey)
+{
+    border:@border;
+    padding:@pad;
+    background-color:@bgcolor;
+    .gen-corners();
+    .gen-box-model();
+}
+
+// Sprites and Icons
+.gen-sprite(@bgimage:transparent url(/css/Images/WelshWaterMicrosite/sprite.png) no-repeat)
+{
+    background:@bgimage;
+}
+
+.icon
+{
+    .gen-sprite();
+    display: block;
+
+    &.icon-blue-arrow
+    {
+        width: 15px;
+        height: 10px;
+        background-position: 0 0;
+    }
+
+    &.icon-yellow-arrow
+    {
+        width: 12px;
+        height: 12px;
+        background-position: -15px 0;
+    }
+
+    &.icon-up-arrow
+    {
+        width: 59px;
+        height: 57px;
+        background-position: 0 -12px;
+    }
+
+    &.icon-download
+    {
+        width:18px;
+        height:17px;
+        background-position: 0 -70px;
+    }
+}

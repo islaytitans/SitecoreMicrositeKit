@@ -1,0 +1,314 @@
+﻿// Get mixings for dev
+@import (reference) "Vars.less";
+
+// webforms for marketeers
+.scfForm 
+{
+    .gen-box-model();
+    .gen-panel();
+    margin-bottom:20px;
+
+    .scfSectionBorderAsFieldSet
+    {
+        padding: 0;
+        border: none;
+        margin: 0;
+    }
+
+    .scfSectionLegend
+    {
+        .gen-legend();
+    }
+
+    h1
+    {
+        .arial-bold();
+        font-size: 18px;
+        color: @basegrey;
+    }
+
+    .scfDropListLabel, .scfEmailLabel, .scfMultipleLineTextLabel,
+    .scfSingleLineTextLabel, .scfPasswordLabel, .scfNumberLabel,
+    .scfDatePickerLabel, .scfDateLabel, .scfRadioButtonListLabel,
+    .scfCheckBoxListLabel, .scfListBoxLabel, .scfFileUploadLabel,
+    .scfDateSelectorLabel, .scfCreditCardLabel, .scfConfirmPasswordLabel,
+    .scfCaptchaLabel, .scfTelephoneLabel, .scfSmsTelephoneLabel
+    {
+        .gen-label(@font:@basefont, @marg:0 0 5px 0);
+    }
+
+    .ui-icon-datepicker
+    {
+        display:none;
+    }
+
+    .scfRadioButtonList, .scfCheckBoxList, .scfCheckbox
+    {
+        label
+        {
+            .gen-label(@font:@basefont, @marg:0, @display:inline);
+        }
+    }
+
+    .scfDropListBorder, .scfEmailBorder, .scfMultipleLineTextBorder,
+    .scfSingleLineTextBorder, .scfPasswordBorder, .scfNumberBorder,
+    .scfDateBorder, .scfRadioButtonListBorder, .scfListBoxBorder,
+    .scfCheckBoxListBorder, .scfFileUploadBorder, .scfDateSelectorBorder,
+    .scfCreditCardBorder, .scfConfirmPasswordBorder, .scfCaptchaBorder,
+    .scfTelephoneBorder, .scfSmsTelephoneBorder
+    {
+        margin: 0 0 10px;
+        .clearfix();
+    }
+
+    .scfEmailGeneralPanel, .scfMultipleLineGeneralPanel,
+    .scfSingleLineGeneralPanel, .scfPasswordGeneralPanel,
+    .scfNumberGeneralPanel, .scfDatePickerGeneralPanel,
+    .scfDateGeneralPanel, .scfRadioButtonListGeneralPanel,
+    .scfCheckBoxListGeneralPanel, .scfFileUploadGeneralPanel,
+    .scfDateSelectorGeneralPanel, .scfCreditCardGeneralPanel,
+    .scfConfirmPasswordGeneralPanel, .scfCaptchaGeneralPanel,
+    .scfTelephoneGeneralPanel, .scfSmsTelephoneGeneralPanel
+    {
+        width: 90%;
+        padding: 0;
+        display: block;
+        .clearfix();
+    }
+
+    .scfDateSelectorGeneralPanel
+    {
+        label
+        {
+            font-size: 14px;
+            font-family: @secondaryFont;
+            width: 32%;
+            margin: 0 0 5px 1%;
+            color: @basegrey;
+        }
+
+        .scfDateSelectorYear,
+        .scfDateSelectorMonth,
+        .scfDateSelectorDay
+        {
+            width: 32%;
+            margin: 0 1% 0 0;
+        }
+    }
+
+
+    select, .scfListBox, .scfDropList
+    {
+        .gen-select-box();
+    }
+
+    textarea
+    {
+        padding: 0 10px;
+        border: 1px solid @bordercolor;
+    }
+
+    .scfDropListGeneralPanel
+    {
+        width: 90%;
+        overflow: hidden;
+    }
+
+    input
+    {
+        &[type=text], &[type=password]
+        {
+            .gen-input(@border:1px solid @bordercolor);
+        }
+
+        &[type=submit]
+        {
+            .gen-form-button(@size:100%);
+            clear:both;
+        }
+    }
+    // form validation
+    .scfValidatorRequired, .scfRequired
+    {
+        float: left;
+        margin: 0 0 0 1%;
+    }
+
+    .scfIntroBorder
+    {
+        color: @basegrey;
+        clear: both;
+        font-size: 13px;
+
+        p
+        {
+            margin-bottom: 12px;
+        }
+    }
+
+    .scfFooterBorder
+    {
+        color: @basegrey;
+        clear: both;
+        font-size: 11px;
+
+        p
+        {
+            padding-top: 12px;
+        }
+    }
+
+    .scfError, .scfValidationSummary,
+    .scfValidatorRequired, .scfValidator
+    {
+        color: @error;
+    }
+
+    .scfValidationSummary
+    {
+        padding: 1% 2%;
+        margin: 0 auto 10px;
+        background-color: @error-bg;
+        border: 1px solid @error;
+    }
+    // form 50/50 split columns sitecore set in webforms
+    .halfAvailableWidth
+    {
+        margin: 0 0 17px;
+    }
+}
+
+.form
+{
+    .gen-box-model();
+
+    legend
+    {
+        .gen-legend();
+    }
+
+    label
+    {
+        .gen-label();
+    }
+
+    input
+    {
+        &[type=text], &[type=password],
+        &[type=email], &[type=tel], &[type=number]
+        {
+            .gen-input();
+            width: 100%;
+            .gen-box-model();
+        }
+
+        &[type=submit]
+        {
+            .gen-form-button();
+        }
+    }
+
+    select
+    {
+    }
+
+    .selectbox
+    {
+    }
+
+    .check-box-list
+    {
+        label
+        {
+            display:inline;
+        }
+    }
+
+    .form-input
+    {
+        text-align: left;
+        width: 100%;
+        margin: 0 0 15px;
+        vertical-align: top;
+    }
+
+
+    .inline
+    {
+        display: inline;
+    }
+    // validation and required fields
+    .validation
+    {
+        padding: 1% 2%;
+        margin: 0 auto 10px;
+        background-color: @error-bg;
+        border: 1px solid @error;
+
+        li, p
+        {
+            color: @error;
+            margin-top: 5px;
+
+            &:first-child
+            {
+                margin-top: 0;
+            }
+        }
+    }
+
+
+    .required
+    {
+        float: left;
+        margin: 0 0 0 1%;
+    }
+
+    .error
+    {
+        float: right;
+        color: @error;
+    }
+}
+
+.login-form
+{
+    .gen-box-model();
+    .gen-corners();
+    padding: 18px;
+    float: right;
+    width: @col6;
+    background: transparent url(/css/Images/WelshWaterMicrosite/white-trans.png);
+
+    .help-text
+    {
+        margin-top: 21px;
+        font-family: @basefont;
+    }
+
+    .login-fail
+    {        
+        .arial-bold();
+        font-size:14px;        
+        color:@error;
+        margin-bottom:5px;
+    }
+
+    label
+    {
+        font-size: 20px;
+    }
+
+    legend
+    {
+        .accessible-hidden();
+    }
+
+    input[type=submit]
+    {
+        .gen-form-button(@size:100%);
+        font-size: 20px;
+        font-family: @secondaryFont;
+    }
+}
+

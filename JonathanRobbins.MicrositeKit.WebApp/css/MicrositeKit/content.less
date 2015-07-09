@@ -1,0 +1,153 @@
+﻿// File should only contain 
+// html content elements such as h1, p, ul, ol, li etc, block quote image...
+@import (reference) "colours.less";
+// Get custom font
+@import url(http://fonts.googleapis.com/css?family=Quicksand:400);
+
+@basefont:Verdana, Arial, sans-serif; 
+@secondaryFont: Arial, helvatica, san-sarif;
+@customfont:'Quicksand', sans-serif;
+
+
+// custom font mixin https://www.google.com/fonts/specimen/Quicksand
+.arial-reg
+{
+    font-weight:normal;
+    font-family:@secondaryFont;
+}
+.arial-bold(@fontweight:normal)
+{    
+    font-weight:@fontweight;
+    font-family:@secondaryFont; 
+}
+
+body
+{
+    //background:#fff url(/css/Images/WelshWaterMicrosite/dev/power-station.jpg) top center no-repeat;        
+    font-size:100%;
+    .arial-reg();
+    font-size:16px;
+    min-width:@minsitewidth;
+}
+
+h1
+{
+    .arial-bold();
+    font-size:36px;
+    color:@basegrey;    
+    margin-bottom:30px;   
+}
+
+h2
+{
+    .arial-bold();
+    font-size:24px;
+    color:@linkcolor;
+    margin-bottom:10px;
+}
+
+h3
+{
+    .arial-bold();
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+p  
+{
+    line-height:1.2em;    
+}
+
+ul
+{
+    li
+    {
+    }
+}
+
+ol
+{
+    li
+    { 
+    }
+}
+
+a
+{
+    color: @linkcolor;    
+
+    &:focus
+    {
+        outline:1px dotted @linkcolor; 
+    }
+
+    &:hover
+    {
+    }
+
+    &:visited
+    {
+        color: @linkcolor;
+    }
+}
+
+
+.rich-text
+{
+    p
+    {
+        margin-bottom: 20px;
+        color:@basegrey; 
+    }
+
+    ul
+    {
+        margin-left: 40px;
+
+        li
+        {
+            margin-bottom: 10px;
+            list-style-type: disc;
+            color:@basegrey; 
+        }
+    }
+
+    ol
+    {
+        margin-left: 40px;
+
+        li
+        {
+            list-style-type: decimal;
+            margin-bottom: 10px;
+            color:@basegrey; 
+        }
+    }
+
+    strong, b
+    {
+        font-weight: bold;
+    }
+
+    em, i
+    {
+        font-style: italic;
+    }
+
+    sub
+    {
+        vertical-align:sub;
+    }
+
+    sup
+    {
+        vertical-align:super;
+    }
+}
+
+.short-text
+{
+    margin-bottom:20px;
+    font-weight:bold;
+    color:@basegrey; 
+}

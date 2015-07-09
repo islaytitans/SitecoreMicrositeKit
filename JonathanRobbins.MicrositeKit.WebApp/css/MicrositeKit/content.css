@@ -1,0 +1,82 @@
+@import url(http://fonts.googleapis.com/css?family=Quicksand:400);
+.quicksand-reg {
+  font-weight: 400;
+  font-family: 'Quicksand', sans-serif;
+}
+.quicksand-bold {
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+}
+body {
+  font-size: 100%;
+  font-weight: 400;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+}
+h1 {
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 36px;
+  color: #535353;
+  margin-bottom: 30px;
+}
+h2 {
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  color: #105f99;
+  margin-bottom: 10px;
+}
+h3 {
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+p {
+  line-height: 1.3em;
+}
+a {
+  color: #105f99;
+}
+a:focus {
+  outline: 1px dotted #105f99;
+}
+a:visited {
+  color: #105f99;
+}
+.rich-text p {
+  margin-bottom: 20px;
+}
+.rich-text ul {
+  margin-left: 40px;
+}
+.rich-text ul li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+.rich-text ol {
+  margin-left: 40px;
+}
+.rich-text ol li {
+  list-style-type: decimal;
+  margin-bottom: 10px;
+}
+.rich-text strong,
+.rich-text b {
+  font-weight: bold;
+}
+.rich-text em,
+.rich-text i {
+  font-style: italic;
+}
+.rich-text sub {
+  vertical-align: sub;
+}
+.rich-text sup {
+  vertical-align: super;
+}
+.short-text {
+  margin-bottom: 20px;
+  font-weight: bold;
+}

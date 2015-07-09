@@ -799,6 +799,15 @@
     <Content Include="App_Config\Prefetch\Webdb.config" />
     <Content Include="App_Config\Security\Domains.config" />
     <Content Include="App_Config\Security\GlobalRoles.config" />
+    <Content Include="css\MicrositeKit\colours.less" />
+    <Content Include="css\MicrositeKit\content.less" />
+    <Content Include="css\MicrositeKit\forms.less" />
+    <Content Include="css\MicrositeKit\ie7.less" />
+    <Content Include="css\MicrositeKit\layout.less" />
+    <Content Include="css\MicrositeKit\master.less" />
+    <Content Include="css\MicrositeKit\tablet.less" />
+    <Content Include="css\MicrositeKit\vars.less" />
+    <Content Include="css\MicrositeKit\widgets.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -807,6 +816,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\MicrositeKit\colours.css" />
+    <Content Include="css\MicrositeKit\content.css" />
+    <Content Include="css\MicrositeKit\forms.css" />
+    <Content Include="css\MicrositeKit\ie7.css" />
+    <Content Include="css\MicrositeKit\layout.css" />
+    <Content Include="css\MicrositeKit\master.css" />
+    <Content Include="css\MicrositeKit\tablet.css" />
+    <Content Include="css\MicrositeKit\vars.css" />
+    <Content Include="css\MicrositeKit\widgets.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -819,7 +837,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="css\" />
     <Folder Include="Layouts\Sublayouts\Fixed\" />
     <Folder Include="Layouts\Sublayouts\Widgets\" />
     <Folder Include="scripts\" />

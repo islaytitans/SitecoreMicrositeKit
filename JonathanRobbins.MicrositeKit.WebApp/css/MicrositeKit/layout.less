@@ -1,0 +1,277 @@
+﻿// File should only contain header, footer and sublayouts
+@import "vars.less";
+@import "colours.less";
+@import "content.less";
+
+/* --- global header --- */
+#Header
+{    
+    background-color:#fff;
+    border-bottom:1px solid @borderblue;
+    .inner
+    {
+        .gen-inner();         
+        height:88px; 
+    }
+}
+
+/* --- global breadcrumb --- */
+#Breadcrumb
+{
+    .gen-inner();
+    padding:40px 0 10px 0;     
+
+    ol
+    {
+        .clearfix();
+        .lr-gutter();
+
+        li
+        {
+            float: left;
+            margin: 0 0 0 1%;
+            color:@basegrey;
+            font-family:@secondaryFont;
+            font-size:14px;
+
+            &:first-child
+            {
+                margin: 0;
+            }
+
+            a
+            {
+                color:@linkcolor;
+                text-decoration:none;
+                font-size:14px;
+            }
+        }
+    }
+}
+
+/* --- global footer --- */
+#Footer
+{
+    background-color: #fff;
+
+    .inner
+    {
+        position:relative;
+        padding-top: 30px;
+        .gen-inner();
+        .clearfix();
+    }
+
+
+
+    .main-site-links
+    {
+        float: left;
+        width: 51%;
+        margin-left: 1%;
+
+        .brand-image
+        {
+            float: left;
+            margin-right: 5%;
+        }
+
+        .external-links
+        {
+            float: left;
+            padding: 16px 0 0 0;            
+
+            li
+            {
+                float:left;
+                font-family: @secondaryFont;
+                font-size: 13px;
+                margin:0 20px 10px 0; 
+
+                a
+                {
+                    color: @dwrblue;
+                    text-decoration: none;
+
+                    &:hover
+                    {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .interal-links
+    {
+        float: right;
+        max-width: 48%;
+        margin-right: 1%;
+        margin-bottom: 17px;
+        padding: 16px 0 0 0;
+
+        li
+        {
+            display: inline;
+            font-family: @secondaryFont;
+            font-size: 13px;
+            margin-left: 20px;
+
+            a
+            {
+                color: @lightblue;
+                text-decoration: none;
+
+                &:hover
+                {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+
+    #copyright
+    {
+        float: right;
+        margin-right: 1%;
+        text-align: right;
+        clear: both;
+        font-size: 13px;
+        font-family: @secondaryFont;
+        color: @basegrey;
+    }
+}
+
+
+// Sublayouts
+#Landing
+{
+    .gen-content();
+    background-repeat:no-repeat;
+}
+
+
+#Standard2575
+{
+    .gen-content();
+    .inner
+    {
+        .gen-inner();
+        .clearfix();
+        padding:30px 0;
+    }
+    #PhPrimaryContent
+    {
+        float:right;
+        width:@colG8;
+        .lr-gutter();
+    }
+
+    #PhSubNav
+    {
+        float:left;
+        width:@colG4;
+        .lr-gutter();
+    }
+}
+
+#Standard7525
+{
+    .gen-content();
+
+    .inner
+    {
+        .gen-inner();
+        .clearfix();
+        padding: 30px 0;
+    }
+
+    #PhPrimaryContent
+    {
+        float: left;
+        width: @colG8;
+        .lr-gutter();
+    }
+
+    #PhSupportingContent
+    {
+        float: right;
+        width: @colG4;
+        .lr-gutter();
+
+
+        .resources
+        {
+            .gen-panel();
+
+            .resource-list li
+            {
+                float: none;
+                width: auto;
+            }
+        }
+    }
+}
+
+
+#StandardWithSupporting
+{
+    .gen-content();
+
+    .inner
+    {
+        .gen-inner();
+        .clearfix();
+        padding:30px 0;
+    }
+
+    .main-content
+    {
+        float: right;
+        width: @col9;
+    }
+
+    #PhPrimaryContent
+    {
+        float: left;
+        width:65%;        
+        .lr-gutter();
+    }
+
+    #PhSupportingContent
+    {
+        float: left;
+        width:31%;        
+        .lr-gutter();
+    }
+
+    #PhSubNav
+    {
+        float:left;
+        width:@colG3;        
+        .lr-gutter();
+    }
+}
+
+/* --- global promo panel placeholder --- */
+#PhPromo
+{
+    .promo-panel
+    {
+        float: left;
+        width: @colG4;
+        .gutter();
+    }
+
+    .cta-panel
+    {
+        .gutter();
+
+        .short-text
+        {
+            max-width: 80%;      
+            margin-bottom:0;      
+        }
+    }
+}
