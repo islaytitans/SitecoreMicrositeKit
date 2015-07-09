@@ -799,17 +799,108 @@
     <Content Include="App_Config\Prefetch\Webdb.config" />
     <Content Include="App_Config\Security\Domains.config" />
     <Content Include="App_Config\Security\GlobalRoles.config" />
+    <Content Include="css\Images\Microsite\dev\1272_12_10_10.png" />
+    <Content Include="css\Images\Microsite\dev\Glas-logo.png" />
+    <Content Include="css\Images\Microsite\dev\power-station.jpg" />
+    <Content Include="css\Images\Microsite\sprite.png" />
+    <Content Include="css\Images\Microsite\white-trans.png" />
+    <Content Include="css\Images\Microsite\wt80.png" />
     <Content Include="css\MicrositeKit\colours.less" />
     <Content Include="css\MicrositeKit\content.less" />
     <Content Include="css\MicrositeKit\forms.less" />
+    <Content Include="css\MicrositeKit\forms.min.css">
+      <DependentUpon>forms.css</DependentUpon>
+    </Content>
     <Content Include="css\MicrositeKit\ie7.less" />
     <Content Include="css\MicrositeKit\layout.less" />
+    <Content Include="css\MicrositeKit\layout.min.css">
+      <DependentUpon>layout.css</DependentUpon>
+    </Content>
     <Content Include="css\MicrositeKit\master.less" />
     <Content Include="css\MicrositeKit\master.min.css" />
     <Content Include="css\MicrositeKit\tablet.less" />
     <Content Include="css\MicrositeKit\vars.less" />
+    <Content Include="css\MicrositeKit\vars.min.css">
+      <DependentUpon>vars.css</DependentUpon>
+    </Content>
     <Content Include="css\MicrositeKit\widgets.less" />
+    <Content Include="css\MicrositeKit\widgets.min.css">
+      <DependentUpon>widgets.css</DependentUpon>
+    </Content>
+    <Content Include="css\reset.css" />
+    <Content Include="css\reset.min.css" />
+    <Content Include="scripts\helpU\app.js" />
+    <Content Include="scripts\helpU\helpu.js" />
+    <Content Include="scripts\helpU\helpu.min.js" />
+    <Content Include="scripts\helpU\lib\jquery-1.11.2.min.js" />
+    <Content Include="scripts\helpU\modules\ga-tracking.js" />
+    <Content Include="scripts\helpU\modules\help-text.js" />
+    <Content Include="scripts\helpU\modules\navigation.js" />
+    <Content Include="scripts\helpU\modules\personalisation.js" />
+    <Content Include="scripts\helpU\modules\sections.js" />
+    <Content Include="scripts\helpU\modules\summary.js" />
+    <Content Include="scripts\helpU\modules\validation.js" />
+    <Content Include="scripts\helpU\modules\vendor.js" />
+    <Content Include="scripts\html5shiv.js" />
+    <Content Include="scripts\html5shiv.min.js" />
+    <Content Include="scripts\Library\Fusion\jquery-fusion-accordion.js" />
+    <Content Include="scripts\Library\Fusion\jquery-fusion-open-close.js" />
+    <Content Include="scripts\Library\Fusion\jquery-fusion-show-hide.js" />
+    <Content Include="scripts\Library\Fusion\jquery-fusion-tabs.js" />
+    <Content Include="scripts\Library\Plugins\owl-carousel.js" />
+    <Content Include="scripts\Library\Plugins\synthetix.js" />
+    <Content Include="scripts\Library\vendor\jquery\jquery-1.11.2.min.js" />
+    <Content Include="scripts\Library\vendor\jquery\jquery-migrate-1.2.1.min.js" />
+    <Content Include="scripts\Main\app.js" />
+    <Content Include="scripts\Main\Components\auto-populate-form-address.js" />
+    <Content Include="scripts\Main\Components\back-to-top.js" />
+    <Content Include="scripts\Main\Components\confirm-device.js" />
+    <Content Include="scripts\Main\Components\cookie.js" />
+    <Content Include="scripts\Main\Components\emergency-work.js" />
+    <Content Include="scripts\Main\Components\feedback-panel.js" />
+    <Content Include="scripts\Main\Components\forms.js" />
+    <Content Include="scripts\Main\Components\ga-tracking-events.js" />
+    <Content Include="scripts\Main\Components\get-coordinates.js" />
+    <Content Include="scripts\Main\Components\in-your-area.js" />
+    <Content Include="scripts\Main\Components\iPad-viewport-changed-reset.js" />
+    <Content Include="scripts\Main\Components\live-chat.js" />
+    <Content Include="scripts\Main\Components\load-google-map-api.js" />
+    <Content Include="scripts\Main\Components\menu-utilities.js" />
+    <Content Include="scripts\Main\Components\mobile-menu.js" />
+    <Content Include="scripts\Main\Components\mobile-sub-menu.js" />
+    <Content Include="scripts\Main\Components\on-position-update.js" />
+    <Content Include="scripts\Main\Components\search-pagination.js" />
+    <Content Include="scripts\Main\Components\valid-postcode.js" />
+    <Content Include="scripts\Main\Components\viewport.js" />
+    <Content Include="scripts\Main\Components\water-quality.js" />
+    <Content Include="scripts\Main\Components\wffm-geo-address.js" />
+    <Content Include="scripts\Main\welsh-water-bundle.js" />
+    <Content Include="scripts\Main\welsh-water-bundle.min.js" />
+    <Content Include="scripts\Microsite\custom.js" />
+    <Content Include="scripts\Microsite\custom.min.js" />
+    <Content Include="scripts\Microsite\mainjs.js" />
+    <Content Include="scripts\Microsite\mainjs.min.js" />
+    <Content Include="scripts\Microsite\plugins.js" />
+    <Content Include="scripts\Microsite\plugins.min.js" />
+    <Content Include="scripts\modernizr.js" />
+    <Content Include="scripts\modernizr.min.js" />
+    <Content Include="scripts\plugins.js" />
+    <Content Include="scripts\plugins.min.js" />
+    <Content Include="Xsl\Fixed\GoogleAnalytics.xslt" />
     <Content Include="Xsl\Fixed\Theme.xslt" />
+    <Content Include="scripts\helpU\helpu.js.bundle" />
+    <Content Include="scripts\helpU\helpu.min.js.map" />
+    <Content Include="scripts\Main\welsh-water-bundle.js.bundle" />
+    <Content Include="scripts\Main\welsh-water-bundle.min.js.map" />
+    <Content Include="scripts\Microsite\custom.min.js.map" />
+    <Content Include="scripts\Microsite\mainjs.js.bundle" />
+    <Content Include="scripts\Microsite\mainjs.min.js.map" />
+    <Content Include="scripts\Microsite\plugins.min.js.map" />
+    <Content Include="scripts\html5shiv.min.js.map" />
+    <Content Include="scripts\modernizr.min.js.map" />
+    <Content Include="scripts\plugins.min.js.map" />
+    <Content Include="css\reset.css.map" />
+    <Content Include="css\reset.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -849,7 +940,6 @@
   <ItemGroup>
     <Folder Include="Layouts\Sublayouts\Fixed\" />
     <Folder Include="Layouts\Sublayouts\Widgets\" />
-    <Folder Include="scripts\Microsite\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKit.CMS.csproj">

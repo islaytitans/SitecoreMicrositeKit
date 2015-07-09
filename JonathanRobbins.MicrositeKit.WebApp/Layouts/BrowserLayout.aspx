@@ -46,7 +46,7 @@
     <!-- script -->    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/scripts/Microsite/mainjs.min.js"></script>
-    <sc:XslFile ID="CompanyRegXslt" runat="server" Path="/xsl/WelshWaterMicrosite/Fixed/GoogleAnalytics.xslt" />
+    <sc:XslFile ID="CompanyRegXslt" runat="server" Path="/xsl/Microsite/Fixed/GoogleAnalytics.xslt" />
   </body>
 </html>
 

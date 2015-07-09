@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://vswebessentials.com/schemas/v1/bundle.xsd">
+  <settings>
+    <!--Determines if the bundle file should be automatically optimized after creation/update.-->
+    <minify>true</minify>
+    <!--Determine whether to generate/re-generate this bundle on building the solution.-->
+    <runOnBuild>true</runOnBuild>
+    <!--Specifies a custom subfolder to save files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectory />
+  </settings>
+  <!--The order of the <file> elements determines the order of the files in the bundle.-->
+  <files>
+		<!-- jQuery --> 
+		<file>/scripts/Library/vendor/jquery/jquery-1.11.2.min.js</file>
+		<file>/scripts/Library/vendor/jquery/jquery-migrate-1.2.1.min.js</file>
+		<!-- Inherited -->
+    <!--<file>/WelshWater/Scripts/jquery.cookies.js</file>
+    <file>/WelshWater/Scripts/Utilities/Accessibility.js</file>
+    <file>/WelshWater/Scripts/SiteComponents/MegaNav.js</file>
+    <file>/WelshWater/Scripts/SiteComponents/CallsToAction.js</file>
+		<file>/WelshWater/Scripts/jquery.watermark.min.js</file>-->
+		<!-- Fusion plugins --> 
+    <file>/scripts/Library/Fusion/jquery-fusion-show-hide.js</file>
+    <file>/scripts/Library/Fusion/jquery-fusion-open-close.js</file>
+	  <file>/scripts/Library/Fusion/jquery-fusion-tabs.js</file>    
+	  <file>/scripts/Library/Fusion/jquery-fusion-accordion.js</file> 
+		<!-- 3rd party plugins -->
+		<file>/scripts/Library/Plugins/owl-carousel.js</file> 
+		<file>/scripts/Library/Plugins/synthetix.js</file>
+		<!-- Components -->
+		<file>/scripts/Main/Components/cookie.js</file>
+		<file>/scripts/Main/Components/confirm-device.js</file>
+		<file>/scripts/Main/Components/viewport.js</file>
+		<file>/scripts/Main/Components/load-google-map-api.js</file> 
+		<file>/scripts/Main/Components/valid-postcode.js</file>
+		<file>/scripts/Main/Components/get-coordinates.js</file>
+		<file>/scripts/Main/Components/wffm-geo-address.js</file>
+    <file>/scripts/Main/Components/emergency-work.js</file>
+    <file>/scripts/Main/Components/mobile-menu.js</file> 
+    <file>/scripts/Main/Components/menu-utilities.js</file> 
+    <file>/scripts/Main/Components/mobile-sub-menu.js</file>
+    <file>/scripts/Main/Components/back-to-top.js</file> 
+		<file>/scripts/Main/Components/live-chat.js</file>
+		<file>/scripts/Main/Components/search-pagination.js</file>
+		<file>/scripts/Main/Components/forms.js</file>
+		<file>/scripts/Main/Components/in-your-area.js</file>
+		<file>/scripts/Main/Components/auto-populate-form-address.js</file>
+		<file>/scripts/Main/Components/iPad-viewport-changed-reset.js</file>
+		<!--<file>/scripts/Main/Components/on-position-update.js</file>-->
+		<file>/scripts/Main/Components/ga-tracking-events.js</file>
+		<file>/scripts/Main/Components/water-quality.js</file>
+    <file>/scripts/Main/Components/feedback-panel.js</file>
+			<!-- Init -->
+    <file>/scripts/Main/app.js</file>
+  </files>
+</bundle>
