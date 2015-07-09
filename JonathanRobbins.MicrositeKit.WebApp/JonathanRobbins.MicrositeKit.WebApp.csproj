@@ -805,9 +805,11 @@
     <Content Include="css\MicrositeKit\ie7.less" />
     <Content Include="css\MicrositeKit\layout.less" />
     <Content Include="css\MicrositeKit\master.less" />
+    <Content Include="css\MicrositeKit\master.min.css" />
     <Content Include="css\MicrositeKit\tablet.less" />
     <Content Include="css\MicrositeKit\vars.less" />
     <Content Include="css\MicrositeKit\widgets.less" />
+    <Content Include="Xsl\Fixed\Theme.xslt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -825,9 +827,17 @@
     <Content Include="css\MicrositeKit\tablet.css" />
     <Content Include="css\MicrositeKit\vars.css" />
     <Content Include="css\MicrositeKit\widgets.css" />
+    <Content Include="Layouts\BrowserLayout.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Layouts\BrowserLayout.aspx.cs">
+      <DependentUpon>BrowserLayout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\BrowserLayout.aspx.designer.cs">
+      <DependentUpon>BrowserLayout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Layouts\Sublayouts\ControlBases\MicrositeControlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -839,7 +849,7 @@
   <ItemGroup>
     <Folder Include="Layouts\Sublayouts\Fixed\" />
     <Folder Include="Layouts\Sublayouts\Widgets\" />
-    <Folder Include="scripts\" />
+    <Folder Include="scripts\Microsite\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKit.CMS.csproj">
