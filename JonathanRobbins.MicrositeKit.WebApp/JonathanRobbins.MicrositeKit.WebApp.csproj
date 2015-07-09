@@ -829,6 +829,7 @@
     </Content>
     <Content Include="css\reset.css" />
     <Content Include="css\reset.min.css" />
+    <Content Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx" />
     <Content Include="scripts\helpU\app.js" />
     <Content Include="scripts\helpU\helpu.js" />
     <Content Include="scripts\helpU\helpu.min.js" />
@@ -935,10 +936,16 @@
     <Compile Include="Layouts\Sublayouts\ControlBases\UserControlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx.cs">
+      <DependentUpon>Breadcrumb.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx.designer.cs">
+      <DependentUpon>Breadcrumb.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Layouts\Sublayouts\Fixed\" />
     <Folder Include="Layouts\Sublayouts\Widgets\" />
   </ItemGroup>
   <ItemGroup>
