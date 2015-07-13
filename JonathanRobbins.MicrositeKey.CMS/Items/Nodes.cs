@@ -10,10 +10,10 @@ using Sitecore.Data.Items;
 
 namespace JonathanRobbins.MicrositeKit.CMS.Items
 {
-    public class Nodes : INodes
+    public class Nodes
     {
-        private Item _micrositeItem;
-        protected Item MicrositeItem
+        private static Item _micrositeItem;
+        public static Item MicrositeItem
         {
             get
             {
@@ -36,8 +36,8 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
         }
 
 
-        private Item _siteHomeItem;
-        protected Item SiteHomeItem
+        private static Item _siteHomeItem;
+        public static Item SiteHomeItem
         {
             get
             {
@@ -63,8 +63,8 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
             }
         }
 
-        private Item _siteConfigItem;
-        protected Item SiteConfigItem
+        private static Item _siteConfigItem;
+        public static Item SiteConfigItem
         {
             get
             {
@@ -89,8 +89,8 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
             }
         }
 
-        private Item _siteDataItem;
-        protected Item SiteDataItem
+        private static Item _siteDataItem;
+        public static Item SiteDataItem
         {
             get
             {
@@ -115,8 +115,8 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
             }
         }
 
-        private Item _loginPageItem;
-        protected Item LoginPageItem
+        private static Item _loginPageItem;
+        public static Item LoginPageItem
         {
             get
             {

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
+using JonathanRobbins.MicrositeKit.Interfaces.CMS.Items;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 
@@ -12,6 +14,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 {
     public class MicrositeControlBase : UserControlBase
     {
+        public Nodes ItemNodes = new Nodes();
+
         protected bool IsLoginPage
         {
             get

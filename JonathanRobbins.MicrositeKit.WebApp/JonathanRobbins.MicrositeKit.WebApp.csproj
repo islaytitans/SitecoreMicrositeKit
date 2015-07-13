@@ -830,6 +830,7 @@
     <Content Include="css\reset.css" />
     <Content Include="css\reset.min.css" />
     <Content Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx" />
+    <Content Include="Layouts\Sublayouts\Fixed\SiteLogo.ascx" />
     <Content Include="scripts\helpU\app.js" />
     <Content Include="scripts\helpU\helpu.js" />
     <Content Include="scripts\helpU\helpu.min.js" />
@@ -942,6 +943,13 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx.designer.cs">
       <DependentUpon>Breadcrumb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\SiteLogo.ascx.cs">
+      <DependentUpon>SiteLogo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\SiteLogo.ascx.designer.cs">
+      <DependentUpon>SiteLogo.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
