@@ -7,205 +7,6 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 ///#source 1 1 /scripts/Library/vendor/jquery/jquery-migrate-1.2.1.min.js
 /*! jQuery Migrate v1.2.1 | (c) 2005, 2013 jQuery Foundation, Inc. and other contributors | jquery.org/license */
 jQuery.migrateMute===void 0&&(jQuery.migrateMute=!0),function(e,t,n){function r(n){var r=t.console;i[n]||(i[n]=!0,e.migrateWarnings.push(n),r&&r.warn&&!e.migrateMute&&(r.warn("JQMIGRATE: "+n),e.migrateTrace&&r.trace&&r.trace()))}function a(t,a,i,o){if(Object.defineProperty)try{return Object.defineProperty(t,a,{configurable:!0,enumerable:!0,get:function(){return r(o),i},set:function(e){r(o),i=e}}),n}catch(s){}e._definePropertyBroken=!0,t[a]=i}var i={};e.migrateWarnings=[],!e.migrateMute&&t.console&&t.console.log&&t.console.log("JQMIGRATE: Logging is active"),e.migrateTrace===n&&(e.migrateTrace=!0),e.migrateReset=function(){i={},e.migrateWarnings.length=0},"BackCompat"===document.compatMode&&r("jQuery is not compatible with Quirks Mode");var o=e("<input/>",{size:1}).attr("size")&&e.attrFn,s=e.attr,u=e.attrHooks.value&&e.attrHooks.value.get||function(){return null},c=e.attrHooks.value&&e.attrHooks.value.set||function(){return n},l=/^(?:input|button)$/i,d=/^[238]$/,p=/^(?:autofocus|autoplay|async|checked|controls|defer|disabled|hidden|loop|multiple|open|readonly|required|scoped|selected)$/i,f=/^(?:checked|selected)$/i;a(e,"attrFn",o||{},"jQuery.attrFn is deprecated"),e.attr=function(t,a,i,u){var c=a.toLowerCase(),g=t&&t.nodeType;return u&&(4>s.length&&r("jQuery.fn.attr( props, pass ) is deprecated"),t&&!d.test(g)&&(o?a in o:e.isFunction(e.fn[a])))?e(t)[a](i):("type"===a&&i!==n&&l.test(t.nodeName)&&t.parentNode&&r("Can't change the 'type' of an input or button in IE 6/7/8"),!e.attrHooks[c]&&p.test(c)&&(e.attrHooks[c]={get:function(t,r){var a,i=e.prop(t,r);return i===!0||"boolean"!=typeof i&&(a=t.getAttributeNode(r))&&a.nodeValue!==!1?r.toLowerCase():n},set:function(t,n,r){var a;return n===!1?e.removeAttr(t,r):(a=e.propFix[r]||r,a in t&&(t[a]=!0),t.setAttribute(r,r.toLowerCase())),r}},f.test(c)&&r("jQuery.fn.attr('"+c+"') may use property instead of attribute")),s.call(e,t,a,i))},e.attrHooks.value={get:function(e,t){var n=(e.nodeName||"").toLowerCase();return"button"===n?u.apply(this,arguments):("input"!==n&&"option"!==n&&r("jQuery.fn.attr('value') no longer gets properties"),t in e?e.value:null)},set:function(e,t){var a=(e.nodeName||"").toLowerCase();return"button"===a?c.apply(this,arguments):("input"!==a&&"option"!==a&&r("jQuery.fn.attr('value', val) no longer sets properties"),e.value=t,n)}};var g,h,v=e.fn.init,m=e.parseJSON,y=/^([^<]*)(<[\w\W]+>)([^>]*)$/;e.fn.init=function(t,n,a){var i;return t&&"string"==typeof t&&!e.isPlainObject(n)&&(i=y.exec(e.trim(t)))&&i[0]&&("<"!==t.charAt(0)&&r("$(html) HTML strings must start with '<' character"),i[3]&&r("$(html) HTML text after last tag is ignored"),"#"===i[0].charAt(0)&&(r("HTML string cannot start with a '#' character"),e.error("JQMIGRATE: Invalid selector string (XSS)")),n&&n.context&&(n=n.context),e.parseHTML)?v.call(this,e.parseHTML(i[2],n,!0),n,a):v.apply(this,arguments)},e.fn.init.prototype=e.fn,e.parseJSON=function(e){return e||null===e?m.apply(this,arguments):(r("jQuery.parseJSON requires a valid JSON string"),null)},e.uaMatch=function(e){e=e.toLowerCase();var t=/(chrome)[ \/]([\w.]+)/.exec(e)||/(webkit)[ \/]([\w.]+)/.exec(e)||/(opera)(?:.*version|)[ \/]([\w.]+)/.exec(e)||/(msie) ([\w.]+)/.exec(e)||0>e.indexOf("compatible")&&/(mozilla)(?:.*? rv:([\w.]+)|)/.exec(e)||[];return{browser:t[1]||"",version:t[2]||"0"}},e.browser||(g=e.uaMatch(navigator.userAgent),h={},g.browser&&(h[g.browser]=!0,h.version=g.version),h.chrome?h.webkit=!0:h.webkit&&(h.safari=!0),e.browser=h),a(e,"browser",e.browser,"jQuery.browser is deprecated"),e.sub=function(){function t(e,n){return new t.fn.init(e,n)}e.extend(!0,t,this),t.superclass=this,t.fn=t.prototype=this(),t.fn.constructor=t,t.sub=this.sub,t.fn.init=function(r,a){return a&&a instanceof e&&!(a instanceof t)&&(a=t(a)),e.fn.init.call(this,r,a,n)},t.fn.init.prototype=t.fn;var n=t(document);return r("jQuery.sub() is deprecated"),t},e.ajaxSetup({converters:{"text json":e.parseJSON}});var b=e.fn.data;e.fn.data=function(t){var a,i,o=this[0];return!o||"events"!==t||1!==arguments.length||(a=e.data(o,t),i=e._data(o,t),a!==n&&a!==i||i===n)?b.apply(this,arguments):(r("Use of jQuery.fn.data('events') is deprecated"),i)};var j=/\/(java|ecma)script/i,w=e.fn.andSelf||e.fn.addBack;e.fn.andSelf=function(){return r("jQuery.fn.andSelf() replaced by jQuery.fn.addBack()"),w.apply(this,arguments)},e.clean||(e.clean=function(t,a,i,o){a=a||document,a=!a.nodeType&&a[0]||a,a=a.ownerDocument||a,r("jQuery.clean() is deprecated");var s,u,c,l,d=[];if(e.merge(d,e.buildFragment(t,a).childNodes),i)for(c=function(e){return!e.type||j.test(e.type)?o?o.push(e.parentNode?e.parentNode.removeChild(e):e):i.appendChild(e):n},s=0;null!=(u=d[s]);s++)e.nodeName(u,"script")&&c(u)||(i.appendChild(u),u.getElementsByTagName!==n&&(l=e.grep(e.merge([],u.getElementsByTagName("script")),c),d.splice.apply(d,[s+1,0].concat(l)),s+=l.length));return d});var Q=e.event.add,x=e.event.remove,k=e.event.trigger,N=e.fn.toggle,T=e.fn.live,M=e.fn.die,S="ajaxStart|ajaxStop|ajaxSend|ajaxComplete|ajaxError|ajaxSuccess",C=RegExp("\\b(?:"+S+")\\b"),H=/(?:^|\s)hover(\.\S+|)\b/,A=function(t){return"string"!=typeof t||e.event.special.hover?t:(H.test(t)&&r("'hover' pseudo-event is deprecated, use 'mouseenter mouseleave'"),t&&t.replace(H,"mouseenter$1 mouseleave$1"))};e.event.props&&"attrChange"!==e.event.props[0]&&e.event.props.unshift("attrChange","attrName","relatedNode","srcElement"),e.event.dispatch&&a(e.event,"handle",e.event.dispatch,"jQuery.event.handle is undocumented and deprecated"),e.event.add=function(e,t,n,a,i){e!==document&&C.test(t)&&r("AJAX events should be attached to document: "+t),Q.call(this,e,A(t||""),n,a,i)},e.event.remove=function(e,t,n,r,a){x.call(this,e,A(t)||"",n,r,a)},e.fn.error=function(){var e=Array.prototype.slice.call(arguments,0);return r("jQuery.fn.error() is deprecated"),e.splice(0,0,"error"),arguments.length?this.bind.apply(this,e):(this.triggerHandler.apply(this,e),this)},e.fn.toggle=function(t,n){if(!e.isFunction(t)||!e.isFunction(n))return N.apply(this,arguments);r("jQuery.fn.toggle(handler, handler...) is deprecated");var a=arguments,i=t.guid||e.guid++,o=0,s=function(n){var r=(e._data(this,"lastToggle"+t.guid)||0)%o;return e._data(this,"lastToggle"+t.guid,r+1),n.preventDefault(),a[r].apply(this,arguments)||!1};for(s.guid=i;a.length>o;)a[o++].guid=i;return this.click(s)},e.fn.live=function(t,n,a){return r("jQuery.fn.live() is deprecated"),T?T.apply(this,arguments):(e(this.context).on(t,this.selector,n,a),this)},e.fn.die=function(t,n){return r("jQuery.fn.die() is deprecated"),M?M.apply(this,arguments):(e(this.context).off(t,this.selector||"**",n),this)},e.event.trigger=function(e,t,n,a){return n||C.test(e)||r("Global events are undocumented and deprecated"),k.call(this,e,t,n||document,a)},e.each(S.split("|"),function(t,n){e.event.special[n]={setup:function(){var t=this;return t!==document&&(e.event.add(document,n+"."+e.guid,function(){e.event.trigger(n,null,t,!0)}),e._data(this,n,e.guid++)),!1},teardown:function(){return this!==document&&e.event.remove(document,n+"."+e._data(this,n)),!1}}})}(jQuery,window);
-///#source 1 1 /WelshWater/Scripts/jquery.cookies.js
-/*!
-* jQuery Cookie Plugin v1.3
-* https://github.com/carhartl/jquery-cookie
-*
-* Copyright 2011, Klaus Hartl
-* Dual licensed under the MIT or GPL Version 2 licenses.
-* http://www.opensource.org/licenses/mit-license.php
-* http://www.opensource.org/licenses/GPL-2.0
-*/
-(function ($, document, undefined) {
-
-    var pluses = /\+/g;
-
-    function raw(s) {
-        return s;
-    }
-
-    function decoded(s) {
-        return decodeURIComponent(s.replace(pluses, ' '));
-    }
-
-    var config = $.cookie = function (key, value, options) {
-
-        // write
-        if (value !== undefined) {
-            options = $.extend({}, config.defaults, options);
-
-            if (value === null) {
-                options.expires = -1;
-            }
-
-            if (typeof options.expires === 'number') {
-                var days = options.expires, t = options.expires = new Date();
-                t.setDate(t.getDate() + days);
-            }
-
-            value = config.json ? JSON.stringify(value) : String(value);
-
-            return (document.cookie = [
-				encodeURIComponent(key), '=', config.raw ? value : encodeURIComponent(value),
-				options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-				options.path ? '; path=' + options.path : '',
-				options.domain ? '; domain=' + options.domain : '',
-				options.secure ? '; secure' : ''
-			].join(''));
-        }
-
-        // read
-        var decode = config.raw ? raw : decoded;
-        var cookies = document.cookie.split('; ');
-        for (var i = 0, l = cookies.length; i < l; i++) {
-            var parts = cookies[i].split('=');
-            if (decode(parts.shift()) === key) {
-                var cookie = decode(parts.join('='));
-                return config.json ? JSON.parse(cookie) : cookie;
-            }
-        }
-
-        return null;
-    };
-
-    config.defaults = {};
-
-    $.removeCookie = function (key, options) {
-        if ($.cookie(key) !== null) {
-            $.cookie(key, null, options);
-            return true;
-        }
-        return false;
-    };
-
-})(jQuery, document);
-
-///#source 1 1 /WelshWater/Scripts/Utilities/Accessibility.js
-function isTouchDevice()
-{
-    return !!('ontouchstart' in window);
-};
-///#source 1 1 /WelshWater/Scripts/SiteComponents/MegaNav.js
-function CloseMegaNav() {
-    if (isTouchDevice()) {
-        setTimeout(function () {
-            $('li.main-link.displayMenu').removeClass('displayMenu');
-        }, 1);
-    }
-    else {
-        $('.sub-menu').each(function () {
-            $(this).addClass('hide-mega-nav');
-        });
-    }
-}
-
-function ShowMegaNavOnContainerTouch() {
-    $('li.main-link').each(function () {
-        $(this).click(function () {
-            $('li.main-link').each(function () {
-                $(this).removeClass('displayMenu');
-            });
-            $(this).addClass('displayMenu');
-        });
-    });
-}
-
-function ShowMegaNavOnLinkTouch() {
-    $('a.top-level-link').each(function () {
-        var location = $(this).attr('href');
-
-        $(this).click(function (e) {
-            //prevent link from firing on first click
-            if (!$(this).parents('li').hasClass('displayMenu')) {
-                e.preventDefault();
-            }
-
-            $('li.main-link').each(function () {
-                $(this).removeClass('displayMenu');
-            });
-
-            $(this).parents('li').addClass('displayMenu');
-        });
-    });
-}
-
-function EnableNavForTouchDevices() {
-    $('li.main-link').each(function () {
-        $(this).removeClass('pointerDevice');
-    });
-}
-
-function AddMouseoverHandler() {
-    //Allows Nav to show after close button has been clicked
-    $('li.main-link').each(function () {
-        // commented code as this function is causing js errors 
-        // and doesn't seem to form any kind of function with the latest code
-        //$(this).mouseenter(function () {
-        //    var subMenu = $(this).next('.sub-menu');
-        //    subMenu.removeClass('hide-mega-nav');
-        //});
-    });
-}
-
-function MakeNavTabAccessible() {
-    var me = $(".main-link-list");
-
-    $("a", me).focus(function () {
-        //allows tabbing to show menu if user has clicked close button
-        var subMenu = $(this).parents("li").find('.sub-menu');
-        subMenu.removeClass('hide-mega-nav');
-
-        $(this).parents("li").addClass("focus");
-
-    }).blur(function () {
-        $(this).parents("li").removeClass("focus");
-    });
-}
-
-$(document).ready(function () {
-    if (isTouchDevice()) {
-        EnableNavForTouchDevices();
-
-        ShowMegaNavOnContainerTouch();
-
-        ShowMegaNavOnLinkTouch();
-    }
-    else {
-        AddMouseoverHandler();
-
-        MakeNavTabAccessible();
-    }
-});
-///#source 1 1 /WelshWater/Scripts/SiteComponents/CallsToAction.js
-$(document).ready(function ()
-{
-	if (isTouchDevice())
-	{
-		DisableHoverStatesForTouchDevices();
-		$('.stage').addClass('touch');
-	}
-});
-
-function DisableHoverStatesForTouchDevices()
-{
-	$(".call-to-action").each(function ()
-	{
-		var callToAction = $(this);
-
-		callToAction.removeClass("pointerDevice");
-	});
-}
-
-///#source 1 1 /WelshWater/Scripts/jquery.watermark.min.js
-/*
-	Watermark v3.1.3 (March 22, 2011) plugin for jQuery
-	http://jquery-watermark.googlecode.com/
-	Copyright (c) 2009-2011 Todd Northrop
-	http://www.speednet.biz/
-	Dual licensed under the MIT or GPL Version 2 licenses.
-*/
-(function(a,h,y){var w="function",v="password",j="maxLength",n="type",b="",c=true,u="placeholder",i=false,t="watermark",g=t,f="watermarkClass",q="watermarkFocus",l="watermarkSubmit",o="watermarkMaxLength",e="watermarkPassword",d="watermarkText",k=/\r/g,s="input:data("+g+"),textarea:data("+g+")",m="input:text,input:password,input[type=search],input:not([type]),textarea",p=["Page_ClientValidate"],r=i,x=u in document.createElement("input");a.watermark=a.watermark||{version:"3.1.3",runOnce:c,options:{className:t,useNative:c,hideBeforeUnload:c},hide:function(b){a(b).filter(s).each(function(){a.watermark._hide(a(this))})},_hide:function(a,r){var p=a[0],q=(p.value||b).replace(k,b),l=a.data(d)||b,m=a.data(o)||0,i=a.data(f);if(l.length&&q==l){p.value=b;if(a.data(e))if((a.attr(n)||b)==="text"){var g=a.data(e)||[],c=a.parent()||[];if(g.length&&c.length){c[0].removeChild(a[0]);c[0].appendChild(g[0]);a=g}}if(m){a.attr(j,m);a.removeData(o)}if(r){a.attr("autocomplete","off");h.setTimeout(function(){a.select()},1)}}i&&a.removeClass(i)},show:function(b){a(b).filter(s).each(function(){a.watermark._show(a(this))})},_show:function(g){var p=g[0],u=(p.value||b).replace(k,b),h=g.data(d)||b,s=g.attr(n)||b,t=g.data(f);if((u.length==0||u==h)&&!g.data(q)){r=c;if(g.data(e))if(s===v){var m=g.data(e)||[],l=g.parent()||[];if(m.length&&l.length){l[0].removeChild(g[0]);l[0].appendChild(m[0]);g=m;g.attr(j,h.length);p=g[0]}}if(s==="text"||s==="search"){var i=g.attr(j)||0;if(i>0&&h.length>i){g.data(o,i);g.attr(j,h.length)}}t&&g.addClass(t);p.value=h}else a.watermark._hide(g)},hideAll:function(){if(r){a.watermark.hide(m);r=i}},showAll:function(){a.watermark.show(m)}};a.fn.watermark=a.fn.watermark||function(p,o){var t="string";if(!this.length)return this;var s=i,r=typeof p===t;if(r)p=p.replace(k,b);if(typeof o==="object"){s=typeof o.className===t;o=a.extend({},a.watermark.options,o)}else if(typeof o===t){s=c;o=a.extend({},a.watermark.options,{className:o})}else o=a.watermark.options;if(typeof o.useNative!==w)o.useNative=o.useNative?function(){return c}:function(){return i};return this.each(function(){var B="dragleave",A="dragenter",z=this,i=a(z);if(!i.is(m))return;if(i.data(g)){if(r||s){a.watermark._hide(i);r&&i.data(d,p);s&&i.data(f,o.className)}}else{if(x&&o.useNative.call(z,i)&&(i.attr("tagName")||b)!=="TEXTAREA"){r&&i.attr(u,p);return}i.data(d,r?p:b);i.data(f,o.className);i.data(g,1);if((i.attr(n)||b)===v){var C=i.wrap("<span>").parent(),t=a(C.html().replace(/type=["']?password["']?/i,'type="text"'));t.data(d,i.data(d));t.data(f,i.data(f));t.data(g,1);t.attr(j,p.length);t.focus(function(){a.watermark._hide(t,c)}).bind(A,function(){a.watermark._hide(t)}).bind("dragend",function(){h.setTimeout(function(){t.blur()},1)});i.blur(function(){a.watermark._show(i)}).bind(B,function(){a.watermark._show(i)});t.data(e,i);i.data(e,t)}else i.focus(function(){i.data(q,1);a.watermark._hide(i,c)}).blur(function(){i.data(q,0);a.watermark._show(i)}).bind(A,function(){a.watermark._hide(i)}).bind(B,function(){a.watermark._show(i)}).bind("dragend",function(){h.setTimeout(function(){a.watermark._show(i)},1)}).bind("drop",function(e){var c=i[0],a=e.originalEvent.dataTransfer.getData("Text");if((c.value||b).replace(k,b).replace(a,b)===i.data(d))c.value=a;i.focus()});if(z.form){var w=z.form,y=a(w);if(!y.data(l)){y.submit(a.watermark.hideAll);if(w.submit){y.data(l,w.submit);w.submit=function(c,b){return function(){var d=b.data(l);a.watermark.hideAll();if(d.apply)d.apply(c,Array.prototype.slice.call(arguments));else d()}}(w,y)}else{y.data(l,1);w.submit=function(b){return function(){a.watermark.hideAll();delete b.submit;b.submit()}}(w)}}}}a.watermark._show(i)})};if(a.watermark.runOnce){a.watermark.runOnce=i;a.extend(a.expr[":"],{data:function(c,d,b){return!!a.data(c,b[3])}});(function(c){a.fn.val=function(){var e=this;if(!e.length)return arguments.length?e:y;if(!arguments.length)if(e.data(g)){var f=(e[0].value||b).replace(k,b);return f===(e.data(d)||b)?b:f}else return c.apply(e,arguments);else{c.apply(e,arguments);a.watermark.show(e);return e}}})(a.fn.val);p.length&&a(function(){for(var b,c,d=p.length-1;d>=0;d--){b=p[d];c=h[b];if(typeof c===w)h[b]=function(b){return function(){a.watermark.hideAll();return b.apply(null,Array.prototype.slice.call(arguments))}}(c)}});a(h).bind("beforeunload",function(){a.watermark.options.hideBeforeUnload&&a.watermark.hideAll()})}})(jQuery,window);
 ///#source 1 1 /scripts/Library/Fusion/jquery-fusion-show-hide.js
 // ===========================================
 // Fusionworkshop - show hide plugin
@@ -3696,7 +3497,7 @@ function live_chat_callback() {
 })(jQuery);
 
 
-///#source 1 1 /scripts/WelshWater/Components/cookie.js
+///#source 1 1 /scripts/Main/Components/cookie.js
 var ww = ww || {};
 
 (function ($) {
@@ -3730,7 +3531,7 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/confirm-device.js
+///#source 1 1 /scripts/Main/Components/confirm-device.js
 var ww = ww || {};
 // Confirm device type via client side JS
 // Useful for mobile only JS etc
@@ -3746,7 +3547,7 @@ var ww = ww || {};
         }
     }
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/viewport.js
+///#source 1 1 /scripts/Main/Components/viewport.js
 var ww = ww || {};
 
 (function ($) {
@@ -3790,7 +3591,7 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/load-google-map-api.js
+///#source 1 1 /scripts/Main/Components/load-google-map-api.js
 var ww = ww || {};
 
 (function ($) {
@@ -3810,12 +3611,12 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/valid-postcode.js
+///#source 1 1 /scripts/Main/Components/valid-postcode.js
 var ww = ww || {};
 
 (function ($) {
 	ww.validPostcode = {
-		// TODO: confirm these are all the postcodes within welsh water
+		// TODO: confirm these are all the postcodes within Main
 		init: function (postcode) {
 			postcode = postcode.replace(/\s/g, "");
 			var regex = /^(LL|SY|LD|HR|NP|CF|SA|CH)[0-9]{1,2} ?([0-9][A-Z]{2})?$/i;
@@ -3823,7 +3624,7 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/get-coordinates.js
+///#source 1 1 /scripts/Main/Components/get-coordinates.js
 var ww = ww || {};
 
 (function ($) {
@@ -3879,7 +3680,7 @@ var ww = ww || {};
 	};
 })(jQuery);
 
-///#source 1 1 /scripts/WelshWater/Components/wffm-geo-address.js
+///#source 1 1 /scripts/Main/Components/wffm-geo-address.js
 var ww = ww || {};
 
 (function ($) {
@@ -3929,7 +3730,7 @@ var ww = ww || {};
         }
     };
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/emergency-work.js
+///#source 1 1 /scripts/Main/Components/emergency-work.js
 var ww = ww || {};
 
 (function ($) {
@@ -3990,7 +3791,7 @@ var ww = ww || {};
         }
     };
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/mobile-menu.js
+///#source 1 1 /scripts/Main/Components/mobile-menu.js
 var ww = ww || {};
 
 (function ($) {
@@ -4032,7 +3833,7 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/menu-utilities.js
+///#source 1 1 /scripts/Main/Components/menu-utilities.js
 var ww = ww || {};
 
 (function ($) {
@@ -4116,7 +3917,7 @@ var ww = ww || {};
 
     };
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/mobile-sub-menu.js
+///#source 1 1 /scripts/Main/Components/mobile-sub-menu.js
 var ww = ww || {};
 
 (function ($) {
@@ -4138,7 +3939,7 @@ var ww = ww || {};
 	};
 })(jQuery);
 
-///#source 1 1 /scripts/WelshWater/Components/back-to-top.js
+///#source 1 1 /scripts/Main/Components/back-to-top.js
 var ww = ww || {};
 
 (function ($) {
@@ -4154,7 +3955,7 @@ var ww = ww || {};
         }
     };
 })(jQuery);  
-///#source 1 1 /scripts/WelshWater/Components/live-chat.js
+///#source 1 1 /scripts/Main/Components/live-chat.js
 var ww = ww || {};
 
 (function ($, feedbackPanel) {
@@ -4290,7 +4091,7 @@ var ww = ww || {};
 		}  
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/search-pagination.js
+///#source 1 1 /scripts/Main/Components/search-pagination.js
 var ww = ww || {};
 
 (function ($) {
@@ -4315,7 +4116,7 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/forms.js
+///#source 1 1 /scripts/Main/Components/forms.js
 var ww = ww || {};
 
 (function ($) {
@@ -4859,7 +4660,7 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/in-your-area.js
+///#source 1 1 /scripts/Main/Components/in-your-area.js
 var ww = ww || {};
 
 (function ($) {
@@ -5608,7 +5409,7 @@ var ww = ww || {};
 								if (postcode.length > 0) {
 									// load content
 									ww.inYourArea.loadContent(lat, lng, filter, ifBeingFilter);
-									// update welsh water
+									// update Main
 									var apiURL = '/api/locationservices/storeuserspostcode/' + encodeURIComponent(enteredSearch);
 									$.ajax({
 										cache: false,
@@ -5690,7 +5491,7 @@ var ww = ww || {};
 								callback(lat, lng);
 
 							} else {
-								console.log('Geocode was not successful for the following reason: OUTSIDE GB & NOT WITHIN WELSH WATER COVERAGE');
+								console.log('Geocode was not successful for the following reason: OUTSIDE GB & NOT WITHIN MAIN COVERAGE');
 								// show an error
 								$(ww.inYourArea.postcodeSectionError).empty();
 								$(ww.inYourArea.postcodeSectionError).html(ww.inYourArea.invalidPostcodeDictionary);
@@ -5758,7 +5559,7 @@ var ww = ww || {};
 								// then return postcode
 								callback(postcode);
 							} else {
-								console.log('Geocode was not successful for the following reason: POSTCODE NOT WITHIN WELSH WATER COVERAGE');
+								console.log('Geocode was not successful for the following reason: POSTCODE NOT WITHIN MAIN COVERAGE');
 							}
 						}
 					});
@@ -6157,7 +5958,7 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/auto-populate-form-address.js
+///#source 1 1 /scripts/Main/Components/auto-populate-form-address.js
 var ww = ww || {};
 
 (function ($) {
@@ -6254,7 +6055,7 @@ var ww = ww || {};
 								// then return postcode
 								callback(address);
 							} else {
-								console.log('Geocode was not successful for the following reason: POSTCODE NOT WITHIN WELSH WATER COVERAGE');
+								console.log('Geocode was not successful for the following reason: POSTCODE NOT WITHIN Main COVERAGE');
 							}
 						}
 					});
@@ -6297,7 +6098,7 @@ var ww = ww || {};
 		}
 	}
 })(jQuery);
-///#source 1 1 /scripts/welshWater/Components/iPad-viewport-changed-reset.js
+///#source 1 1 /scripts/Main/Components/iPad-viewport-changed-reset.js
 var ww = ww || {};
 
 (function ($) {
@@ -6310,7 +6111,7 @@ var ww = ww || {};
 	};
 })(jQuery);
 
-///#source 1 1 /scripts/WelshWater/Components/ga-tracking-events.js
+///#source 1 1 /scripts/Main/Components/ga-tracking-events.js
 var ww = ww || {};
 
 // GA Tracking used throughout WW website
@@ -6730,7 +6531,7 @@ var ww = ww || {};
         },
     };
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/water-quality.js
+///#source 1 1 /scripts/Main/Components/water-quality.js
 var ww = ww || {};
 
 (function ($) {
@@ -6768,7 +6569,7 @@ var ww = ww || {};
 		}
 	};
 })(jQuery);
-///#source 1 1 /scripts/WelshWater/Components/feedback-panel.js
+///#source 1 1 /scripts/Main/Components/feedback-panel.js
 var ww = ww || {};
 
 ww.feedbackPanel = (function ($, liveChat) {
@@ -6866,9 +6667,9 @@ ww.feedbackPanel = (function ($, liveChat) {
     return exports;
 
 })(jQuery, ww.liveChat);
-///#source 1 1 /scripts/WelshWater/app.js
+///#source 1 1 /scripts/Main/app.js
 //====================================
-// Welsh water
+// Main
 //====================================
 
 // load google maps api - TODO: needs to be investigated how to do this in the same function as the rest of the google maps code

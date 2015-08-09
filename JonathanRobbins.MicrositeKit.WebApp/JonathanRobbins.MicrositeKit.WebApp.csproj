@@ -830,7 +830,12 @@
     <Content Include="css\reset.css" />
     <Content Include="css\reset.min.css" />
     <Content Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx" />
+    <Content Include="Layouts\Sublayouts\Fixed\Footer.ascx" />
+    <Content Include="Layouts\Sublayouts\Fixed\Header.ascx" />
+    <Content Include="Layouts\Sublayouts\Fixed\LoggedIn.ascx" />
+    <Content Include="Layouts\Sublayouts\Fixed\MainNavigation.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\SiteLogo.ascx" />
+    <Content Include="Layouts\Sublayouts\Fixed\SubNav.ascx" />
     <Content Include="scripts\helpU\app.js" />
     <Content Include="scripts\helpU\helpu.js" />
     <Content Include="scripts\helpU\helpu.min.js" />
@@ -903,6 +908,7 @@
     <Content Include="scripts\plugins.min.js.map" />
     <Content Include="css\reset.css.map" />
     <Content Include="css\reset.less" />
+    <Content Include="App_Config\Include\zzMircosites.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -944,6 +950,34 @@
     <Compile Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx.designer.cs">
       <DependentUpon>Breadcrumb.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\LoggedIn.ascx.cs">
+      <DependentUpon>LoggedIn.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\LoggedIn.ascx.designer.cs">
+      <DependentUpon>LoggedIn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\MainNavigation.ascx.cs">
+      <DependentUpon>MainNavigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\MainNavigation.ascx.designer.cs">
+      <DependentUpon>MainNavigation.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Layouts\Sublayouts\Fixed\SiteLogo.ascx.cs">
       <DependentUpon>SiteLogo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -951,10 +985,17 @@
     <Compile Include="Layouts\Sublayouts\Fixed\SiteLogo.ascx.designer.cs">
       <DependentUpon>SiteLogo.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\SubNav.ascx.cs">
+      <DependentUpon>SubNav.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Fixed\SubNav.ascx.designer.cs">
+      <DependentUpon>SubNav.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Layouts\Sublayouts\Widgets\" />
+    <Folder Include="Layouts\Sublayouts\Components\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKit.CMS.csproj">
