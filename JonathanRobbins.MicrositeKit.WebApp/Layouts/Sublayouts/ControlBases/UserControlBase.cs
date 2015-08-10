@@ -43,6 +43,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                 }
                 return _dataSource;
             }
+            set { _dataSource = value; }
         }
 
         public NameValueCollection Parameters

@@ -29,7 +29,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 
                     var currentItem = Sitecore.Context.Item;
 
-                    while (currentItem.TemplateID != Enumerators.SitecoreConfig.Guids.Templates.SiteNodeId)
+                    while (currentItem.TemplateID != Enumerators.SitecoreConfig.Guids.Templates.MicroSiteNodeId)
                     {
                         if (DisplayItemInNavigation(currentItem))
                             ancestors.Add(currentItem);

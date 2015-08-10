@@ -24,12 +24,12 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 
         private void SetUpLogo()
         {
-            var logoItem = RetrieveItemFromField(Nodes.SiteConfigItem, Global.SiteLogo);
+            var logoItem = RetrieveItemFromField(Nodes.MicrositeSettingsItem, Global.SiteLogo);
 
             
-            hlLogo.NavigateUrl = LinkManager.GetItemUrl(Nodes.SiteHomeItem);
+            hlLogo.NavigateUrl = LinkManager.GetItemUrl(Nodes.MicrositeHomeItem);
 
-            hlLogo.Enabled = Sitecore.Context.Item.ID != Nodes.SiteHomeItem.ID;
+            hlLogo.Enabled = Sitecore.Context.Item.ID != Nodes.MicrositeHomeItem.ID;
         }
 
         private object RetrieveItemFromField(Item siteConfigItem, string siteLogo)

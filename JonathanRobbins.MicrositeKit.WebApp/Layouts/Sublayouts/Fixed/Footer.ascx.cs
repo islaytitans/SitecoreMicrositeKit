@@ -5,13 +5,44 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
-using Sitecore.Web.UI.WebControls.Presentation;
+using Sitecore.Data.Items;
+using Sitecore.Links;
+using Sitecore.Web.UI.WebControls;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
     public partial class Footer : MicrositeControlBase
     {
         protected string Separator = " | ";
+
+        private Item _footerDatasource;
+        public Item FooterDatasource
+        {
+            get
+            {
+                if (_footerDatasource == null)
+                {
+                    
+                }
+            }
+        }
+
+        protected IEnumerable<Item> InternalFooterLinkDataSource
+        {
+            get
+            {
+                return Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(SiteConfigItem, "Global internal links");
+            }
+
+        }
+
+        protected IEnumerable<Item> ExternalFooterLinkDataSource
+        {
+            get
+            {
+                return Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(SiteConfigItem, "Global external links");
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,17 +67,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 
             rptExternalFooterLinks.DataSource = ExternalFooterLinkDataSource;
             rptExternalFooterLinks.DataBind();
-        }
-
-        protected IEnumerable<Item> InternalFooterLinkDataSource
-        {
-            get { return Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(SiteConfigItem, "Global internal links"); }
-
-        }
-
-        protected IEnumerable<Item> ExternalFooterLinkDataSource
-        {
-            get { return Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(SiteConfigItem, "Global external links"); }
         }
 
         protected void rptFooterLinks_OnItemDataBound(object sender, RepeaterItemEventArgs e)

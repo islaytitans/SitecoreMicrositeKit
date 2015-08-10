@@ -12,13 +12,13 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
 {
     public class Nodes
     {
-        private static Item _micrositeItem;
-        public static Item MicrositeItem
+        private static Item _micrositeNodeItem;
+        public static Item MicrositeNodeItem
         {
             get
             {
-                if (_micrositeItem != null)
-                    return _micrositeItem;
+                if (_micrositeNodeItem != null)
+                    return _micrositeNodeItem;
 
                 Item micrositeItem;
                 
@@ -26,92 +26,88 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                 using (new Sitecore.SecurityModel.SecurityDisabler())
                 {
                     micrositeItem = Sitecore.Context.Item.Axes.GetAncestors()
-                                            .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteId);
+                                            .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteNodeId);
                 }
                 
-                _micrositeItem = micrositeItem;
+                _micrositeNodeItem = micrositeItem;
                 
-                return _micrositeItem;
+                return _micrositeNodeItem;
             }
         }
 
 
-        private static Item _siteHomeItem;
-        public static Item SiteHomeItem
+        private static Item _micrositeHomeItem;
+        public static Item MicrositeHomeItem
         {
             get
             {
-                if (_siteHomeItem != null)
-                    return _siteHomeItem;
+                if (_micrositeHomeItem != null)
+                    return _micrositeHomeItem;
 
                 Item siteHomeItem = null;
 
-                if (MicrositeItem != null)
+                if (MicrositeNodeItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        //TODO remove
-                        siteHomeItem = MicrositeItem.Axes.GetDescendants()
-                                                           .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteHomePageId);
+                        siteHomeItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteHomePageId);
                     }
                 }
 
-                _siteHomeItem = siteHomeItem;
+                _micrositeHomeItem = siteHomeItem;
                 
-                return _siteHomeItem;
+                return _micrositeHomeItem;
             }
         }
 
-        private static Item _siteConfigItem;
-        public static Item SiteConfigItem
+        private static Item _micrositeSettingsItem;
+        public static Item MicrositeSettingsItem
         {
             get
             {
-                if (_siteConfigItem != null)
-                    return _siteConfigItem;
+                if (_micrositeSettingsItem != null)
+                    return _micrositeSettingsItem;
 
                 Item siteConfigItem = null;
 
-                if (MicrositeItem != null)
+                if (MicrositeNodeItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        //TODO remove
-                        siteConfigItem = MicrositeItem.Axes.GetDescendants()
-                                                      .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSiteConfigId);
+                        //TODO get from site node
+                        siteConfigItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSettingsId);
                     }
                 }
 
-                _siteConfigItem = siteConfigItem;
-                return _siteConfigItem;
+                _micrositeSettingsItem = siteConfigItem;
+                return _micrositeSettingsItem;
             }
         }
 
-        private static Item _siteDataItem;
-        public static Item SiteDataItem
+        private static Item _micrositeRepositoryItem;
+        public static Item MicrositeRepositoryItem
         {
             get
             {
-                if (_siteDataItem != null)
-                    return _siteDataItem;
+                if (_micrositeRepositoryItem != null)
+                    return _micrositeRepositoryItem;
 
                 Item siteDataItem = null;
 
-                if (MicrositeItem != null)
+                if (MicrositeNodeItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        //TODO remove
-                        siteDataItem = MicrositeItem.Axes.GetDescendants()
-                                                    .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSiteDataId);
+                        //TODO get from site node
+                        siteDataItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicrositeRepositoryId);
                     }
                 }
 
-                _siteDataItem = siteDataItem;
-                return _siteDataItem;
+                _micrositeRepositoryItem = siteDataItem;
+                return _micrositeRepositoryItem;
             }
         }
 
@@ -125,13 +121,13 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
 
                 Item loginPageItem = null;
 
-                if (MicrositeItem != null)
+                if (MicrositeNodeItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
                         //TODO remove
-                        loginPageItem = MicrositeItem.Axes.GetDescendants()
+                        loginPageItem = MicrositeNodeItem.Axes.GetDescendants()
                                                     .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLoginPageId);
                     }
                 }
