@@ -940,6 +940,9 @@
     <Compile Include="Layouts\Sublayouts\ControlBases\MicrositeControlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Layouts\Sublayouts\ControlBases\NavigationControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Layouts\Sublayouts\ControlBases\UserControlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

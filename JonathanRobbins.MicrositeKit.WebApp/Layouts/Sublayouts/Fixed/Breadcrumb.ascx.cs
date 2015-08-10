@@ -8,11 +8,13 @@ using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 using Sitecore.Links;
+using Sitecore.Social.Configuration.Model;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class Breadcrumb : MicrositeControlBase
+    public partial class Breadcrumb : NavigationControlBase
     {
         private const string Separator = ">";
 
@@ -23,20 +25,19 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
             {
                 if (_breadcrumbSource == null || !_breadcrumbSource.Any())
                 {
-                    var ascendants = new List<Item>();
+                    var ancestors = new List<Item>();
 
                     var currentItem = Sitecore.Context.Item;
-                    var contentGuid = Sitecore.Context.Database.GetItem(Sitecore.Constants.ContentPath).ID;
-                    var rootGuid = Sitecore.Context.Database.GetItem(Sitecore.Constants.SitecorePath).ID;
 
-                    while (currentItem.ID != contentGuid && currentItem.ID != rootGuid &&
-                           currentItem.ParentID != contentGuid)
+                    while (currentItem.TemplateID != Enumerators.SitecoreConfig.Guids.Templates.SiteNodeId)
                     {
-                        ascendants.Add(currentItem);
+                        if (DisplayItemInNavigation(currentItem))
+                            ancestors.Add(currentItem);
                         currentItem = currentItem.Parent;
                     }
-                    ascendants.Reverse();
-                    _breadcrumbSource = ascendants;
+
+                    ancestors.Reverse();
+                    _breadcrumbSource = ancestors;
                 }
                 return _breadcrumbSource;
             }
@@ -73,9 +74,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
                 var ltlBreadcrumb = e.Item.FindControl("ltlBreadcrumb") as Literal;
                 if (ltlBreadcrumb != null)
                 {
-                    Item navigationTextItem = RetrieveItemContainingField("Navigation link text");
+                    Item navigationTextItem = RetrieveItemContainingField(Enumerators.SitecoreConfig.Fields.Global.NavigationLinkText);
                     if (navigationTextItem != null)
-                        ltlBreadcrumb.Text = navigationTextItem["Navigation link text"];
+                        ltlBreadcrumb.Text = navigationTextItem[Enumerators.SitecoreConfig.Fields.Global.NavigationLinkText];
                 }
             }
             else
@@ -84,25 +85,11 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 
                 if (hlBreadcrumb != null)
                 {
-                    if (!string.IsNullOrEmpty(item["Navigation link text"]))
+                    if (!string.IsNullOrEmpty(item[Enumerators.SitecoreConfig.Fields.Global.NavigationLinkText]))
                     {
-                        hlBreadcrumb.Text = item["Navigation link text"];
+                        hlBreadcrumb.Text = item[Enumerators.SitecoreConfig.Fields.Global.NavigationLinkText];
                     }
-                    else if (DataSource != null && !string.IsNullOrEmpty(DataSource["Navigation link text"]))
-                    {
-                        hlBreadcrumb.Text = DataSource["Navigation link text"];
-                    }
-                    else if (ParameterIsPopulated(QueryStrings.Guid))
-                    {
-                        string guid = ApplyParameterIfPresent(QueryStrings.Guid);
 
-                        Item paramItem = Sitecore.Context.Database.GetItem(guid);
-
-                        if (paramItem != null && !string.IsNullOrEmpty(paramItem["Navigation link text"]))
-                        {
-                            hlBreadcrumb.Text = paramItem["Navigation link text"];
-                        }
-                    }
                     hlBreadcrumb.NavigateUrl = LinkManager.GetItemUrl(item);
                 }
             }
