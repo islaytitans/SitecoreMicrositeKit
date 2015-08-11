@@ -14,7 +14,15 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 {
     public class MicrositeControlBase : UserControlBase
     {
-        public Nodes ItemNodes = new Nodes();
+        protected bool UserLoggedIn(Page page)
+        {
+            return (!string.IsNullOrEmpty(page.User.Identity.Name)
+                   && page.User.Identity.Name != "extranet\\anonymous"
+                   && page.User.Identity.IsAuthenticated
+                   && !page.User.Identity.Name.ToLower().Contains("sitecore\\")
+                   ||
+                   !Sitecore.Context.PageMode.IsNormal);
+        }
 
         protected bool IsLoginPage
         {

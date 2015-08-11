@@ -178,14 +178,36 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        //TODO remove
-                        loginPageItem = MicrositeNodeItem.Axes.GetDescendants()
-                                                    .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLoginPageId);
+                        loginPageItem = MicrositeHomeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLoginPageId);
                     }
                 }
 
                 _loginPageItem = loginPageItem;
                 return _loginPageItem;
+            }
+        }
+
+        private static Item _dictionaryItem;
+        public static Item MicrositesDictionaryItem
+        {
+            get
+            {
+                if (_dictionaryItem != null)
+                    return _dictionaryItem;
+
+                Item loginPageItem = null;
+
+                if (MicrositeLocalSettingsItem != null)
+                {
+                    //TODO switch to account
+                    using (new Sitecore.SecurityModel.SecurityDisabler())
+                    {
+                        loginPageItem = MicrositeLocalSettingsItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteDictionaryId);
+                    }
+                }
+
+                _dictionaryItem = loginPageItem;
+                return _dictionaryItem;
             }
         }
     }

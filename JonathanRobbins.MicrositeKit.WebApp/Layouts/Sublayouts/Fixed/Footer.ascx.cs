@@ -54,15 +54,14 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 
         private void SetDataSourceToFooterItem()
         {
-            string footerGuid = Nodes.MicrositeLocalSettingsItem[Enumerators.SitecoreConfig.Fields.Global.FooterItem];
+            if (Datasource == null)
+            {
+                string footerGuid = Nodes.MicrositeLocalSettingsItem[Enumerators.SitecoreConfig.Fields.Global.FooterItem];
 
-            if (!string.IsNullOrEmpty(footerGuid))
-            {
-                Datasource = Sitecore.Context.Database.GetItem(footerGuid);
-            }
-            else
-            {
-                Datasource = null;
+                if (!string.IsNullOrEmpty(footerGuid))
+                {
+                    Datasource = Sitecore.Context.Database.GetItem(footerGuid);
+                }
             }
         }
 

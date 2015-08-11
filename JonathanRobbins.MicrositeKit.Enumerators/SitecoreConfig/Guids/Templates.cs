@@ -16,6 +16,7 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids
         public static ID MicrositeLocalRepositoryId = new ID("{B037C813-8C63-462A-A987-CFC13EBFF891}");
         public static ID MicroSiteSharedSettingsId = new ID("{66ABDC5B-BFC7-4E87-87CF-56588DA79A43}");
         public static ID MicrositeSharedRepositoryId = new ID("{5972BA3A-39B3-41A3-AAD9-95C884329651}");
-        public static ID MicroSiteLoginPageId = new ID("");
+        public static ID MicroSiteLoginPageId = new ID("{53BF3075-823A-44E8-A593-0C3AFB146914}");
+        public static ID MicroSiteDictionaryId = new ID("{741D8995-6AC4-4DCB-8CF4-B5C17B464573}");
     }
 }

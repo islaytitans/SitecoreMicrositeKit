@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sitecore.Data;
 
 namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Fields
 {
     public class Global
     {
+        public const string LogOut = "Log out";
         public const string FooterItem = "Footer item";
         public const string SiteLogo = "Site logo";
         public const string NavigationLinkText = "Navigation link text";
