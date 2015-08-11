@@ -61,13 +61,13 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
             }
         }
 
-        private static Item _micrositeSettingsItem;
-        public static Item MicrositeSettingsItem
+        private static Item _micrositeLocalSettingsItem;
+        public static Item MicrositeLocalSettingsItem
         {
             get
             {
-                if (_micrositeSettingsItem != null)
-                    return _micrositeSettingsItem;
+                if (_micrositeLocalSettingsItem != null)
+                    return _micrositeLocalSettingsItem;
 
                 Item siteConfigItem = null;
 
@@ -77,22 +77,22 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
                         //TODO get from site node
-                        siteConfigItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSettingsId);
+                        siteConfigItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLocalSettingsId);
                     }
                 }
 
-                _micrositeSettingsItem = siteConfigItem;
-                return _micrositeSettingsItem;
+                _micrositeLocalSettingsItem = siteConfigItem;
+                return _micrositeLocalSettingsItem;
             }
         }
 
-        private static Item _micrositeRepositoryItem;
-        public static Item MicrositeRepositoryItem
+        private static Item _micrositeLocalRepositoryItem;
+        public static Item MicrositeLocalRepositoryItem
         {
             get
             {
-                if (_micrositeRepositoryItem != null)
-                    return _micrositeRepositoryItem;
+                if (_micrositeLocalRepositoryItem != null)
+                    return _micrositeLocalRepositoryItem;
 
                 Item siteDataItem = null;
 
@@ -102,12 +102,64 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
                         //TODO get from site node
-                        siteDataItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicrositeRepositoryId);
+                        siteDataItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicrositeLocalRepositoryId);
                     }
                 }
 
-                _micrositeRepositoryItem = siteDataItem;
-                return _micrositeRepositoryItem;
+                _micrositeLocalRepositoryItem = siteDataItem;
+                return _micrositeLocalRepositoryItem;
+            }
+        }
+
+        private static Item _micrositeSharedSettingsItem;
+        public static Item MicrositeSharedSettingsItem
+        {
+            get
+            {
+                if (_micrositeSharedSettingsItem != null)
+                    return _micrositeSharedSettingsItem;
+
+                Item sharedSettingsItem = null;
+
+                Item contentItem = Sitecore.Context.Database.GetItem(Sitecore.ItemIDs.ContentRoot);
+
+                if (contentItem != null)
+                {
+                    //TODO switch to account
+                    using (new Sitecore.SecurityModel.SecurityDisabler())
+                    {
+                        sharedSettingsItem = contentItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSharedSettingsId);
+                    }
+                }
+
+                _micrositeSharedSettingsItem = sharedSettingsItem;
+                return _micrositeSharedSettingsItem;
+            }
+        }
+
+        private static Item _micrositeSharedRepositoryItem;
+        public static Item MicrositeSharedRepositoryItem
+        {
+            get
+            {
+                if (_micrositeSharedRepositoryItem != null)
+                    return _micrositeSharedRepositoryItem;
+
+                Item sharedRepositoryItem = null;
+
+                Item contentItem = Sitecore.Context.Database.GetItem(Sitecore.ItemIDs.ContentRoot);
+
+                if (contentItem != null)
+                {
+                    //TODO switch to account
+                    using (new Sitecore.SecurityModel.SecurityDisabler())
+                    {
+                        sharedRepositoryItem = contentItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicrositeSharedRepositoryId);
+                    }
+                }
+
+                _micrositeSharedRepositoryItem = sharedRepositoryItem;
+                return _micrositeSharedRepositoryItem;
             }
         }
 

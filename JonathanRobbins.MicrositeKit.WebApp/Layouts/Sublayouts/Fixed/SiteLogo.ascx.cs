@@ -24,7 +24,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 
         private void SetUpLogo()
         {
-            var logoItem = RetrieveItemFromField(Nodes.MicrositeSettingsItem, Global.SiteLogo);
+            var logoItem = RetrieveItemFromField(Nodes.MicrositeLocalSettingsItem, Global.SiteLogo);
 
             
             hlLogo.NavigateUrl = LinkManager.GetItemUrl(Nodes.MicrositeHomeItem);

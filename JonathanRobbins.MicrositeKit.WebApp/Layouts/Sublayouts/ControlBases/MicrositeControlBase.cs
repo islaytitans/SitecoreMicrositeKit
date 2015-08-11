@@ -51,9 +51,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                 return Sitecore.Context.Item;
             }
 
-            if (DataSource != null && DataSource.Fields[fieldName] != null && !string.IsNullOrEmpty(DataSource.Fields[fieldName].Value))
+            if (Datasource != null && Datasource.Fields[fieldName] != null && !string.IsNullOrEmpty(Datasource.Fields[fieldName].Value))
             {
-                return DataSource;
+                return Datasource;
             }
 
             string itemId = ApplyParameterIfPresent(QueryStrings.Guid);

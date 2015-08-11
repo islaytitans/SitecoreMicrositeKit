@@ -30,7 +30,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
         }
 
         private Item _dataSource;
-        public Item DataSource
+        public Item Datasource
         {
             get
             {
@@ -68,7 +68,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 
         public void BindSitecoreControl()
         {
-            BindSitecoreControl(DataSource);
+            BindSitecoreControl(Datasource);
         }
 
         public void BindSitecoreControl(Item item)
