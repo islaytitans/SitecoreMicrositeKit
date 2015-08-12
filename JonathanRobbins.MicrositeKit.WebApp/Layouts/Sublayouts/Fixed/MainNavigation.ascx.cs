@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
+using Sitecore.Links;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
@@ -15,6 +17,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
         {
             get
             {
+                // TODO use datasource
+
                 List<Item> items = SiteHomeItem.GetChildren().ToList();
                 items.Insert(0, SiteHomeItem);
 
@@ -62,11 +66,11 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
                     bool setSelectedClass = false;
                     Item contextItem = Sitecore.Context.Item;
 
-                    if (SiteHomeItem.ID == contextItem.ID && SiteHomeItem.ID == item.ID)
+                    if (Nodes.MicrositeHomeItem.ID == contextItem.ID && Nodes.MicrositeHomeItem.ID == item.ID)
                     {
                         setSelectedClass = true;
                     }
-                    else if (item.ID != SiteHomeItem.ID)
+                    else if (item.ID != Nodes.MicrositeHomeItem.ID)
                     {
                         if (contextItem.ID == item.ID)
                         {
