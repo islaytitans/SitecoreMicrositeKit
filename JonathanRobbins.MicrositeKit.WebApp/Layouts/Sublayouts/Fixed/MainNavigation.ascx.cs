@@ -17,9 +17,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
         {
             get
             {
-                // TODO use datasource
+                // TODO use datasource fields
 
-                List<Item> items = SiteHomeItem.GetChildren().ToList();
+                List<Item> items = Datasource.GetChildren().ToList();
                 items.Insert(0, SiteHomeItem);
 
                 return items.Where(NavDisplayAllowed);
