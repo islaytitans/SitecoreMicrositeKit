@@ -6,23 +6,29 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
+using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Links;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class MainNavigation : MicrositeControlBase
+    public partial class MainNavigation : NavigationControlBase
     {
+        private IEnumerable<Item> _navigationDatasource;
         protected IEnumerable<Item> NavigationDatasource
         {
             get
             {
-                // TODO use datasource fields
+                if (_navigationDatasource == null)
+                {
+                    var mlf = (MultilistField) Datasource.Fields[""];
 
-                List<Item> items = Datasource.GetChildren().ToList();
-                items.Insert(0, SiteHomeItem);
+                    var linkItems = mlf.GetItems().Where(DisplayItemInNavigation);
 
-                return items.Where(NavDisplayAllowed);
+
+                }
+
+                return _navigationDatasource;
             }
         }
 
@@ -86,14 +92,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
                         hlNavigation.CssClass = "selected";
                 }
             }
-        }
-
-        private bool NavDisplayAllowed(Item item)
-        {
-            if (item == null)
-                return false;
-
-            return item["Nav display"] == "1";
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Fields;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
+using Sitecore.ContentTesting.Pipelines.StopTest;
 using Sitecore.Data.Items;
 using Sitecore.Links;
 
@@ -16,25 +17,22 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SetSitecoreComponents();
             if (!Page.IsPostBack)
             {
                 SetUpLogo();
             }
         }
 
-        private void SetUpLogo()
+        private void SetSitecoreComponents()
         {
-            var logoItem = RetrieveItemFromField(Nodes.MicrositeLocalSettingsItem, Global.SiteLogo);
-
-            
-            hlLogo.NavigateUrl = LinkManager.GetItemUrl(Nodes.MicrositeHomeItem);
-
-            hlLogo.Enabled = Sitecore.Context.Item.ID != Nodes.MicrositeHomeItem.ID;
+            sciLogo.Item = Datasource;
         }
 
-        private object RetrieveItemFromField(Item siteConfigItem, string siteLogo)
-        {
-            throw new NotImplementedException();
+        private void SetUpLogo()
+        {           
+            hlLogo.NavigateUrl = LinkManager.GetItemUrl(Nodes.MicrositeHomeItem);
+            hlLogo.Enabled = Sitecore.Context.Item.ID != Nodes.MicrositeHomeItem.ID;
         }
     }
 }

@@ -2,6 +2,6 @@
 
 <div class="site-logo">
     <asp:HyperLink runat="server" ID="hlLogo" >
-        <sc:Image runat="server" ID="sciLogo" Field="Global logo"/>
+        <sc:Image runat="server" ID="sciLogo" Field="Image"/>
     </asp:HyperLink>
 </div>

@@ -4,22 +4,43 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JonathanRobbins.MicrositeKit.CMS.Items;
+using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class Header : System.Web.UI.UserControl
+    public partial class Header : MicrositeControlBase
     {
+        private Item _megaNavigationDatasource;
         protected Item MegaNavigationDatasource
         {
             get
             {
-                // TODO get datasource from Site config
+                if (_megaNavigationDatasource == null)
+                {
+                    string mainNav = Nodes.MicrositeLocalSettingsItem[];
 
-                List<Item> items = SiteHomeItem.GetChildren().ToList();
-                items.Insert(0, SiteHomeItem);
+                    _megaNavigationDatasource = Sitecore.Context.Database.GetItem(mainNav);
+                }
 
-                return items.Where(NavDisplayAllowed);
+                return _megaNavigationDatasource;
+            }
+        }
+
+        private Item _siteLogoDatasource;
+        protected Item SiteLogoDatasource
+        {
+            get
+            {
+                if (_siteLogoDatasource == null)
+                {
+                    string siteLogo = Nodes.MicrositeLocalSettingsItem[];
+
+                    _siteLogoDatasource = Sitecore.Context.Database.GetItem(siteLogo);
+                }
+
+                return _siteLogoDatasource;
             }
         }
 
@@ -28,7 +49,13 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
             if (!Page.IsPostBack)
             {
                 BindMegaNav();
+                BindSiteLogo();
             }
+        }
+
+        private void BindSiteLogo()
+        {
+            SiteLogo.DataSource = SiteLogoDatasource.ID.ToString();
         }
 
         private void BindMegaNav()
