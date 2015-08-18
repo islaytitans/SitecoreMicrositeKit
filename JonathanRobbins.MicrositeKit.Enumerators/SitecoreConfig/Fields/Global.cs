@@ -9,6 +9,8 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Fields
 {
     public class Global
     {
+        public const string LinkItems = "Link items";
+        public const string MainNavigation = "Main navigation";
         public const string LogOut = "Log out";
         public const string FooterItem = "Footer item";
         public const string SiteLogo = "Site logo";

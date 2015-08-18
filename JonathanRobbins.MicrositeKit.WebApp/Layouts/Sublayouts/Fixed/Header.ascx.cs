@@ -19,7 +19,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
             {
                 if (_megaNavigationDatasource == null)
                 {
-                    string mainNav = Nodes.MicrositeLocalSettingsItem[];
+                    string mainNav = Nodes.MicrositeLocalSettingsItem[Enumerators.SitecoreConfig.Fields.Global.MainNavigation];
 
                     _megaNavigationDatasource = Sitecore.Context.Database.GetItem(mainNav);
                 }
@@ -35,7 +35,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
             {
                 if (_siteLogoDatasource == null)
                 {
-                    string siteLogo = Nodes.MicrositeLocalSettingsItem[];
+                    string siteLogo = Nodes.MicrositeLocalSettingsItem[Enumerators.SitecoreConfig.Fields.Global.FooterItem];
 
                     _siteLogoDatasource = Sitecore.Context.Database.GetItem(siteLogo);
                 }

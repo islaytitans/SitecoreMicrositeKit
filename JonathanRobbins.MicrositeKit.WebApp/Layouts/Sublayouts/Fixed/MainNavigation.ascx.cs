@@ -21,11 +21,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
             {
                 if (_navigationDatasource == null)
                 {
-                    var mlf = (MultilistField) Datasource.Fields[""];
+                    var mlf = (MultilistField) Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.LinkItems];
 
-                    var linkItems = mlf.GetItems().Where(DisplayItemInNavigation);
-
-
+                    _navigationDatasource = mlf.GetItems().Where(DisplayItemInNavigation);
                 }
 
                 return _navigationDatasource;
@@ -67,7 +65,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
                 if (hlNavigation != null)
                 {
                     hlNavigation.NavigateUrl = LinkManager.GetItemUrl(item);
-                    hlNavigation.Text = item["Navigation link text"];
+                    hlNavigation.Text = item[Enumerators.SitecoreConfig.Fields.Global.NavigationLinkText];
 
                     bool setSelectedClass = false;
                     Item contextItem = Sitecore.Context.Item;
