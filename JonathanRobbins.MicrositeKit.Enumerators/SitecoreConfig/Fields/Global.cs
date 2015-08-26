@@ -20,5 +20,11 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Fields
         public const string GlobalInternalLinks = "Global internal links";
         public const string GlobalExternalLinks = "Global external links";
         public const string SocialNetworkLinks = "Social network links";
+        public static string StartTime = "Start time";
+        public static string Date = "Date";
+        public static string Categories = "Categories";
+
+        public static string CreatedDate = "__Created";
+        
     }
 }

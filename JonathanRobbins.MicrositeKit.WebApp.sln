@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.MicrositeKit.Entities", "JonathanRobbins.MicrositeKit.Entities\JonathanRobbins.MicrositeKit.Entities.csproj", "{1C5F933E-B2B8-46F7-8432-4E955355592E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonathanRobbins.Micrositekit.Business", "JonathanRobbins.Micrositekit.Business\JonathanRobbins.Micrositekit.Business.csproj", "{F9656AC5-2646-4B09-A210-0C249E9A0391}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1C5F933E-B2B8-46F7-8432-4E955355592E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C5F933E-B2B8-46F7-8432-4E955355592E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C5F933E-B2B8-46F7-8432-4E955355592E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9656AC5-2646-4B09-A210-0C249E9A0391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9656AC5-2646-4B09-A210-0C249E9A0391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9656AC5-2646-4B09-A210-0C249E9A0391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9656AC5-2646-4B09-A210-0C249E9A0391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

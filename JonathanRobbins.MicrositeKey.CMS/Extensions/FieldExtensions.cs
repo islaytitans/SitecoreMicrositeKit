@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
 
 namespace JonathanRobbins.MicrositeKit.CMS.Extensions
 {
@@ -26,6 +27,19 @@ namespace JonathanRobbins.MicrositeKit.CMS.Extensions
                 default:
                     return linkField.Url;
             }
+        }
+
+        public static IEnumerable<Item> GetItems(this Field field)
+        {
+            if (field == null || string.IsNullOrEmpty(field.Value))
+                return new List<Item>();
+
+            List<string> sitecoreGuids = field.Value
+                .Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            return (from g in sitecoreGuids
+                    where !string.IsNullOrEmpty(g)
+                    select Sitecore.Context.Database.GetItem(g)).ToList();
         }
     }
 }

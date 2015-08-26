@@ -62,7 +62,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             if (siteClassificationItem != null)
             {
-                IEnumerable<Item> classes = Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(siteClassificationItem, Enumerators.SitecoreConfig.Fields.Global.Classification);
+                IEnumerable<Item> classes = siteClassificationItem.Fields[Enumerators.SitecoreConfig.Fields.Global.Classification].GetItems();
 
                 foreach (var @class in classes)
                 {

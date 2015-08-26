@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JonathanRobbins.MicrositeKit.CMS.Extensions;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
@@ -41,7 +42,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                 if (field != null && !string.IsNullOrEmpty(field.Value))
                 {
-                    _relatedResourcesDatasource = (Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(field)).Select(x => (MediaItem)x);
+                    _relatedResourcesDatasource = field.GetItems().Select(x => (MediaItem)x);
                 }
 
                 return _relatedResourcesDatasource;

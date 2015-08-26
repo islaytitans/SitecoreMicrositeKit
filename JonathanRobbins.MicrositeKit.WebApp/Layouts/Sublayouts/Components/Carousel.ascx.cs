@@ -30,7 +30,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 IEnumerable<Item> slideItems = null;
                 if (Datasource != null && Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.Slides] != null)
                 {
-                    slideItems = Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(Datasource, Enumerators.SitecoreConfig.Fields.Global.Slides);
+                    slideItems = Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.Slides].GetItems();
                 }
 
                 return slideItems;

@@ -15,7 +15,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (UserLoggedIn(Page))
+            if (UserLoggedIntoMicrosite(Page))
             {
                 phLoggedIn.Visible = true;
                 btnLogout.Text = Nodes.MicrositesDictionaryItem[Enumerators.SitecoreConfig.Fields.Global.LogOut];

@@ -14,16 +14,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 {
     public class MicrositeSublayoutBase : SublayoutBase
     {
-        protected bool UserLoggedIn(Page page)
-        {
-            return (!string.IsNullOrEmpty(page.User.Identity.Name)
-                   && page.User.Identity.Name != "extranet\\anonymous"
-                   && page.User.Identity.IsAuthenticated
-                   && !page.User.Identity.Name.ToLower().Contains("sitecore\\")
-                   ||
-                   !Sitecore.Context.PageMode.IsNormal);
-        }
-
         protected bool IsLoginPage
         {
             get
@@ -47,7 +37,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
             return !string.IsNullOrEmpty(page.User.Identity.Name)
                    && page.User.Identity.Name != "extranet\\anonymous"
                    && page.User.Identity.IsAuthenticated
-                   && !page.User.Identity.Name.ToLower().Contains("sitecore\\");
+                   && !page.User.Identity.Name.ToLower().Contains("sitecore\\")
+                   ||
+                   !Sitecore.Context.PageMode.IsNormal;
         }
 
         public Item RetrieveItemContainingField(string fieldName)

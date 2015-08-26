@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JonathanRobbins.Micrositekit.Business.Extensions;
+using JonathanRobbins.MicrositeKit.CMS.Extensions;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Search;
@@ -97,7 +100,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 searchResults = searchUtility.Search(sitecoreSearchParameters);
             }
 
-            var itemComparer = new Business.SitecoreInteractions.ItemComparer();
+            var itemComparer = new ItemComparer();
             var resultsCollection = searchResults.ResultsCollection.ToList();
             resultsCollection.Sort(itemComparer.CompareCreatedDate);
             resultsCollection.Reverse();
@@ -148,7 +151,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                     if (sctCategoryLabel != null) sctCategoryLabel.Item = Datasource;
                     if (litCategories != null)
                     {
-                        List<Item> items = Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(mediaItem, Enumerators.SitecoreConfig.Fields.Global.Categories).ToList();
+                        var items = item.Fields[Enumerators.SitecoreConfig.Fields.Global.Categories].GetItems();
                         string categories = items.Aggregate(string.Empty, (current, i) => current + (i.Name + ","));
 
                         litCategories.Text = categories.RemoveTrailingComma();

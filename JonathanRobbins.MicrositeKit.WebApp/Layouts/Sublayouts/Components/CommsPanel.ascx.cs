@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JonathanRobbins.MicrositeKit.CMS.Extensions;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
@@ -14,7 +16,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         {
             get
             {
-                return Business.SitecoreHelp.Utilities.GetItemsFromPipeSeparatedList(SiteConfigItem, "Social network links");
+                return Nodes.MicrositeLocalSettingsItem.Fields["Social network links"].GetItems();
             }
         }
 
@@ -46,7 +48,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 if (hlSocial != null)
                 {
                     LinkField linkField = item.Fields["Link"];
-
                     hlSocial.NavigateUrl = linkField.Url;
                 }
             }
