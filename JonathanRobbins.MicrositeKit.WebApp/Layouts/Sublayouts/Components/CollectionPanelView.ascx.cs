@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.UI;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 using Sitecore.Links;
@@ -41,28 +42,28 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 return;
 
             Item destinationItem = null;
-            if (ViewItem.TemplateID == Microsite.MicroSiteEventTemplateGuid)
+            if (ViewItem.TemplateID == Templates.MicroSiteEventTemplateGuid)
             {
                 phComments.Visible = false;
                 destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
-                                                  x => x.TemplateID == Microsite.MicroSiteEventDetailsTemplateId);
+                                                  x => x.TemplateID == Templates.MicroSiteEventDetailsTemplateId);
             }
-            if (ViewItem.TemplateID == Microsite.MicroSiteBlogTemplateGuid)
+            if (ViewItem.TemplateID == Templates.MicroSiteBlogTemplateGuid)
             {
                 phComments.Visible = true;
                 destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
                                                   x =>
-                                                  x.TemplateID == Microsite.MicroSiteBlogDetailsTemplateId);
+                                                  x.TemplateID == Templates.MicroSiteBlogDetailsTemplateId);
                 litCommentCount.Text = CommentCount != null ? CommentCount.ToString() : RetrieveCommentCount(ViewItem).ToString();
             }
-            if (ViewItem.TemplateID == Microsite.MicroSiteNewsTemplateGuid)
+            if (ViewItem.TemplateID == Templates.MicroSiteNewsTemplateGuid)
             {
                 phComments.Visible = false;
                 destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
-                                                  x => x.TemplateID == Microsite.MicroSiteNewsDetailsTemplateId);
+                                                  x => x.TemplateID == Templates.MicroSiteNewsDetailsTemplateId);
             }
 
             if (destinationItem == null)

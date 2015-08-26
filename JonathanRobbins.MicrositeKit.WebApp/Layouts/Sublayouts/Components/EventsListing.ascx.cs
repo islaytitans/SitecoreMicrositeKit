@@ -9,6 +9,7 @@ using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -59,7 +60,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private SitecoreSearchParameters CreateEventsSearchParameters()
         {
-            Item siteClassificationItem = Nodes.MicrositeLocalSettingsItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteClassificationTemplateId);
+            Item siteClassificationItem = Nodes.MicrositeLocalSettingsItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Templates.MicroSiteClassificationTemplateId);
             var fieldDictionary = new Dictionary<string, string>();
 
             if (siteClassificationItem != null)
@@ -72,7 +73,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 }
             }
 
-            var searchTemplates = new List<ID> { Microsite.MicroSiteEventTemplateGuid };
+            var searchTemplates = new List<ID> { Templates.MicroSiteEventTemplateGuid };
 
             return new SitecoreSearchParameters()
             {
@@ -118,7 +119,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                     if (hlViewEvent != null && hlImage != null && hlTitle != null)
                     {
                         var destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                   .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteEventDetailsTemplateId);
+                                   .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteEventDetailsTemplateId);
                         string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
                         if (Datasource != null) hlViewEvent.Text = Datasource["View event"];
 

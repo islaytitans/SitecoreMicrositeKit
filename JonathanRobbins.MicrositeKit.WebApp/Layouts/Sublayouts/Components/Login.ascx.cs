@@ -24,12 +24,12 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private void Page_PreRender(object sender, EventArgs e)
         {
-            mvLogin.SetActiveView(UserLoggedIntoSiteAllowedAccess(Page, Nodes.MicrositeHomeItem) ? vLoggedIn : vAnon);
+            mvLogin.SetActiveView(UserLoggedIntoMicrositeAllowedAccess(Page, Nodes.MicrositeHomeItem) ? vLoggedIn : vAnon);
         }
 
         private void SetUpLabels()
         {
-            SetSitecoreControlWithSitecoreItem(Controls, Datasource);
+            //SetSitecoreControlWithSitecoreItem(Controls, Datasource);
             btnLogin.Text = Datasource["Login button text"];
             btnLogout.Text = Datasource["Logout button text"];
             rfvEmail.ErrorMessage = Datasource["Email required"];
@@ -159,7 +159,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         protected void mvLogin_OnActiveViewChanged(object sender, EventArgs e)
         {
-            litUsername.Text = UserLoggedIntoSiteAllowedAccess(Page, Nodes.MicrositeHomeItem)
+            litUsername.Text = UserLoggedIntoMicrositeAllowedAccess(Page, Nodes.MicrositeHomeItem)
                                    ? Sitecore.Context.User.LocalName
                                    : string.Empty;
         }

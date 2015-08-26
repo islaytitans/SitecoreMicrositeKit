@@ -8,6 +8,7 @@ using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -57,7 +58,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private SitecoreSearchParameters CreateNewsSearchParameters()
         {
-            Item siteClassificationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteClassificationTemplateId);
+            Item siteClassificationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Templates.MicrositeClassificationFolderId);
             var fieldDictionary = new Dictionary<string, string>();
 
             if (siteClassificationItem != null)
@@ -73,7 +74,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 }
             }
 
-            var newsTemplates = new List<ID> { Microsite.MicroSiteNewsTemplateGuid };
+            var newsTemplates = new List<ID> { Templates.MicroSiteNewsTemplateGuid };
 
             return new SitecoreSearchParameters()
             {
@@ -123,7 +124,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                     if (hlReadMore != null && hlImage != null && hlTitle != null)
                     {
                         Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                   .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteNewsDetailsTemplateId);
+                                   .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteNewsDetailsTemplateId);
 
                         string url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem),
                                                    QueryStrings.Guid, item.ID);

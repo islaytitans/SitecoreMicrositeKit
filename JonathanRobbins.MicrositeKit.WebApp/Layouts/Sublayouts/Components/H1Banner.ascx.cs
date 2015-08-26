@@ -1,6 +1,8 @@
 ﻿using System;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
+using Sitecore;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Web.UI.WebControls;
@@ -22,7 +24,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             Item item = RetrieveItemOwnerOfField(sctTitle.Field);
             if (item != null) sctTitle.Item = item;
 
-            if (Sitecore.Context.Item.TemplateID == Microsite.MicroSiteEventDetailsTemplateId)
+            if (Sitecore.Context.Item.TemplateID == Templates.MicroSiteEventDetailsTemplateId)
             {
                 string itemId = ApplyParameterIfPresent(QueryStrings.Guid);
 

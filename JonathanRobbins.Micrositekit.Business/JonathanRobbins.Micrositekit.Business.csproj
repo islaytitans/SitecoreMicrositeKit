@@ -30,6 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\Lib\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.3.1.6.186\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4">
+      <HintPath>..\packages\structuremap.3.1.6.186\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +49,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Feedback\CommentCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Entities\JonathanRobbins.MicrositeKit.Entities.csproj">
+      <Project>{1c5f933e-b2b8-46f7-8432-4e955355592e}</Project>
+      <Name>JonathanRobbins.MicrositeKit.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Enumerators\JonathanRobbins.MicrositeKit.Enumerators.csproj">
+      <Project>{9ba0995a-0a42-44d6-b0aa-4b98e4641da4}</Project>
+      <Name>JonathanRobbins.MicrositeKit.Enumerators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Interfaces\JonathanRobbins.MicrositeKit.Interfaces.csproj">
+      <Project>{9118c5db-5df7-4615-b589-9f7ea1913b2c}</Project>
+      <Name>JonathanRobbins.MicrositeKit.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.UI;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 using Sitecore.Links;
@@ -37,11 +38,11 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private void PopulateFields()
         {
-            if (FeaturedItem.TemplateID == Microsite.MicroSiteNewsTemplateGuid || FeaturedItem.TemplateID == Microsite.MicroSiteBlogTemplateGuid)
+            if (FeaturedItem.TemplateID == Templates.MicroSiteNewsTemplateGuid || FeaturedItem.TemplateID == Templates.MicroSiteBlogTemplateGuid)
             {
                 scdDate.Field = "Date";
             }
-            else if (FeaturedItem.TemplateID == Microsite.MicroSiteEventTemplateGuid)
+            else if (FeaturedItem.TemplateID == Templates.MicroSiteEventTemplateGuid)
             {
                 scdDate.Field = "Start date";
             }
@@ -60,25 +61,25 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             string url = string.Empty;
 
-            if (FeaturedItem.TemplateID == Microsite.MicroSiteNewsTemplateGuid)
+            if (FeaturedItem.TemplateID == Templates.MicroSiteNewsTemplateGuid)
             {
                 Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                   .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteNewsDetailsTemplateId);
+                                   .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteNewsDetailsTemplateId);
                 url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStrings.Guid, FeaturedItem.ID.ToString());
             }
-            else if (FeaturedItem.TemplateID == Microsite.MicroSiteEventTemplateGuid)
+            else if (FeaturedItem.TemplateID == Templates.MicroSiteEventTemplateGuid)
             {
                 Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                                           .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteEventDetailsTemplateId);
+                                                           .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteEventDetailsTemplateId);
                 url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStrings.Guid, FeaturedItem.ID.ToString());
             }
-            else if (FeaturedItem.TemplateID == Microsite.MicroSiteBlogTemplateGuid)
+            else if (FeaturedItem.TemplateID == Templates.MicroSiteBlogTemplateGuid)
             {
                 Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                                    .FirstOrDefault(
                                                        x =>
                                                        x.TemplateID ==
-                                                       Microsite.MicroSiteBlogDetailsTemplateId);
+                                                       Templates.MicroSiteBlogDetailsTemplateId);
                 url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStrings.Guid,
                                     FeaturedItem.ID.ToString());
             }

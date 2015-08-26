@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -43,7 +45,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             var searchResults = searchUtility.Search(sitecoreSearchParameters);
 
-            var itemComparer = new Business.SitecoreInteractions.ItemComparer();
+            var itemComparer = new ItemComparer();
             var resultsCollection = searchResults.ResultsCollection.ToList();
             resultsCollection.Sort(itemComparer.CompareDate);
             resultsCollection.Reverse();
@@ -55,7 +57,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         private SitecoreSearchParameters CreateBlogsSearchParameters()
         {
 
-            var searchTemplates = new List<ID> { Microsite.MicroSiteBlogTemplateGuid };
+            var searchTemplates = new List<ID> { Templates.MicroSiteBlogTemplateGuid };
 
             return new SitecoreSearchParameters()
             {
@@ -92,7 +94,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                                                            .FirstOrDefault(
                                                                x =>
                                                                x.TemplateID ==
-                                                               Microsite.MicroSiteBlogDetailsTemplateId);
+                                                               Templates.MicroSiteBlogDetailsTemplateId);
 
                         string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
 

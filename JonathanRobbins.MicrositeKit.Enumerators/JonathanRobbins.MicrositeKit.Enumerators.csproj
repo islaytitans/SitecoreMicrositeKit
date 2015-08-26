@@ -49,6 +49,7 @@
     <Compile Include="SitecoreConfig\Fields\Global.cs" />
     <Compile Include="SitecoreConfig\Guids\Global.cs" />
     <Compile Include="SitecoreConfig\Guids\Templates.cs" />
+    <Compile Include="SitecoreConfig\Guids\Workflows.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

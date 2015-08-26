@@ -12,7 +12,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (UserLoggedIntoSite(Page))
+            if (UserLoggedIntoMicrosite(Page))
             {
                 phLoggedIn.Visible = true;
             }

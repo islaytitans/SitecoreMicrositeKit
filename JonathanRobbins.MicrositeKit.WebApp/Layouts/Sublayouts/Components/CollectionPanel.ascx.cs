@@ -6,6 +6,7 @@ using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -28,9 +29,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                 var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
 
-                var searchTemplates = new List<ID> { Microsite.MicroSiteEventTemplateGuid };
-                searchTemplates.Add(Microsite.MicroSiteBlogTemplateGuid);
-                searchTemplates.Add(Microsite.MicroSiteNewsTemplateGuid);
+                var searchTemplates = new List<ID> { Templates.MicroSiteEventTemplateGuid };
+                searchTemplates.Add(Templates.MicroSiteBlogTemplateGuid);
+                searchTemplates.Add(Templates.MicroSiteNewsTemplateGuid);
 
                var sitecoreSearchParameters = new SitecoreSearchParameters()
                     {

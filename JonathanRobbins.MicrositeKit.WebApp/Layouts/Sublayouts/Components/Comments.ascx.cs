@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JonathanRobbins.Micrositekit.Business.Feedback;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Entities.UserDefined;
 using JonathanRobbins.MicrositeKit.Enumerators.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
+using JonathanRobbins.MicrositeKit.Interfaces.Business.Feedback;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -42,7 +45,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         {
             if (!Page.IsPostBack)
             {
-                mvCommentBox.SetActiveView(UserLoggedIntoSite(Page) ? vLoggedIn : vAnon);
+                mvCommentBox.SetActiveView(UserLoggedIntoMicrosite(Page) ? vLoggedIn : vAnon);
                 SearchCommentsAndBind();
             }
             SetLabels();
@@ -118,8 +121,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             var commentModel = CreateCommentModel(comment);
 
-            Item commentFolderItem = siteDataItem.Axes.GetDescendants()
-                .FirstOrDefault(x => x.TemplateID == Microsite.MicrositeCommentFolderId);
+            Item commentFolderItem = Nodes.MicrositeLocalRepositoryItem.Axes.GetDescendants()
+                .FirstOrDefault(x => x.TemplateID == Templates.MicrositeCommentFolderId);
 
             Assert.IsNotNull(commentFolderItem, "Comment folder does not exist");
 
@@ -170,7 +173,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             var fieldDictionary = new Dictionary<string, string>();
             fieldDictionary.Add(RelatedItemId, "Related object");
 
-            var searchTemplates = new List<ID> { Microsite.MicrositeCommentTemplateId };
+            var searchTemplates = new List<ID> { Templates.MicrositeCommentTemplateId };
 
             return new SitecoreSearchParameters()
             {
