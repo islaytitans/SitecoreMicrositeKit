@@ -1,0 +1,39 @@
+﻿using System;
+using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
+using Sitecore.Data;
+using Sitecore.Data.Items;
+
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+{
+    public partial class H1Banner : MicrositeSublayoutBase
+    {
+        private void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                BindToObject();
+            }
+        }
+
+        private void BindToObject()
+        {
+            Item item = RetrieveItemOwnerOfField(sctTitle.Field);
+            if (item != null) sctTitle.Item = item;
+
+            if (Sitecore.Context.Item.TemplateID == Microsite.MicroSiteEventDetailsTemplateId)
+            {
+                string itemId = ApplyParameterIfPresent(QueryStringNames.Guid);
+
+                if (!string.IsNullOrEmpty(itemId))
+                {
+                    var sciImage = Page.FindControl("sciImage") as SImage;
+
+                    if (sciImage != null)
+                    {
+                        sciImage.SItemGuid = new ID(itemId).ToGuid();
+                    }
+                }
+            }
+        }
+    }
+}

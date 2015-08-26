@@ -830,6 +830,30 @@
     <Content Include="css\reset.css" />
     <Content Include="css\reset.min.css" />
     <Content Include="Layouts\Sublayouts\Components\BlogDetails.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\BlogListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\CallToAction.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Carousel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\CollectionPanel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\CollectionPanelView.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Comments.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\CommsPanel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Date.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\EventDetail.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\EventsListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\FeaturedPanel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\H1Banner.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\LibraryListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\LoggedIn.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Login.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\MainText.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\NewsDetails.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\NewsListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\PromoPanel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\ReleatedResources.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\SecondaryImage.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\ShortText.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Strapline.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\VideoWidget.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Footer.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Header.ascx" />
@@ -948,6 +972,174 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\BlogDetails.ascx.designer.cs">
       <DependentUpon>BlogDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\BlogListing.ascx.cs">
+      <DependentUpon>BlogListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\BlogListing.ascx.designer.cs">
+      <DependentUpon>BlogListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\CallToAction.ascx.cs">
+      <DependentUpon>CallToAction.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\CallToAction.ascx.designer.cs">
+      <DependentUpon>CallToAction.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Carousel.ascx.cs">
+      <DependentUpon>Carousel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Carousel.ascx.designer.cs">
+      <DependentUpon>Carousel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\CollectionPanel.ascx.cs">
+      <DependentUpon>CollectionPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\CollectionPanel.ascx.designer.cs">
+      <DependentUpon>CollectionPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\CollectionPanelView.ascx.cs">
+      <DependentUpon>CollectionPanelView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\CollectionPanelView.ascx.designer.cs">
+      <DependentUpon>CollectionPanelView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Comments.ascx.cs">
+      <DependentUpon>Comments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Comments.ascx.designer.cs">
+      <DependentUpon>Comments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\CommsPanel.ascx.cs">
+      <DependentUpon>CommsPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\CommsPanel.ascx.designer.cs">
+      <DependentUpon>CommsPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Date.ascx.cs">
+      <DependentUpon>Date.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Date.ascx.designer.cs">
+      <DependentUpon>Date.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\EventDetail.ascx.cs">
+      <DependentUpon>EventDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\EventDetail.ascx.designer.cs">
+      <DependentUpon>EventDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\EventsListing.ascx.cs">
+      <DependentUpon>EventsListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\EventsListing.ascx.designer.cs">
+      <DependentUpon>EventsListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\FeaturedPanel.ascx.cs">
+      <DependentUpon>FeaturedPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\FeaturedPanel.ascx.designer.cs">
+      <DependentUpon>FeaturedPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\H1Banner.ascx.cs">
+      <DependentUpon>H1Banner.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\H1Banner.ascx.designer.cs">
+      <DependentUpon>H1Banner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\LibraryListing.ascx.cs">
+      <DependentUpon>LibraryListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\LibraryListing.ascx.designer.cs">
+      <DependentUpon>LibraryListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\LoggedIn.ascx.cs">
+      <DependentUpon>LoggedIn.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\LoggedIn.ascx.designer.cs">
+      <DependentUpon>LoggedIn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Login.ascx.cs">
+      <DependentUpon>Login.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Login.ascx.designer.cs">
+      <DependentUpon>Login.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\MainText.ascx.cs">
+      <DependentUpon>MainText.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\MainText.ascx.designer.cs">
+      <DependentUpon>MainText.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\NewsDetails.ascx.cs">
+      <DependentUpon>NewsDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\NewsDetails.ascx.designer.cs">
+      <DependentUpon>NewsDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\NewsListing.ascx.cs">
+      <DependentUpon>NewsListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\NewsListing.ascx.designer.cs">
+      <DependentUpon>NewsListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\PromoPanel.ascx.cs">
+      <DependentUpon>PromoPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\PromoPanel.ascx.designer.cs">
+      <DependentUpon>PromoPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ReleatedResources.ascx.cs">
+      <DependentUpon>ReleatedResources.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ReleatedResources.ascx.designer.cs">
+      <DependentUpon>ReleatedResources.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\SecondaryImage.ascx.cs">
+      <DependentUpon>SecondaryImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\SecondaryImage.ascx.designer.cs">
+      <DependentUpon>SecondaryImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ShortText.ascx.cs">
+      <DependentUpon>ShortText.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ShortText.ascx.designer.cs">
+      <DependentUpon>ShortText.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Strapline.ascx.cs">
+      <DependentUpon>Strapline.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Strapline.ascx.designer.cs">
+      <DependentUpon>Strapline.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\VideoWidget.ascx.cs">
+      <DependentUpon>VideoWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\VideoWidget.ascx.designer.cs">
+      <DependentUpon>VideoWidget.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\ControlBases\MicrositeSublayoutBase.cs">
       <SubType>ASPXCodeBehind</SubType>
