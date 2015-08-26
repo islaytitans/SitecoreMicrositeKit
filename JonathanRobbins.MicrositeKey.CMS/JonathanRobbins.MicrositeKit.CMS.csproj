@@ -30,6 +30,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Sitecore.ContentSearch">
+      <HintPath>..\Lib\Sitecore.ContentSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch.Analytics">
+      <HintPath>..\Lib\Sitecore.ContentSearch.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch.Analytics.Client">
+      <HintPath>..\Lib\Sitecore.ContentSearch.Analytics.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch.Client">
+      <HintPath>..\Lib\Sitecore.ContentSearch.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch.Linq">
+      <HintPath>..\Lib\Sitecore.ContentSearch.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch.Linq.Lucene">
+      <HintPath>..\Lib\Sitecore.ContentSearch.Linq.Lucene.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch.LuceneProvider">
+      <HintPath>..\Lib\Sitecore.ContentSearch.LuceneProvider.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\Lib\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -46,8 +67,13 @@
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Items\Nodes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\SearchUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Entities\JonathanRobbins.MicrositeKit.Entities.csproj">
+      <Project>{1c5f933e-b2b8-46f7-8432-4e955355592e}</Project>
+      <Name>JonathanRobbins.MicrositeKit.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Enumerators\JonathanRobbins.MicrositeKit.Enumerators.csproj">
       <Project>{9ba0995a-0a42-44d6-b0aa-4b98e4641da4}</Project>
       <Name>JonathanRobbins.MicrositeKit.Enumerators</Name>

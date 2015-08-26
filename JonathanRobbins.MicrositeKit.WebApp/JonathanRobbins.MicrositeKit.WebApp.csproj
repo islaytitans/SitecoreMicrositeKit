@@ -553,6 +553,12 @@
     <Reference Include="Stimulsoft.Report.WebDesign">
       <HintPath>..\Lib\Stimulsoft.Report.WebDesign.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.3.1.6.186\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4">
+      <HintPath>..\packages\structuremap.3.1.6.186\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -938,6 +944,7 @@
     <Content Include="css\reset.css.map" />
     <Content Include="css\reset.less" />
     <Content Include="App_Config\Include\zzMircosites.config" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -956,7 +963,9 @@
     <Content Include="css\MicrositeKit\vars.css" />
     <Content Include="css\MicrositeKit\widgets.css" />
     <Content Include="Layouts\BrowserLayout.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Layouts\BrowserLayout.aspx.cs">
@@ -1234,6 +1243,10 @@
     <ProjectReference Include="..\JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKit.CMS.csproj">
       <Project>{cb9da0b1-eb87-400a-a31b-6b63cc0b7e90}</Project>
       <Name>JonathanRobbins.MicrositeKit.CMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Entities\JonathanRobbins.MicrositeKit.Entities.csproj">
+      <Project>{1c5f933e-b2b8-46f7-8432-4e955355592e}</Project>
+      <Name>JonathanRobbins.MicrositeKit.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\JonathanRobbins.MicrositeKit.Enumerators\JonathanRobbins.MicrositeKit.Enumerators.csproj">
       <Project>{9BA0995A-0A42-44D6-B0AA-4B98E4641DA4}</Project>

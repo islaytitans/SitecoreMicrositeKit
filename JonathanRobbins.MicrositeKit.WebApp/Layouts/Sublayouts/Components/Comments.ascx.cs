@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JonathanRobbins.MicrositeKit.CMS.Search;
+using JonathanRobbins.MicrositeKit.Entities.Search;
+using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
+using Sitecore.Data.Comparers;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Web.UI.WebControls;
+using StructureMap;
 
 //using scSearchContrib.Searcher.Parameters;
 
