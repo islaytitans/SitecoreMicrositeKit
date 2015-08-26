@@ -7,7 +7,7 @@ using Sitecore.Diagnostics;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 {
-    public class NavigationControlBase : MicrositeControlBase
+    public class NavigationSublayoutBase : MicrositeSublayoutBase
     {
         public bool DisplayItemInNavigation(Item item)
         {

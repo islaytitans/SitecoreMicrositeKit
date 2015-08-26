@@ -12,7 +12,7 @@ using Sitecore.Diagnostics;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 {
-    public class MicrositeControlBase : UserControlBase
+    public class MicrositeSublayoutBase : SublayoutBase
     {
         protected bool UserLoggedIn(Page page)
         {

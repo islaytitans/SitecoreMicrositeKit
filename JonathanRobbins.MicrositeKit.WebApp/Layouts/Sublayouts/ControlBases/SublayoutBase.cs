@@ -12,7 +12,7 @@ using Sitecore.Web.UI.WebControls;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 {
-    public class UserControlBase : UserControl
+    public class SublayoutBase : UserControl
     {
         public Sublayout Sublayout
         {

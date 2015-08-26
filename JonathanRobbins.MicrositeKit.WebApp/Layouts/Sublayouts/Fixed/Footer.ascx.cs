@@ -15,7 +15,7 @@ using Text = Sitecore.Web.UI.WebControls.Text;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class Footer : MicrositeControlBase
+    public partial class Footer : MicrositeSublayoutBase
     {
         protected string Separator = " | ";
 

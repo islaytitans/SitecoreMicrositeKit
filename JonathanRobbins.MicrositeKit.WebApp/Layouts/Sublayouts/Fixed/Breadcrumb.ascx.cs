@@ -14,7 +14,7 @@ using Sitecore.Social.Configuration.Model;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class Breadcrumb : NavigationControlBase
+    public partial class Breadcrumb : NavigationSublayoutBase
     {
         private const string Separator = ">";
 

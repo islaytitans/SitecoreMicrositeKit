@@ -12,7 +12,7 @@ using Sitecore.Links;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class MainNavigation : NavigationControlBase
+    public partial class MainNavigation : NavigationSublayoutBase
     {
         private IEnumerable<Item> _navigationDatasource;
         protected IEnumerable<Item> NavigationDatasource

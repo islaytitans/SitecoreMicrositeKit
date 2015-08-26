@@ -829,6 +829,7 @@
     </Content>
     <Content Include="css\reset.css" />
     <Content Include="css\reset.min.css" />
+    <Content Include="Layouts\Sublayouts\Components\BlogDetails.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Footer.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Header.ascx" />
@@ -941,13 +942,20 @@
     <Compile Include="Layouts\BrowserLayout.aspx.designer.cs">
       <DependentUpon>BrowserLayout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\ControlBases\MicrositeControlBase.cs">
+    <Compile Include="Layouts\Sublayouts\Components\BlogDetails.ascx.cs">
+      <DependentUpon>BlogDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\ControlBases\NavigationControlBase.cs">
+    <Compile Include="Layouts\Sublayouts\Components\BlogDetails.ascx.designer.cs">
+      <DependentUpon>BlogDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\ControlBases\MicrositeSublayoutBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\ControlBases\UserControlBase.cs">
+    <Compile Include="Layouts\Sublayouts\ControlBases\NavigationSublayoutBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\ControlBases\SublayoutBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx.cs">
@@ -1029,9 +1037,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Layouts\Sublayouts\Components\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\JonathanRobbins.MicrositeKey.CMS\JonathanRobbins.MicrositeKit.CMS.csproj">
       <Project>{cb9da0b1-eb87-400a-a31b-6b63cc0b7e90}</Project>

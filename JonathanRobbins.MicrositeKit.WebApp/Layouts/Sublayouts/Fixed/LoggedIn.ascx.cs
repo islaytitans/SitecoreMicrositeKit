@@ -11,7 +11,7 @@ using Sitecore.Links;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class LoggedIn : MicrositeControlBase
+    public partial class LoggedIn : MicrositeSublayoutBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

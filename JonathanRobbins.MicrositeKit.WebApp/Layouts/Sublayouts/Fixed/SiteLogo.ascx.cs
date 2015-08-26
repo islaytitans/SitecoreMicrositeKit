@@ -13,7 +13,7 @@ using Sitecore.Links;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class SiteLogo : MicrositeControlBase
+    public partial class SiteLogo : MicrositeSublayoutBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
