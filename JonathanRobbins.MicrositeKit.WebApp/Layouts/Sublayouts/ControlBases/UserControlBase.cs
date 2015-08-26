@@ -29,21 +29,21 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
             get { return Placeholder.Key; }
         }
 
-        private Item _dataSource;
+        private Item _datasource;
         public Item Datasource
         {
             get
             {
-                if (_dataSource == null)
+                if (_datasource == null)
                 {
-                    _dataSource = Sitecore.Context.Item;
+                    _datasource = Sitecore.Context.Item;
 
                     if (Sublayout != null && !string.IsNullOrEmpty(Sublayout.DataSource))
-                        _dataSource = Sitecore.Context.Database.GetItem(Sublayout.DataSource);
+                        _datasource = Sitecore.Context.Database.GetItem(Sublayout.DataSource);
                 }
-                return _dataSource;
+                return _datasource;
             }
-            set { _dataSource = value; }
+            set { _datasource = value; }
         }
 
         public NameValueCollection Parameters
