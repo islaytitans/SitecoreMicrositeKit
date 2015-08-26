@@ -5,9 +5,7 @@
     <div class="inner">
         <h1><sc:Text runat="server" Field="Title" ID="sctTitle" /></h1>
     </div>    
-    <input type="hidden" name="ImageSrc" value='<tc:SImage runat="server" Field="Image" ID="sciImage"  />' class="hidden" />
-        
-    
+    <input type="hidden" name="ImageSrc" value='<sc:SImage runat="server" Field="Image" ID="sciImage"  />' class="hidden" />
 </div>
 
 

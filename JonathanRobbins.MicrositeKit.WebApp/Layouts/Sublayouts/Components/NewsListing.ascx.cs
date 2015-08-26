@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
+using JonathanRobbins.MicrositeKit.CMS.Extensions;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Search;
@@ -44,7 +46,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             var searchResults = searchUtility.Search(sitecoreSearchParameters);
 
-            var itemComparer = new Business.SitecoreInteractions.ItemComparer();
+            var itemComparer = new ItemComparer();
             var resultsCollection = searchResults.ResultsCollection.ToList();
             resultsCollection.Sort(itemComparer.CompareDate);
             resultsCollection.Reverse();
@@ -55,7 +57,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private SitecoreSearchParameters CreateNewsSearchParameters()
         {
-            Item siteClassificationItem = SiteConfigItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteClassificationTemplateId);
+            Item siteClassificationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteClassificationTemplateId);
             var fieldDictionary = new Dictionary<string, string>();
 
             if (siteClassificationItem != null)
@@ -120,13 +122,13 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                     if (hlReadMore != null && hlImage != null && hlTitle != null)
                     {
-                        Item destinationItem = SiteHomeItem.Axes.GetDescendants()
+                        Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                    .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteNewsDetailsTemplateId);
 
                         string url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem),
                                                    QueryStrings.Guid, item.ID);
 
-                        if (MicrositeDictionaryItem != null) hlReadMore.Text = MicrositeDictionaryItem[Enumerators.SitecoreConfig.Fields.Global.ReadMore];
+                        if (Datasource != null) hlReadMore.Text = Datasource[Enumerators.SitecoreConfig.Fields.Global.ReadMore];
                         hlReadMore.NavigateUrl = url;
                         hlImage.NavigateUrl = url;
                         hlTitle.NavigateUrl = url;

@@ -12,11 +12,11 @@
         </p>
         <asp:PlaceHolder runat="server" ID="phComments">
             <span class="comments">
-                <sc:Text runat="server" id="sctComments" field="Comments" Item="<%# MicrositeDictionaryItem %>"/>
+                <sc:Text runat="server" id="sctComments" field="Comments" Item="<%# Datasource %>"/>
                 <asp:Literal runat="server" ID="litCommentCount" /></span>
         </asp:PlaceHolder>
     </div>
     <asp:HyperLink runat="server" ID="hlViewMore" class="link" >
-        <sc:Text runat="server" id="sctViewMore" field="View more" SItemGuid="<%# MicrositeDictionaryItem %>"/>
+        <sc:Text runat="server" id="sctViewMore" field="View more" SItemGuid="<%# Datasource %>"/>
     </asp:HyperLink>
 </div>

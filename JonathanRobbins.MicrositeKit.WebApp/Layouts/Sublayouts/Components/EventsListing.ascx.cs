@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JonathanRobbins.MicrositeKit.CMS.Extensions;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Search;
@@ -46,7 +48,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             var searchResults = searchUtility.Search(sitecoreSearchParameters);
 
-            var itemComparer = new Business.SitecoreInteractions.ItemComparer();
+            var itemComparer = new ItemComparer();
             var resultsCollection = searchResults.ResultsCollection.ToList();
             resultsCollection.Sort(itemComparer.CompareStartDate);
             resultsCollection.Reverse();
@@ -57,7 +59,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private SitecoreSearchParameters CreateEventsSearchParameters()
         {
-            Item siteClassificationItem = SiteConfigItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteClassificationTemplateId);
+            Item siteClassificationItem = Nodes.MicrositeLocalSettingsItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteClassificationTemplateId);
             var fieldDictionary = new Dictionary<string, string>();
 
             if (siteClassificationItem != null)
@@ -115,10 +117,10 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                     if (hlViewEvent != null && hlImage != null && hlTitle != null)
                     {
-                        var destinationItem = SiteHomeItem.Axes.GetDescendants()
+                        var destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                    .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteEventDetailsTemplateId);
                         string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
-                        if (MicrositeDictionaryItem != null) hlViewEvent.Text = Datasource["View event"];
+                        if (Datasource != null) hlViewEvent.Text = Datasource["View event"];
 
                         hlViewEvent.NavigateUrl = url;
                         hlImage.NavigateUrl = url;

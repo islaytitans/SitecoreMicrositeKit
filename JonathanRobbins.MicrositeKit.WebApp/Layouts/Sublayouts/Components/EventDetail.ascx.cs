@@ -62,7 +62,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             sctWhenLabel.Item = Datasource;
             sctVenueLabel.Item = Datasource;
             sctExpectLabel.Item = Datasource;
-            sctTime.Item = MicrositeDictionaryItem;
+            sctTime.Item = Datasource;
         }
     }
 }

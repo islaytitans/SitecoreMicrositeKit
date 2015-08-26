@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.Enumerators.Membership;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
@@ -23,7 +24,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private void Page_PreRender(object sender, EventArgs e)
         {
-            mvLogin.SetActiveView(UserLoggedIntoSiteAllowedAccess(Page, SiteHomeItem) ? vLoggedIn : vAnon);
+            mvLogin.SetActiveView(UserLoggedIntoSiteAllowedAccess(Page, Nodes.MicrositeHomeItem) ? vLoggedIn : vAnon);
         }
 
         private void SetUpLabels()
@@ -68,7 +69,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                     if (accessAllowed)
                     {
-                        Response.Redirect(LinkManager.GetItemUrl(SiteHomeItem));
+                        Response.Redirect(LinkManager.GetItemUrl(Nodes.MicrositeHomeItem));
                     }
                     else
                     {
@@ -95,7 +96,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         {
             User user = Sitecore.Context.User;
 
-            return SiteHomeItem.Security.CanRead(user);
+            return Nodes.MicrositeHomeItem.Security.CanRead(user);
         }
 
         private void DisplayLoginFailedMessage(LoginResult loginResult)
@@ -142,7 +143,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             string url = string.Empty;
 
-            LinkField linkField = MicrositeDictionaryItem.Fields["Log out redirect location"];
+            LinkField linkField = Datasource.Fields["Log out redirect location"];
 
             if (linkField != null && !string.IsNullOrEmpty(linkField.Url))
             {
@@ -150,7 +151,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             }
             else
             {
-                url = loginPageItem != null ? LinkManager.GetItemUrl(loginPageItem) : HttpContext.Current.Request.Url.AbsoluteUri;
+                url = Nodes.LoginPageItem != null ? LinkManager.GetItemUrl(Nodes.LoginPageItem) : HttpContext.Current.Request.Url.AbsoluteUri;
             }
 
             Response.Redirect(url);
@@ -158,7 +159,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         protected void mvLogin_OnActiveViewChanged(object sender, EventArgs e)
         {
-            litUsername.Text = UserLoggedIntoSiteAllowedAccess(Page, SiteHomeItem)
+            litUsername.Text = UserLoggedIntoSiteAllowedAccess(Page, Nodes.MicrositeHomeItem)
                                    ? Sitecore.Context.User.LocalName
                                    : string.Empty;
         }

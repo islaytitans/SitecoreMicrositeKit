@@ -9,8 +9,10 @@ using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
+using Sitecore.Analytics.Core.RangeScheduler;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
@@ -61,7 +63,10 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             {
                 var resourceTypes = new Dictionary<ID, string>();
 
-                Item categorisationItem = Sitecore.Context.Database.GetItem(Enumerators.SitecoreConfig.Guids.Global.ClassificationFolderId);
+                Item categorisationItem =
+                    Nodes.MicrositeSharedSettingsItem.GetChildren()
+                        .FirstOrDefault(x => x.TemplateID == Templates.MicrositeClassificationFolderId);
+
                 if (categorisationItem != null)
                 {
                     List<Item> categories = categorisationItem.Children.ToList();
@@ -118,7 +123,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             return new SitecoreSearchParameters()
             {
                 IndexName = Indexes.Web,
-                Location = Enumerators.SitecoreConfig.Guids.Global.MediaLibraryRootNodeId,
+                Location = Sitecore.ItemIDs.MediaLibraryRoot,
                 PostFieldFilters = fieldDictionary
             };
         }
@@ -127,8 +132,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         {
             if (e.Item.ItemType == ListViewItemType.EmptyItem)
             {
-                var sctNoResults = (SText)e.Item.FindControl("sctNoResults");
-                if (sctNoResults != null) sctNoResults.SItemGuid = Datasource.ID.ToGuid();
+                var sctNoResults = (Text)e.Item.FindControl("sctNoResults");
+                if (sctNoResults != null) sctNoResults.DataSource = Datasource.ID.ToString();
 
             }
             else if (e.Item.ItemType == ListViewItemType.DataItem)

@@ -13,7 +13,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            sctLegend.Item = MicrositeDictionaryItem;
+            sctLegend.Item = Datasource;
             if (!Page.IsPostBack)
             {
                 PopulateRepeater();

@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Security.Authentication;
@@ -44,6 +45,36 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
                 return _datasource;
             }
             set { _datasource = value; }
+        }
+
+        //TODO remove
+        public Item RetrieveItemOwnerOfField(string fieldName)
+        {
+            if (Sitecore.Context.Item.Fields[fieldName] != null &&
+                !string.IsNullOrEmpty(Sitecore.Context.Item.Fields[fieldName].Value))
+            {
+                return Sitecore.Context.Item;
+            }
+
+            if (Datasource != null && Datasource.Fields[fieldName] != null &&
+                !string.IsNullOrEmpty(Datasource.Fields[fieldName].Value))
+            {
+                return Datasource;
+            }
+
+            string itemId = ApplyParameterIfPresent(QueryStrings.Guid);
+
+            if (!string.IsNullOrEmpty(itemId))
+            {
+                Item item = Sitecore.Context.Database.GetItem(itemId);
+                if (item != null && item.Fields[fieldName] != null &&
+                    !string.IsNullOrEmpty(item.Fields[fieldName].Value))
+                {
+                    return item;
+                }
+            }
+
+            return null;
         }
 
         public NameValueCollection Parameters

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
 using Sitecore.Links;
@@ -23,7 +24,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             string url = string.Empty;
 
-            LinkField linkField = MicrositeDictionaryItem.Fields["Log out redirect location"];
+            LinkField linkField = Datasource.Fields["Log out redirect location"];
 
             if (linkField != null && !string.IsNullOrEmpty(linkField.Url))
             {
@@ -31,7 +32,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             }
             else
             {
-                url = loginPageItem != null ? LinkManager.GetItemUrl(loginPageItem) : HttpContext.Current.Request.Url.AbsoluteUri;
+                url = Nodes.LoginPageItem != null ? LinkManager.GetItemUrl(Nodes.LoginPageItem) : HttpContext.Current.Request.Url.AbsoluteUri;
             }
 
             Response.Redirect(url);

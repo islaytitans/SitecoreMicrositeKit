@@ -3,6 +3,7 @@ using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
 using Sitecore.Data.Items;
+using Sitecore.Web.UI.WebControls;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 {
@@ -27,11 +28,11 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                 if (!string.IsNullOrEmpty(itemId))
                 {
-                    var sciImage = Page.FindControl("sciImage") as SImage;
+                    var sciImage = Page.FindControl("sciImage") as Image;
 
                     if (sciImage != null)
                     {
-                        sciImage.SItemGuid = new ID(itemId).ToGuid();
+                        sciImage.DataSource = itemId;
                     }
                 }
             }

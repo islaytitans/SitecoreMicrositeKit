@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
@@ -54,25 +56,25 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private void SetUpLinks()
         {
-            hlReadMore.Text = MicrositeDictionaryItem["Read more"];
+            hlReadMore.Text = Datasource["Read more"];
 
             string url = string.Empty;
 
             if (FeaturedItem.TemplateID == Microsite.MicroSiteNewsTemplateGuid)
             {
-                Item destinationItem = SiteHomeItem.Axes.GetDescendants()
+                Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                    .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteNewsDetailsTemplateId);
                 url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStrings.Guid, FeaturedItem.ID.ToString());
             }
             else if (FeaturedItem.TemplateID == Microsite.MicroSiteEventTemplateGuid)
             {
-                Item destinationItem = SiteHomeItem.Axes.GetDescendants()
+                Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                                            .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteEventDetailsTemplateId);
                 url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStrings.Guid, FeaturedItem.ID.ToString());
             }
             else if (FeaturedItem.TemplateID == Microsite.MicroSiteBlogTemplateGuid)
             {
-                Item destinationItem = SiteHomeItem.Axes.GetDescendants()
+                Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                                    .FirstOrDefault(
                                                        x =>
                                                        x.TemplateID ==

@@ -68,7 +68,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private void SetLabels()
         {
-            sctSeeMore.Item = MicrositeDictionaryItem;
+            sctSeeMore.Item = Datasource;
         }
 
         private void BindControls()

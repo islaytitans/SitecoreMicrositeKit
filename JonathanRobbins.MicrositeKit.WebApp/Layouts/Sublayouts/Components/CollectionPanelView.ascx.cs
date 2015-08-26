@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
@@ -42,14 +44,14 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             if (ViewItem.TemplateID == Microsite.MicroSiteEventTemplateGuid)
             {
                 phComments.Visible = false;
-                destinationItem = SiteHomeItem.Axes.GetDescendants()
+                destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
                                                   x => x.TemplateID == Microsite.MicroSiteEventDetailsTemplateId);
             }
             if (ViewItem.TemplateID == Microsite.MicroSiteBlogTemplateGuid)
             {
                 phComments.Visible = true;
-                destinationItem = SiteHomeItem.Axes.GetDescendants()
+                destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
                                                   x =>
                                                   x.TemplateID == Microsite.MicroSiteBlogDetailsTemplateId);
@@ -58,7 +60,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             if (ViewItem.TemplateID == Microsite.MicroSiteNewsTemplateGuid)
             {
                 phComments.Visible = false;
-                destinationItem = SiteHomeItem.Axes.GetDescendants()
+                destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
                                                   x => x.TemplateID == Microsite.MicroSiteNewsDetailsTemplateId);
             }

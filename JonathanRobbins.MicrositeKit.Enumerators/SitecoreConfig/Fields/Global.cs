@@ -25,6 +25,36 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Fields
         public static string Categories = "Categories";
 
         public static string CreatedDate = "__Created";
-        
+        public static string WorkflowState = "__Workflow state";
+        public static string Workflow = "__Workflow";
+
+        //TODO sort out
+        public static string ReadMore = "Read more";
+        public static string Classification = "Classification";
+        public static string ShowControls = "Show controls";
+        public static string Slides = "Slides";
+        public static string RelatedObject = "Related object";
+        public static string FirstName = "First name";
+        public static string LastName = "Last name";
+        public static string ShortText = "Short text";
+        public static string CommentCounter = "Comment counter";
+        public static string Venue = "Venue";
+        public static string Theme = "Theme";
+        public static string ServerCssPath = "Server Css Path";
+        public static string MicrositeDomain = "Microsite url";
+        public static string LinkCollections = "Link collections";
+        public static string Links = "Links";
+        public static string PageTitle = "Page title";
+        public static string NavigationSections = "Navigation sections";
+        public static string Link = "Link";
+        public static string Find = "Find text";
+        public static string Title = "Title";
+        public static string Incidents = "Incidents";
+        public static string CompletionDate = "Completion date";
+        public static string Completed = "Completed";
+        public static string Ongoing = "Ongoing";
+        public static string Scheduled = "Scheduled";
+        public static string PostCode = "Postcode";
+
     }
 }

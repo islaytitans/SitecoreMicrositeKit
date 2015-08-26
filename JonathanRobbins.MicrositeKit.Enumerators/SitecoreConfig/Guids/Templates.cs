@@ -18,5 +18,6 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids
         public static ID MicrositeSharedRepositoryId = new ID("{5972BA3A-39B3-41A3-AAD9-95C884329651}");
         public static ID MicroSiteLoginPageId = new ID("{53BF3075-823A-44E8-A593-0C3AFB146914}");
         public static ID MicroSiteDictionaryId = new ID("{741D8995-6AC4-4DCB-8CF4-B5C17B464573}");
+        public static ID MicrositeClassificationFolderId = new ID("{3B1F25C4-9A05-4BDE-81E6-7F743E25F7A1}");
     }
 }

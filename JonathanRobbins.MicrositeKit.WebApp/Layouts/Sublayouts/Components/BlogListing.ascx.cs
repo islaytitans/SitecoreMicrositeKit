@@ -88,7 +88,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                     if (sctShortText != null) sctShortText.Item = item;
                     if (hlViewBlog != null)
                     {
-                        Item destinationItem = SiteHomeItem.Axes.GetDescendants()
+                        Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                                            .FirstOrDefault(
                                                                x =>
                                                                x.TemplateID ==
@@ -96,7 +96,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                         string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
 
-                        if (MicrositeDictionaryItem != null) hlViewBlog.Text = Datasource["View blog"];
+                        if (Datasource != null) hlViewBlog.Text = Datasource["View blog"];
                         hlViewBlog.NavigateUrl = url;
                         hlImage.NavigateUrl = url;
                         hlTitle.NavigateUrl = url;
