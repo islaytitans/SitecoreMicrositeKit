@@ -836,6 +836,10 @@
     <Content Include="Layouts\Sublayouts\Fixed\MainNavigation.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\SiteLogo.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\SubNav.ascx" />
+    <Content Include="Layouts\Sublayouts\Positioning\Landing.ascx" />
+    <Content Include="Layouts\Sublayouts\Positioning\Standard2575.ascx" />
+    <Content Include="Layouts\Sublayouts\Positioning\Standard7525.ascx" />
+    <Content Include="Layouts\Sublayouts\Positioning\StandardWithSupporting.ascx" />
     <Content Include="scripts\helpU\app.js" />
     <Content Include="scripts\helpU\helpu.js" />
     <Content Include="scripts\helpU\helpu.min.js" />
@@ -994,6 +998,34 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Fixed\SubNav.ascx.designer.cs">
       <DependentUpon>SubNav.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Positioning\Landing.ascx.cs">
+      <DependentUpon>Landing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Positioning\Landing.ascx.designer.cs">
+      <DependentUpon>Landing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Positioning\Standard2575.ascx.cs">
+      <DependentUpon>Standard2575.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Positioning\Standard2575.ascx.designer.cs">
+      <DependentUpon>Standard2575.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Positioning\Standard7525.ascx.cs">
+      <DependentUpon>Standard7525.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Positioning\Standard7525.ascx.designer.cs">
+      <DependentUpon>Standard7525.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Positioning\StandardWithSupporting.ascx.cs">
+      <DependentUpon>StandardWithSupporting.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Positioning\StandardWithSupporting.ascx.designer.cs">
+      <DependentUpon>StandardWithSupporting.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
