@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using JonathanRobbins.MicrositeKit.Enumerators.Membership;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
 using Sitecore.Links;
