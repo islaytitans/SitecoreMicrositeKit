@@ -1,4 +1,5 @@
 ﻿using System;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 
@@ -17,7 +18,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private void PopulateLabels()
         {
-            string newsItemId = ApplyParameterIfPresent(QueryStringNames.Guid);
+            string newsItemId = ApplyParameterIfPresent(QueryStrings.Guid);
 
             if (!string.IsNullOrEmpty(newsItemId))
             {

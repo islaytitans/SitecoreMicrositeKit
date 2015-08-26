@@ -5,6 +5,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -73,7 +75,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             return new SitecoreSearchParameters()
             {
                 Templates = searchTemplates,
-                IndexName = SitecoreIndex.Web,
+                IndexName = Indexes.Web,
                 PostFieldFilters = fieldDictionary,
             };
         }
@@ -115,7 +117,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                     {
                         var destinationItem = SiteHomeItem.Axes.GetDescendants()
                                    .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteEventDetailsTemplateId);
-                        string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStringNames.Guid + "=" + item.ID.ToString();
+                        string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
                         if (MicrositeDictionaryItem != null) hlViewEvent.Text = Datasource["View event"];
 
                         hlViewEvent.NavigateUrl = url;

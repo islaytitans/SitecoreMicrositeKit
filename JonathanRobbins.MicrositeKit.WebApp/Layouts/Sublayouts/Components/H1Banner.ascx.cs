@@ -1,4 +1,5 @@
 ﻿using System;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
 using Sitecore.Data.Items;
@@ -22,7 +23,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             if (Sitecore.Context.Item.TemplateID == Microsite.MicroSiteEventDetailsTemplateId)
             {
-                string itemId = ApplyParameterIfPresent(QueryStringNames.Guid);
+                string itemId = ApplyParameterIfPresent(QueryStrings.Guid);
 
                 if (!string.IsNullOrEmpty(itemId))
                 {

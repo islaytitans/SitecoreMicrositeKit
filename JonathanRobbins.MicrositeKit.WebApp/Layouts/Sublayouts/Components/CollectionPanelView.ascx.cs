@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 using Sitecore.Links;
@@ -65,7 +66,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             if (destinationItem == null)
                 return;
 
-            hlViewMore.NavigateUrl = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStringNames.Guid + "=" +
+            hlViewMore.NavigateUrl = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" +
                                      ViewItem.ID;
         }
 

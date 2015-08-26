@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -93,7 +94,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                                                                x.TemplateID ==
                                                                Microsite.MicroSiteBlogDetailsTemplateId);
 
-                        string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStringNames.Guid + "=" + item.ID.ToString();
+                        string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
 
                         if (MicrositeDictionaryItem != null) hlViewBlog.Text = Datasource["View blog"];
                         hlViewBlog.NavigateUrl = url;

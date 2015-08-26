@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
@@ -60,7 +61,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 if (field != null) return field;
             }
 
-            string itemId = ApplyParameterIfPresent(QueryStringNames.Guid);
+            string itemId = ApplyParameterIfPresent(QueryStrings.Guid);
 
             if (!string.IsNullOrEmpty(itemId))
             {

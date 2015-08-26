@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 using Sitecore.Links;
@@ -61,13 +62,13 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             {
                 Item destinationItem = SiteHomeItem.Axes.GetDescendants()
                                    .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteNewsDetailsTemplateId);
-                url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStringNames.Guid, FeaturedItem.ID.ToString());
+                url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStrings.Guid, FeaturedItem.ID.ToString());
             }
             else if (FeaturedItem.TemplateID == Microsite.MicroSiteEventTemplateGuid)
             {
                 Item destinationItem = SiteHomeItem.Axes.GetDescendants()
                                                            .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteEventDetailsTemplateId);
-                url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStringNames.Guid, FeaturedItem.ID.ToString());
+                url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStrings.Guid, FeaturedItem.ID.ToString());
             }
             else if (FeaturedItem.TemplateID == Microsite.MicroSiteBlogTemplateGuid)
             {
@@ -76,7 +77,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                                                        x =>
                                                        x.TemplateID ==
                                                        Microsite.MicroSiteBlogDetailsTemplateId);
-                url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStringNames.Guid,
+                url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem), QueryStrings.Guid,
                                     FeaturedItem.ID.ToString());
             }
             else

@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.CMS.Search;
+using JonathanRobbins.MicrositeKit.Entities.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.Search;
+using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
+using Sitecore.Data.Comparers;
 using Sitecore.Data.Items;
+using StructureMap;
 
 //using scSearchContrib.Searcher.Parameters;
 
@@ -29,7 +35,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                var sitecoreSearchParameters = new SitecoreSearchParameters()
                     {
                         Templates = searchTemplates,
-                        IndexName = SitecoreIndex.Web
+                        IndexName = Indexes.Web
                     };
 
                 var searchResults = searchUtility.Search(sitecoreSearchParameters);

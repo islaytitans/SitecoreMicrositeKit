@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.Search;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -113,7 +114,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             return new SitecoreSearchParameters()
             {
-                IndexName = SitecoreIndex.Web,
+                IndexName = Indexes.Web,
                 Location = Enumerators.SitecoreConfig.Guids.Global.MediaLibraryRootNodeId,
                 PostFieldFilters = fieldDictionary
             };

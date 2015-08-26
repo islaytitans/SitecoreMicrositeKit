@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data;
@@ -73,7 +75,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
             return new SitecoreSearchParameters()
             {
-                IndexName = SitecoreIndex.Web,
+                IndexName = Indexes.Web,
                 Templates = newsTemplates,
                 PostFieldFilters = fieldDictionary,
             };
@@ -122,7 +124,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                                    .FirstOrDefault(x => x.TemplateID == Microsite.MicroSiteNewsDetailsTemplateId);
 
                         string url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem),
-                                                   QueryStringNames.Guid, item.ID);
+                                                   QueryStrings.Guid, item.ID);
 
                         if (MicrositeDictionaryItem != null) hlReadMore.Text = MicrositeDictionaryItem[Enumerators.SitecoreConfig.Fields.Global.ReadMore];
                         hlReadMore.NavigateUrl = url;
