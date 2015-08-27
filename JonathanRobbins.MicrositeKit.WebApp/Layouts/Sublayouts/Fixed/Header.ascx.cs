@@ -35,7 +35,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
             {
                 if (_siteLogoDatasource == null)
                 {
-                    string siteLogo = Nodes.MicrositeLocalSettingsItem[Enumerators.SitecoreConfig.Fields.Global.FooterItem];
+                    string siteLogo = Nodes.MicrositeLocalSettingsItem[Enumerators.SitecoreConfig.Fields.Global.SiteLogo];
 
                     _siteLogoDatasource = Sitecore.Context.Database.GetItem(siteLogo);
                 }
