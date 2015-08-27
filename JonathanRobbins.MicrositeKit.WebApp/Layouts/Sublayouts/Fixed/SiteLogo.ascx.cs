@@ -17,16 +17,11 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetSitecoreComponents();
+            BindSitecoreControls();
             if (!Page.IsPostBack)
             {
                 SetUpLogo();
             }
-        }
-
-        private void SetSitecoreComponents()
-        {
-            sciLogo.Item = Datasource;
         }
 
         private void SetUpLogo()

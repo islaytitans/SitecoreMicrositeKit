@@ -91,18 +91,18 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
             }
         }
 
-        protected override void OnInit(EventArgs e)
+        //protected override void OnInit(EventArgs e)
+        //{
+        //    base.OnInit(e);
+        //    BindSitecoreControls();
+        //}
+
+        public void BindSitecoreControls()
         {
-            base.OnInit(e);
-            BindSitecoreControl();
+            BindSitecoreControls(Datasource);
         }
 
-        public void BindSitecoreControl()
-        {
-            BindSitecoreControl(Datasource);
-        }
-
-        public void BindSitecoreControl(Item item)
+        public void BindSitecoreControls(Item item)
         {
             Assert.IsNotNull(item, "item");
 

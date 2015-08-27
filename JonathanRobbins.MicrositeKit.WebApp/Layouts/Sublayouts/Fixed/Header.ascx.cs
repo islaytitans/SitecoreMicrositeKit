@@ -10,7 +10,7 @@ using Sitecore.Data.Items;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 {
-    public partial class Header : MicrositeSublayoutBase
+    public partial class Header : UserControl
     {
         private Item _megaNavigationDatasource;
         protected Item MegaNavigationDatasource
