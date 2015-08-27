@@ -73,7 +73,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 }
             }
 
-            var searchTemplates = new List<ID> { Templates.MicroSiteEventTemplateGuid };
+            var searchTemplates = new List<ID> { Templates.MicroSiteEventListingId };
 
             return new SitecoreSearchParameters()
             {
@@ -119,7 +119,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                     if (hlViewEvent != null && hlImage != null && hlTitle != null)
                     {
                         var destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                   .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteEventDetailsTemplateId);
+                                   .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteEventDetailsId);
                         string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
                         if (Datasource != null) hlViewEvent.Text = Datasource["View event"];
 

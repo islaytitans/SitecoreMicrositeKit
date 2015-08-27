@@ -24,7 +24,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             Item item = RetrieveItemOwnerOfField(sctTitle.Field);
             if (item != null) sctTitle.Item = item;
 
-            if (Sitecore.Context.Item.TemplateID == Templates.MicroSiteEventDetailsTemplateId)
+            //TODO wildcard
+            if (Sitecore.Context.Item.TemplateID == Templates.MicroSiteEventDetailsId)
             {
                 string itemId = ApplyParameterIfPresent(QueryStrings.Guid);
 

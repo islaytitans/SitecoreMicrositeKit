@@ -843,10 +843,10 @@
     <Content Include="Layouts\Sublayouts\Components\Comments.ascx" />
     <Content Include="Layouts\Sublayouts\Components\CommsPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\ContentShowcases\FeaturedPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Date.ascx" />
     <Content Include="Layouts\Sublayouts\Components\EventDetail.ascx" />
     <Content Include="Layouts\Sublayouts\Components\EventsListing.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\FeaturedPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\H1Banner.ascx" />
     <Content Include="Layouts\Sublayouts\Components\LibraryListing.ascx" />
     <Content Include="Layouts\Sublayouts\Components\LoggedIn.ascx" />
@@ -1032,6 +1032,13 @@
     <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx.designer.cs">
       <DependentUpon>Carousel.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\FeaturedPanel.ascx.cs">
+      <DependentUpon>FeaturedPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\FeaturedPanel.ascx.designer.cs">
+      <DependentUpon>FeaturedPanel.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Date.ascx.cs">
       <DependentUpon>Date.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1052,13 +1059,6 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\EventsListing.ascx.designer.cs">
       <DependentUpon>EventsListing.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\FeaturedPanel.ascx.cs">
-      <DependentUpon>FeaturedPanel.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\FeaturedPanel.ascx.designer.cs">
-      <DependentUpon>FeaturedPanel.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\H1Banner.ascx.cs">
       <DependentUpon>H1Banner.ascx</DependentUpon>

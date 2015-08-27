@@ -57,7 +57,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         private SitecoreSearchParameters CreateBlogsSearchParameters()
         {
 
-            var searchTemplates = new List<ID> { Templates.MicroSiteBlogTemplateGuid };
+            var searchTemplates = new List<ID> { Templates.MicroSiteBlogListingId };
 
             return new SitecoreSearchParameters()
             {
@@ -94,7 +94,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                                                            .FirstOrDefault(
                                                                x =>
                                                                x.TemplateID ==
-                                                               Templates.MicroSiteBlogDetailsTemplateId);
+                                                               Templates.MicroSiteBlogDetailsId);
 
                         string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
 

@@ -19,17 +19,13 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
             {
                 if (_micrositeNodeItem != null)
                     return _micrositeNodeItem;
-
-                Item micrositeItem;
                 
                 //TODO switch to account
                 using (new Sitecore.SecurityModel.SecurityDisabler())
                 {
-                    micrositeItem = Sitecore.Context.Item.Axes.GetAncestors()
+                    _micrositeNodeItem = Sitecore.Context.Item.Axes.GetAncestors()
                                             .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteNodeId);
                 }
-                
-                _micrositeNodeItem = micrositeItem;
                 
                 return _micrositeNodeItem;
             }
@@ -44,18 +40,14 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                 if (_micrositeHomeItem != null)
                     return _micrositeHomeItem;
 
-                Item siteHomeItem = null;
-
                 if (MicrositeNodeItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        siteHomeItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteHomePageId);
+                        _micrositeHomeItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteHomePageId);
                     }
                 }
-
-                _micrositeHomeItem = siteHomeItem;
                 
                 return _micrositeHomeItem;
             }
@@ -69,19 +61,16 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                 if (_micrositeLocalSettingsItem != null)
                     return _micrositeLocalSettingsItem;
 
-                Item siteConfigItem = null;
-
                 if (MicrositeNodeItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
                         //TODO get from site node
-                        siteConfigItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLocalSettingsId);
+                        _micrositeLocalSettingsItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLocalSettingsId);
                     }
                 }
 
-                _micrositeLocalSettingsItem = siteConfigItem;
                 return _micrositeLocalSettingsItem;
             }
         }
@@ -94,19 +83,16 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                 if (_micrositeLocalRepositoryItem != null)
                     return _micrositeLocalRepositoryItem;
 
-                Item siteDataItem = null;
-
                 if (MicrositeNodeItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
                         //TODO get from site node
-                        siteDataItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicrositeLocalRepositoryId);
+                        _micrositeLocalRepositoryItem = MicrositeNodeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicrositeLocalRepositoryId);
                     }
                 }
 
-                _micrositeLocalRepositoryItem = siteDataItem;
                 return _micrositeLocalRepositoryItem;
             }
         }
@@ -119,8 +105,6 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                 if (_micrositeSharedSettingsItem != null)
                     return _micrositeSharedSettingsItem;
 
-                Item sharedSettingsItem = null;
-
                 Item contentItem = Sitecore.Context.Database.GetItem(Sitecore.ItemIDs.ContentRoot);
 
                 if (contentItem != null)
@@ -128,11 +112,10 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        sharedSettingsItem = contentItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSharedSettingsId);
+                        _micrositeSharedSettingsItem = contentItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteSharedSettingsId);
                     }
                 }
 
-                _micrositeSharedSettingsItem = sharedSettingsItem;
                 return _micrositeSharedSettingsItem;
             }
         }
@@ -145,8 +128,6 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                 if (_micrositeSharedRepositoryItem != null)
                     return _micrositeSharedRepositoryItem;
 
-                Item sharedRepositoryItem = null;
-
                 Item contentItem = Sitecore.Context.Database.GetItem(Sitecore.ItemIDs.ContentRoot);
 
                 if (contentItem != null)
@@ -154,11 +135,10 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        sharedRepositoryItem = contentItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicrositeSharedRepositoryId);
+                        _micrositeSharedRepositoryItem = contentItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicrositeSharedRepositoryId);
                     }
                 }
 
-                _micrositeSharedRepositoryItem = sharedRepositoryItem;
                 return _micrositeSharedRepositoryItem;
             }
         }
@@ -171,43 +151,37 @@ namespace JonathanRobbins.MicrositeKit.CMS.Items
                 if (_loginPageItem != null)
                     return _loginPageItem;
 
-                Item loginPageItem = null;
-
                 if (MicrositeNodeItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        loginPageItem = MicrositeHomeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLoginPageId);
+                        _loginPageItem = MicrositeHomeItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteLoginPageId);
                     }
                 }
 
-                _loginPageItem = loginPageItem;
                 return _loginPageItem;
             }
         }
 
-        private static Item _dictionaryItem;
-        public static Item MicrositesDictionaryItem
+        private static Item _micrositesDictionaryItem;
+        public static Item MicrositesMicrositesDictionaryItem
         {
             get
             {
-                if (_dictionaryItem != null)
-                    return _dictionaryItem;
-
-                Item loginPageItem = null;
+                if (_micrositesDictionaryItem != null)
+                    return _micrositesDictionaryItem;
 
                 if (MicrositeLocalSettingsItem != null)
                 {
                     //TODO switch to account
                     using (new Sitecore.SecurityModel.SecurityDisabler())
                     {
-                        loginPageItem = MicrositeLocalSettingsItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteDictionaryId);
+                        _micrositesDictionaryItem = MicrositeLocalSettingsItem.Children.FirstOrDefault(x => x.TemplateID == Templates.MicroSiteDictionaryId);
                     }
                 }
 
-                _dictionaryItem = loginPageItem;
-                return _dictionaryItem;
+                return _micrositesDictionaryItem;
             }
         }
     }

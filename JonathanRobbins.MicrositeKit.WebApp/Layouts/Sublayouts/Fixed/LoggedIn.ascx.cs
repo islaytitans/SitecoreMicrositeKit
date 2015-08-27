@@ -18,7 +18,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
             if (UserLoggedIntoMicrosite(Page))
             {
                 phLoggedIn.Visible = true;
-                btnLogout.Text = Nodes.MicrositesDictionaryItem[Enumerators.SitecoreConfig.Fields.Global.LogOut];
+                btnLogout.Text = Nodes.MicrositesMicrositesDictionaryItem[Enumerators.SitecoreConfig.Fields.Global.LogOut];
             }
         }
 

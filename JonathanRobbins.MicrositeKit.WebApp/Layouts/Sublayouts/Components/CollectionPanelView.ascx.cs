@@ -42,28 +42,28 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 return;
 
             Item destinationItem = null;
-            if (ViewItem.TemplateID == Templates.MicroSiteEventTemplateGuid)
+            if (ViewItem.TemplateID == Templates.MicroSiteEventListingId)
             {
                 phComments.Visible = false;
                 destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
-                                                  x => x.TemplateID == Templates.MicroSiteEventDetailsTemplateId);
+                                                  x => x.TemplateID == Templates.MicroSiteEventDetailsId);
             }
-            if (ViewItem.TemplateID == Templates.MicroSiteBlogTemplateGuid)
+            if (ViewItem.TemplateID == Templates.MicroSiteBlogListingId)
             {
                 phComments.Visible = true;
                 destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
                                                   x =>
-                                                  x.TemplateID == Templates.MicroSiteBlogDetailsTemplateId);
+                                                  x.TemplateID == Templates.MicroSiteBlogDetailsId);
                 litCommentCount.Text = CommentCount != null ? CommentCount.ToString() : RetrieveCommentCount(ViewItem).ToString();
             }
-            if (ViewItem.TemplateID == Templates.MicroSiteNewsTemplateGuid)
+            if (ViewItem.TemplateID == Templates.MicroSiteNewsListingId)
             {
                 phComments.Visible = false;
                 destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
                                               .FirstOrDefault(
-                                                  x => x.TemplateID == Templates.MicroSiteNewsDetailsTemplateId);
+                                                  x => x.TemplateID == Templates.MicroSiteNewsDetailsId);
             }
 
             if (destinationItem == null)

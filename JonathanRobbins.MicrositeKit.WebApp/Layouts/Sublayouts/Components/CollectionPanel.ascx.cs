@@ -29,9 +29,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                 var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
 
-                var searchTemplates = new List<ID> { Templates.MicroSiteEventTemplateGuid };
-                searchTemplates.Add(Templates.MicroSiteBlogTemplateGuid);
-                searchTemplates.Add(Templates.MicroSiteNewsTemplateGuid);
+                var searchTemplates = new List<ID> { Templates.MicroSiteEventListingId };
+                searchTemplates.Add(Templates.MicroSiteBlogListingId);
+                searchTemplates.Add(Templates.MicroSiteNewsListingId);
 
                var sitecoreSearchParameters = new SitecoreSearchParameters()
                     {

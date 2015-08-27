@@ -74,7 +74,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 }
             }
 
-            var newsTemplates = new List<ID> { Templates.MicroSiteNewsTemplateGuid };
+            var newsTemplates = new List<ID> { Templates.MicroSiteNewsListingId };
 
             return new SitecoreSearchParameters()
             {
@@ -124,7 +124,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                     if (hlReadMore != null && hlImage != null && hlTitle != null)
                     {
                         Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                   .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteNewsDetailsTemplateId);
+                                   .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteNewsDetailsId);
 
                         string url = string.Format("{0}?{1}={2}", LinkManager.GetItemUrl(destinationItem),
                                                    QueryStrings.Guid, item.ID);
