@@ -838,11 +838,11 @@
     <Content Include="Layouts\Sublayouts\Components\BlogDetails.ascx" />
     <Content Include="Layouts\Sublayouts\Components\BlogListing.ascx" />
     <Content Include="Layouts\Sublayouts\Components\CallToAction.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\Carousel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\CollectionPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\CollectionPanelView.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Comments.ascx" />
     <Content Include="Layouts\Sublayouts\Components\CommsPanel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Date.ascx" />
     <Content Include="Layouts\Sublayouts\Components\EventDetail.ascx" />
     <Content Include="Layouts\Sublayouts\Components\EventsListing.ascx" />
@@ -997,13 +997,6 @@
     <Compile Include="Layouts\Sublayouts\Components\CallToAction.ascx.designer.cs">
       <DependentUpon>CallToAction.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\Carousel.ascx.cs">
-      <DependentUpon>Carousel.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\Carousel.ascx.designer.cs">
-      <DependentUpon>Carousel.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Layouts\Sublayouts\Components\CollectionPanel.ascx.cs">
       <DependentUpon>CollectionPanel.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1031,6 +1024,13 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\CommsPanel.ascx.designer.cs">
       <DependentUpon>CommsPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx.cs">
+      <DependentUpon>Carousel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx.designer.cs">
+      <DependentUpon>Carousel.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Date.ascx.cs">
       <DependentUpon>Date.ascx</DependentUpon>

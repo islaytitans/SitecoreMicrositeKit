@@ -1,9 +1,9 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Carousel.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Carousel" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Carousel.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentShowcases.Carousel" %>
 <%@ Import Namespace="Sitecore.Data.Items" %>
 
 <div class="carousel">
     <div id="ProgressBar"></div>
-    <asp:repeater runat="server" ID="rptCarousel">
+    <asp:Repeater runat="server" ID="rptCarousel">
         <ItemTemplate>
              <div class="slide">        
                 <div class="inner">
@@ -18,6 +18,6 @@
                 </div>
             </div>            
         </ItemTemplate>
-    </asp:repeater>
+    </asp:Repeater>
     <div class="pager" runat="server" id="divPager" Visible="<%# ShowControls %>"></div>    
 </div>
