@@ -104,7 +104,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 
         public void BindSitecoreControls(Item item)
         {
-            Assert.IsNotNull(item, "item");
+            if (item == null)
+                return;
 
             if (Controls.Count > 0)
             {

@@ -18,17 +18,19 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
             {
                 if (string.IsNullOrEmpty(_dateField))
                 {
-                    if (Datasource.TemplateID == Templates.MicroSiteNewsListingId || Datasource.TemplateID == Templates.MicroSiteBlogListingId)
+                    _dateField = Enumerators.SitecoreConfig.Fields.Global.CreatedDate;
+
+                    if (Datasource != null)
                     {
-                        _dateField = Enumerators.SitecoreConfig.Fields.Global.Date;
-                    }
-                    else if (Datasource.TemplateID == Templates.MicroSiteEventListingId)
-                    {
-                        _dateField = Enumerators.SitecoreConfig.Fields.Global.StartDate;
-                    }
-                    else
-                    {
-                        _dateField = Enumerators.SitecoreConfig.Fields.Global.CreatedDate;
+                        if (Datasource.TemplateID == Templates.MicroSiteNewsListingId ||
+                            Datasource.TemplateID == Templates.MicroSiteBlogListingId)
+                        {
+                            _dateField = Enumerators.SitecoreConfig.Fields.Global.Date;
+                        }
+                        else if (Datasource.TemplateID == Templates.MicroSiteEventListingId)
+                        {
+                            _dateField = Enumerators.SitecoreConfig.Fields.Global.StartDate;
+                        }
                     }
                 }
 
@@ -38,6 +40,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            scdDate.Field = DateField;
             BindSitecoreControls();
             if (!Page.IsPostBack)
             {
@@ -57,6 +60,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
         private void SetUpLinks()
         {
             hlReadMore.Text = Nodes.MicrositesMicrositesDictionaryItem[Enumerators.SitecoreConfig.Fields.Global.ReadMore];
+
+            if (Datasource == null)
+                return;
 
             Item parentItem;
             Item destinationItem = null;
