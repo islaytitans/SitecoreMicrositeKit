@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components {
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Panels {
     
     
-    public partial class CommsPanel {
+    public partial class SocialPanel {
         
         /// <summary>
         /// rptSocialLinks control.

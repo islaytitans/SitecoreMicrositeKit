@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Extensions;
 using JonathanRobbins.MicrositeKit.CMS.Items;
@@ -8,23 +7,43 @@ using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Panels
 {
-    public partial class CommsPanel : MicrositeSublayoutBase
+    public partial class SocialPanel : MicrositeSublayoutBase
     {
+        private IEnumerable<Item> _socialLinksDataSource;
         protected IEnumerable<Item> SocialLinksDataSource
         {
             get
             {
-                return Nodes.MicrositeLocalSettingsItem.Fields["Social network links"].GetItems();
+                if (_socialLinksDataSource == null)
+                {
+                    _socialLinksDataSource =
+                        Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.SocialNetworkLinks].GetItems();
+                }
+                return _socialLinksDataSource;
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            SetDataSourceToFooterItem();
             if (!Page.IsPostBack)
             {
                 SetUpSocialLinks();
+            }
+        }
+
+        private void SetDataSourceToFooterItem()
+        {
+            if (Datasource == null || Datasource == Sitecore.Context.Item)
+            {
+                string footerGuid = Nodes.MicrositeLocalSettingsItem[Enumerators.SitecoreConfig.Fields.Global.FooterItem];
+
+                if (!string.IsNullOrEmpty(footerGuid))
+                {
+                    Datasource = Sitecore.Context.Database.GetItem(footerGuid);
+                }
             }
         }
 
@@ -49,6 +68,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 {
                     LinkField linkField = item.Fields["Link"];
                     hlSocial.NavigateUrl = linkField.Url;
+                    hlSocial.Text = linkField.Text;
                 }
             }
         }

@@ -839,7 +839,6 @@
     <Content Include="Layouts\Sublayouts\Components\BlogListing.ascx" />
     <Content Include="Layouts\Sublayouts\Components\CallToAction.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Comments.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\CommsPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanelView.ascx" />
@@ -854,6 +853,7 @@
     <Content Include="Layouts\Sublayouts\Components\MainText.ascx" />
     <Content Include="Layouts\Sublayouts\Components\NewsDetails.ascx" />
     <Content Include="Layouts\Sublayouts\Components\NewsListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\PromoPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ReleatedResources.ascx" />
     <Content Include="Layouts\Sublayouts\Components\SecondaryImage.ascx" />
@@ -1004,13 +1004,6 @@
     <Compile Include="Layouts\Sublayouts\Components\Comments.ascx.designer.cs">
       <DependentUpon>Comments.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\CommsPanel.ascx.cs">
-      <DependentUpon>CommsPanel.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\CommsPanel.ascx.designer.cs">
-      <DependentUpon>CommsPanel.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx.cs">
       <DependentUpon>Carousel.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1108,6 +1101,13 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\NewsListing.ascx.designer.cs">
       <DependentUpon>NewsListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx.cs">
+      <DependentUpon>SocialPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx.designer.cs">
+      <DependentUpon>SocialPanel.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\PromoPanel.ascx.cs">
       <DependentUpon>PromoPanel.ascx</DependentUpon>
