@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Links;
-using Sitecore.Rules.ConditionalRenderings;
-using Sitecore.Shell.Applications.ContentEditor;
 using Text = Sitecore.Web.UI.WebControls.Text;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
@@ -19,32 +15,47 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
     {
         protected string Separator = " | ";
 
-
+        private IEnumerable<Item> _internalFooterLinkDataSource;
         protected IEnumerable<Item> InternalFooterLinkDataSource
         {
             get
             {
-                var mulitlistField = (MultilistField)Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.GlobalInternalLinks];
+                if (_internalFooterLinkDataSource == null 
+                    && Datasource != null
+                    && !string.IsNullOrEmpty(Datasource[Enumerators.SitecoreConfig.Fields.Global.GlobalInternalLinks]))
+                {
+                    var mulitlistField = (MultilistField) Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.GlobalInternalLinks];
 
-                return mulitlistField.GetItems();
+                    _internalFooterLinkDataSource = mulitlistField.GetItems();
+                }
+
+                return _internalFooterLinkDataSource;
             }
 
         }
 
+        private IEnumerable<Item> _externalFooterLinkDataSource;
         protected IEnumerable<Item> ExternalFooterLinkDataSource
         {
             get
             {
-                var mulitlistField = (MultilistField)Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.GlobalInternalLinks];
+                if (_externalFooterLinkDataSource == null 
+                    && Datasource != null
+                    && !string.IsNullOrEmpty(Datasource[Enumerators.SitecoreConfig.Fields.Global.GlobalExternalLinks]))
+                {
+                    var mulitlistField = (MultilistField)Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.GlobalExternalLinks];
 
-                return mulitlistField.GetItems();
+                    _externalFooterLinkDataSource = mulitlistField.GetItems();
+                }
+
+                return _externalFooterLinkDataSource;
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             SetDataSourceToFooterItem();
-            SetUpLabels();
+            BindSitecoreControls();
             if (!Page.IsPostBack)
             {
                 SetRepeater();
@@ -54,7 +65,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 
         private void SetDataSourceToFooterItem()
         {
-            if (Datasource == null)
+            if (Datasource == null || Datasource == Sitecore.Context.Item)
             {
                 string footerGuid = Nodes.MicrositeLocalSettingsItem[Enumerators.SitecoreConfig.Fields.Global.FooterItem];
 
@@ -63,12 +74,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
                     Datasource = Sitecore.Context.Database.GetItem(footerGuid);
                 }
             }
-        }
-
-        private void SetUpLabels()
-        {
-            sciFooterImage.Item = Datasource;
-            sctCopyRight.Item = Datasource;
         }
 
         private void SetRepeater()

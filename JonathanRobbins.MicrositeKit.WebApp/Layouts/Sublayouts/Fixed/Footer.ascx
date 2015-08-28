@@ -4,15 +4,13 @@
     <div class="inner">        
         <div class="main-site-links">
             <sc:Image runat="server" ID="sciFooterImage" Field="Footer logo" CssClass="brand-image" />            
-            <asp:Repeater runat="server" ID="rptExternalFooterLinks" OnItemDataBound="rptFooterLinks_OnItemDataBound">
+            <asp:Repeater runat="server" ID="rptExternalFooterLinks" ItemType="Sitecore.Data.Items.Item" >
                 <HeaderTemplate>                
                     <ul class="external-links">
                 </HeaderTemplate>
                 <ItemTemplate>
                     <li>
-                        <asp:HyperLink runat="server" ID="hlFooterLink">
-                            <sc:Text runat="server" ID="sctFooterLink" Field="Page Title" />
-                        </asp:HyperLink>                        
+                        <sc:Link runat="server" Field="Link" Item="<%# Item %>"/>                      
                     </li>
                 </ItemTemplate>
                 <FooterTemplate>
