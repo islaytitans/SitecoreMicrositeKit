@@ -25,6 +25,9 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids
         public static ID MicroSiteEventDetailsId = new ID("{267EEAA0-2A58-42D8-8E61-164C40FC4262}");
         public static ID MicroSiteBlogDetailsId = new ID("{6371F55D-C495-4552-B76E-4AE0C9091746}");
         public static ID MicroSiteNewsDetailsId = new ID("{687880AA-A4DA-478B-98A3-28F987206019}");
+        public static ID MicroSiteEventId = new ID("{37807D72-8647-4224-8190-A1D70882AA1D}");
+        public static ID MicroSiteBlogId = new ID("{B7A6247B-AD5B-4A1E-B075-E30AE95DE299}");
+        public static ID MicroSiteNewsId = new ID("{3A22498D-D119-4F24-92BC-1B4567352328}");
 
         //TODO sort out
         public static ID MicroSiteClassificationTemplateId = new ID("{4038CE8C-8F59-43C2-9099-A732CD57FB5E}");

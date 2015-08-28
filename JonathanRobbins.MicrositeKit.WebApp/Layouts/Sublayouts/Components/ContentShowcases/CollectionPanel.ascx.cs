@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JonathanRobbins.MicrositeKit.CMS.Items;
@@ -30,9 +31,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
                 {
                     Templates = new List<ID>
                     {
-                        Templates.MicroSiteEventListingId,
-                        Templates.MicroSiteBlogListingId,
-                        Templates.MicroSiteNewsListingId
+                        Templates.MicroSiteEventId,
+                        Templates.MicroSiteBlogId,
+                        Templates.MicroSiteNewsId
                     },
                     IndexName = Indexes.Web
                 };
@@ -85,21 +86,24 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
             if (!collectionPanelDataSource.Any())
                 return;
 
-            lvMediumCollection.DataSource = collectionPanelDataSource.Take(2);
+            int i = collectionPanelDataSource.Count <= 2 ? collectionPanelDataSource.Count : 2;
+            lvMediumCollection.DataSource = collectionPanelDataSource.Take(i);
             lvMediumCollection.DataBind();
 
-            collectionPanelDataSource.RemoveRange(0, 2);
+            collectionPanelDataSource.RemoveRange(0, i);
             if (!collectionPanelDataSource.Any())
                 return;
 
-            lvSmallCollection.DataSource = collectionPanelDataSource.Take(4);
+            i = collectionPanelDataSource.Count <= 4 ? collectionPanelDataSource.Count : 4;
+            lvSmallCollection.DataSource = collectionPanelDataSource.Take(i);
             lvSmallCollection.DataBind();
 
-            collectionPanelDataSource.RemoveRange(0, 4);
+            collectionPanelDataSource.RemoveRange(0, i);
             if (!collectionPanelDataSource.Any())
                 return;
 
-            lvHiddenSmall.DataSource = collectionPanelDataSource.Take(6);
+            i = collectionPanelDataSource.Count <= 6 ? collectionPanelDataSource.Count : 6;
+            lvHiddenSmall.DataSource = collectionPanelDataSource.Take(i);
             lvHiddenSmall.DataBind();
         }
     }

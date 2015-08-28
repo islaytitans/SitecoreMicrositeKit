@@ -38,29 +38,51 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
             if (ViewItem == null)
                 return;
 
+            Item parentItem;
             Item destinationItem = null;
+            string url = string.Empty;
+
             if (ViewItem.TemplateID == Templates.MicroSiteEventListingId)
             {
                 phComments.Visible = false;
-                destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                              .FirstOrDefault(
-                                                  x => x.TemplateID == Templates.MicroSiteEventDetailsId);
+
+                parentItem =
+                    Nodes.MicrositeHomeItem.GetChildren()
+                        .FirstOrDefault(i => i.TemplateID.Equals(Templates.MicroSiteNewsListingId));
+
+                if (parentItem != null)
+                {
+                    destinationItem = parentItem.GetChildren()
+                        .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteNewsDetailsId);
+                }
             }
             if (ViewItem.TemplateID == Templates.MicroSiteBlogListingId)
             {
                 phComments.Visible = true;
-                destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                              .FirstOrDefault(
-                                                  x =>
-                                                  x.TemplateID == Templates.MicroSiteBlogDetailsId);
                 litCommentCount.Text = CommentCount != null ? CommentCount.ToString() : RetrieveCommentCount(ViewItem).ToString();
+
+                parentItem =
+                    Nodes.MicrositeHomeItem.GetChildren()
+                        .FirstOrDefault(i => i.TemplateID.Equals(Templates.MicroSiteBlogListingId));
+
+                if (parentItem != null)
+                {
+                    destinationItem = parentItem.GetChildren()
+                        .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteBlogDetailsId);
+                }
             }
             if (ViewItem.TemplateID == Templates.MicroSiteNewsListingId)
             {
                 phComments.Visible = false;
-                destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                              .FirstOrDefault(
-                                                  x => x.TemplateID == Templates.MicroSiteNewsDetailsId);
+                parentItem =
+                    Nodes.MicrositeHomeItem.GetChildren()
+                        .FirstOrDefault(i => i.TemplateID.Equals(Templates.MicroSiteEventListingId));
+
+                if (parentItem != null)
+                {
+                    destinationItem = parentItem.GetChildren()
+                        .FirstOrDefault(x => x.TemplateID == Templates.MicroSiteEventDetailsId);
+                }
             }
 
             if (destinationItem == null)
