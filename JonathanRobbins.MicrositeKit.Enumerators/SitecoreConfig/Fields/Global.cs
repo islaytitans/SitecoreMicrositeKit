@@ -56,5 +56,6 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Fields
         public static string Scheduled = "Scheduled";
         public static string PostCode = "Postcode";
         public static string StartDate = "Start date";
+        public static string Panels = "Panels";
     }
 }

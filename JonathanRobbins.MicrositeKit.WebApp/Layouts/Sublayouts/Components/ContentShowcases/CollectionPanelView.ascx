@@ -17,6 +17,6 @@
         </asp:PlaceHolder>
     </div>
     <asp:HyperLink runat="server" ID="hlViewMore" class="link" >
-        <sc:Text runat="server" id="sctViewMore" field="View more" SItemGuid="<%# Datasource %>"/>
+        <sc:Text runat="server" id="sctViewMore" field="View more" Item="<%# Datasource %>"/>
     </asp:HyperLink>
 </div>

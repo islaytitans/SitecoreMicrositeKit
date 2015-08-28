@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JonathanRobbins.MicrositeKit.CMS.Extensions;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
@@ -25,28 +26,35 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
                 if (_collectionPanelDataSource != null)
                     return _collectionPanelDataSource;
 
-                var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
-
-                var sitecoreSearchParameters = new SitecoreSearchParameters()
+                if (Datasource != null && !string.IsNullOrEmpty(Datasource[Enumerators.SitecoreConfig.Fields.Global.Panels]))
                 {
-                    Templates = new List<ID>
+                    _collectionPanelDataSource = Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.Panels].GetItems();
+                }
+                else
+                {
+                    var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
+
+                    var sitecoreSearchParameters = new SitecoreSearchParameters()
+                    {
+                        Templates = new List<ID>
                     {
                         Templates.MicroSiteEventId,
                         Templates.MicroSiteBlogId,
                         Templates.MicroSiteNewsId
                     },
-                    IndexName = Indexes.Web
-                };
+                        IndexName = Indexes.Web
+                    };
 
-                var searchResults = searchUtility.Search(sitecoreSearchParameters);
+                    var searchResults = searchUtility.Search(sitecoreSearchParameters);
 
-                var items = searchResults.ResultsCollection.ToList();
+                    var items = searchResults.ResultsCollection.ToList();
 
-                var itemComparer = new ItemComparer();
-                items.Sort(itemComparer.CompareCreatedDate);
-                items.Reverse();
+                    var itemComparer = new ItemComparer();
+                    items.Sort(itemComparer.CompareCreatedDate);
+                    items.Reverse();
 
-                _collectionPanelDataSource = items;
+                    _collectionPanelDataSource = items;
+                }
 
                 return _collectionPanelDataSource;
             }
@@ -62,7 +70,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           BindSitecoreControls();
+            BindSitecoreControls();
             if (!Page.IsPostBack)
             {
                 BindControls();
