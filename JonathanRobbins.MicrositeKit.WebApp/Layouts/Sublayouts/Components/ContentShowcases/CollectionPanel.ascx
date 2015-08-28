@@ -1,6 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CollectionPanel.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.CollectionPanel" %>
-<%@ Import Namespace="Sitecore.Data.Items" %>
-<%@ Register Src="~/layouts/Sublayouts/Components/CollectionPanelView.ascx" TagPrefix="uc1" TagName="CollectionPanelView" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CollectionPanel.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentShowcases.CollectionPanel" %>
+<%@ Register Src="~/Layouts/Sublayouts/Components/ContentShowcases/CollectionPanelView.ascx" TagPrefix="uc1" TagName="CollectionPanelView" %>
 
 <div class="collection-panel">
     <div class="inner">
@@ -12,38 +11,38 @@
                 </div>
             </div>
             <div class="pane medium">
-                <asp:ListView ID="lvMediumCollection" runat="server">
+                <asp:ListView ID="lvMediumCollection" runat="server" ItemType="Sitecore.Data.Items.Item">
                     <GroupTemplate>
                         <div class="panel">
                             <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
                         </div>
                     </GroupTemplate>
                     <ItemTemplate>
-                        <uc1:CollectionPanelView runat="server" id="cpvMediumItem" ViewItem="<%# Container.DataItem as Item %>"  />
+                        <uc1:CollectionPanelView runat="server" id="cpvMediumItem" ViewItem="<%# Item %>"  />
                     </ItemTemplate>
                 </asp:ListView>
             </div>
             <div class="pane small">
-                <asp:ListView ID="lvSmallCollection" runat="server">
+                <asp:ListView ID="lvSmallCollection" runat="server" ItemType="Sitecore.Data.Items.Item">
                     <GroupTemplate>
                         <div class="panel">
                             <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
                         </div>
                     </GroupTemplate>
                     <ItemTemplate>
-                        <uc1:CollectionPanelView runat="server" id="cpvSmallItem" ViewItem="<%# Container.DataItem as Item %>"  />
+                        <uc1:CollectionPanelView runat="server" id="cpvSmallItem" ViewItem="<%# Item %>"  />
                     </ItemTemplate>
                 </asp:ListView>
             </div>
             <div class="pane hidden-pane small">
-                <asp:ListView ID="lvHiddenSmall" runat="server">
+                <asp:ListView ID="lvHiddenSmall" runat="server" ItemType="Sitecore.Data.Items.Item">
                     <GroupTemplate>
                         <div class="panel">
                             <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
                         </div>
                     </GroupTemplate>
                     <ItemTemplate>
-                        <uc1:CollectionPanelView runat="server" id="cpvHiddenSmallItem" ViewItem="<%# Container.DataItem as Item %>"  />
+                        <uc1:CollectionPanelView runat="server" id="cpvHiddenSmallItem" ViewItem="<%# Item %>"  />
                     </ItemTemplate>
                 </asp:ListView>
             </div>

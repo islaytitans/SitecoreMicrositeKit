@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
@@ -13,13 +12,11 @@ using Sitecore.Data;
 using Sitecore.Data.Items;
 using StructureMap;
 
-//using scSearchContrib.Searcher.Parameters;
-
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentShowcases
 {
     public partial class CollectionPanel : MicrositeSublayoutBase
     {
-        private List<Item> _collectionPanelDataSource;
+        private IEnumerable<Item> _collectionPanelDataSource;
         protected IEnumerable<Item> CollectionPanelDataSource
         {
             get
@@ -29,23 +26,27 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
                 var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
 
-                var searchTemplates = new List<ID> { Templates.MicroSiteEventListingId };
-                searchTemplates.Add(Templates.MicroSiteBlogListingId);
-                searchTemplates.Add(Templates.MicroSiteNewsListingId);
-
-               var sitecoreSearchParameters = new SitecoreSearchParameters()
+                var sitecoreSearchParameters = new SitecoreSearchParameters()
+                {
+                    Templates = new List<ID>
                     {
-                        Templates = searchTemplates,
-                        IndexName = Indexes.Web
-                    };
+                        Templates.MicroSiteEventListingId,
+                        Templates.MicroSiteBlogListingId,
+                        Templates.MicroSiteNewsListingId
+                    },
+                    IndexName = Indexes.Web
+                };
 
                 var searchResults = searchUtility.Search(sitecoreSearchParameters);
 
-                _collectionPanelDataSource = searchResults.ResultsCollection.ToList();
+                var items = searchResults.ResultsCollection.ToList();
 
                 var itemComparer = new ItemComparer();
-                _collectionPanelDataSource.Sort(itemComparer.CompareCreatedDate);
-                _collectionPanelDataSource.Reverse();
+                items.Sort(itemComparer.CompareCreatedDate);
+                items.Reverse();
+
+                _collectionPanelDataSource = items;
+
                 return _collectionPanelDataSource;
             }
         }
@@ -60,16 +61,11 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           BindSitecoreControls();
             if (!Page.IsPostBack)
             {
                 BindControls();
-                SetLabels();
             }
-        }
-
-        private void SetLabels()
-        {
-            sctSeeMore.Item = Datasource;
         }
 
         private void BindControls()

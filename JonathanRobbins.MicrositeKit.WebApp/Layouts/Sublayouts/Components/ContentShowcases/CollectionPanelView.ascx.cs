@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Web.UI;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
@@ -8,9 +7,7 @@ using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 using Sitecore.Links;
 
-//using scSearchContrib.Searcher.Parameters;
-
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentShowcases
 {
     public partial class CollectionPanelView : MicrositeSublayoutBase
     {

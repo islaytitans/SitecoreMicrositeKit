@@ -1,10 +1,10 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CollectionPanelView.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.CollectionPanelView" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CollectionPanelView.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentShowcases.CollectionPanelView" %>
 
 <h2>
     <sc:Text runat="server" id="sctTitle" field="Title" Item="<%# ViewItem %>"/>
 </h2>
 <sc:Image runat="server" id="sciImage" field="Image" Item="<%# ViewItem %>"/>
-<!-- this block of html needs to be in a seperate control -->
+
 <div class="article-content">
     <div class="text">
         <p>

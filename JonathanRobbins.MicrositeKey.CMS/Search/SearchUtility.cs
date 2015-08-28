@@ -92,16 +92,12 @@ namespace JonathanRobbins.MicrositeKit.CMS.Search
             {
                 using (var context = Index.CreateSearchContext())
                 {
-
                     var returnItems = new List<Item>();
                     var predicate = PredicateBuilder.True<SearchResultItem>();
                     predicate = predicate.And(t => t.Language == Sitecore.Context.Language.Name);
 
-                    // Add Location to predicate
                     predicate = predicate.And(t => t.Paths.Contains(searchParameters.Location));
 
-
-                    // Add Templates to predicate
                     if (searchParameters.Templates.Any())
                     {
                         var innerPredicate = PredicateBuilder.True<SearchResultItem>();
@@ -111,6 +107,7 @@ namespace JonathanRobbins.MicrositeKit.CMS.Search
                         }
                         predicate = predicate.And(innerPredicate);
                     }
+
                     var query = context.GetQueryable<SearchResultItem>().Filter(predicate);
 
                     returnItems =

@@ -838,11 +838,11 @@
     <Content Include="Layouts\Sublayouts\Components\BlogDetails.ascx" />
     <Content Include="Layouts\Sublayouts\Components\BlogListing.ascx" />
     <Content Include="Layouts\Sublayouts\Components\CallToAction.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\CollectionPanel.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\CollectionPanelView.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Comments.ascx" />
     <Content Include="Layouts\Sublayouts\Components\CommsPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanelView.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\FeaturedPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Date.ascx" />
     <Content Include="Layouts\Sublayouts\Components\EventDetail.ascx" />
@@ -997,20 +997,6 @@
     <Compile Include="Layouts\Sublayouts\Components\CallToAction.ascx.designer.cs">
       <DependentUpon>CallToAction.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\CollectionPanel.ascx.cs">
-      <DependentUpon>CollectionPanel.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\CollectionPanel.ascx.designer.cs">
-      <DependentUpon>CollectionPanel.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\CollectionPanelView.ascx.cs">
-      <DependentUpon>CollectionPanelView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\CollectionPanelView.ascx.designer.cs">
-      <DependentUpon>CollectionPanelView.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Comments.ascx.cs">
       <DependentUpon>Comments.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1031,6 +1017,20 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx.designer.cs">
       <DependentUpon>Carousel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanel.ascx.cs">
+      <DependentUpon>CollectionPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanel.ascx.designer.cs">
+      <DependentUpon>CollectionPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanelView.ascx.cs">
+      <DependentUpon>CollectionPanelView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanelView.ascx.designer.cs">
+      <DependentUpon>CollectionPanelView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\FeaturedPanel.ascx.cs">
       <DependentUpon>FeaturedPanel.ascx</DependentUpon>

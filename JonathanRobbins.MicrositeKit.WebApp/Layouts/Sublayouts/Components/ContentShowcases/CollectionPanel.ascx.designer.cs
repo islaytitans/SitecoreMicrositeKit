@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components {
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentShowcases {
     
     
     public partial class CollectionPanel {
@@ -19,7 +19,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.CollectionPanelView cpvFeaturedItem;
+        protected global::JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentShowcases.CollectionPanelView cpvFeaturedItem;
         
         /// <summary>
         /// lvMediumCollection control.
