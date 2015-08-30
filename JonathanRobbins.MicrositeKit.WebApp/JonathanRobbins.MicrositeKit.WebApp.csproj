@@ -853,8 +853,8 @@
     <Content Include="Layouts\Sublayouts\Components\EventDetail.ascx" />
     <Content Include="Layouts\Sublayouts\Components\EventsListing.ascx" />
     <Content Include="Layouts\Sublayouts\Components\LibraryListing.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\LoggedIn.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\Login.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Membership\LoggedIn.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Membership\Login.ascx" />
     <Content Include="Layouts\Sublayouts\Components\NewsDetails.ascx" />
     <Content Include="Layouts\Sublayouts\Components\NewsListing.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx" />
@@ -1102,18 +1102,18 @@
     <Compile Include="Layouts\Sublayouts\Components\LibraryListing.ascx.designer.cs">
       <DependentUpon>LibraryListing.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\LoggedIn.ascx.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Membership\LoggedIn.ascx.cs">
       <DependentUpon>LoggedIn.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\LoggedIn.ascx.designer.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Membership\LoggedIn.ascx.designer.cs">
       <DependentUpon>LoggedIn.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\Login.ascx.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Membership\Login.ascx.cs">
       <DependentUpon>Login.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\Login.ascx.designer.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Membership\Login.ascx.designer.cs">
       <DependentUpon>Login.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\NewsDetails.ascx.cs">

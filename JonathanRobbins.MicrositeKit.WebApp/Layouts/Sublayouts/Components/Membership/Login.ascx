@@ -1,14 +1,13 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Login.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Login" ValidateRequestMode="Disabled" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Login.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Membership.Login" ValidateRequestMode="Disabled" %>
 <%@ Register TagPrefix="sc" Namespace="Sitecore.Web.UI.WebControls" Assembly="Sitecore.Kernel" %>
 
 <div class="login-portal">    
     <div class="inner">
         <h1><sc:Text runat="server" Field="Title" /></h1>
 
+        <sc:Sublayout ID="sctShortText" runat="server" Path="/layouts/SubLayouts/Components/ContentBlocks/ShortText.ascx" />
 
-        <sc:Sublayout ID="sctShortText" runat="server" Path="/layouts/SubLayouts/Components/ShortText.ascx" />
-
-        <sc:Sublayout ID="sctMainText" runat="server" Path="/layouts/SubLayouts/Components/MainText.ascx" />
+        <sc:Sublayout ID="sctMainText" runat="server" Path="/layouts/SubLayouts/Components/ContentBlocks/MainText.ascx" />
 
         <div class="login-form">        
             <fieldset class="form"> 
@@ -29,17 +28,17 @@
                                 EnableViewState="True"
                                 ShowMessageBox="True" CssClass="validation"/>
                             <div class="form-input">
-                                <asp:label runat="server" AssociatedControlID="txtEmail">
+                                <asp:Label runat="server" AssociatedControlID="txtEmail">
                                     <sc:Text id="sctUsername" runat="server" Field="Username" />
-                                </asp:label>
+                                </asp:Label>
                                 <asp:TextBox ID="txtEmail" runat="server" />
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="vgLogin" Display="None" />
                                 <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ValidationGroup="vgLogin" Display="None"/>
                             </div>
                             <div class="form-input">
-                                <asp:label runat="server" AssociatedControlID="txtPassword">
+                                <asp:Label runat="server" AssociatedControlID="txtPassword">
                                     <sc:Text id="sctPassword" runat="server" Field="Password" />
-                                </asp:label>
+                                </asp:Label>
                                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" />
                                 <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" ValidationGroup="vgLogin" Display="None" />
                             </div>

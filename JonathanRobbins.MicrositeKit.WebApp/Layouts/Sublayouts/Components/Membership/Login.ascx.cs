@@ -8,7 +8,7 @@ using Sitecore.Links;
 using Sitecore.Security.Accounts;
 using Sitecore.Security.Authentication;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Membership
 {
     public partial class Login : MicrositeSublayoutBase
     {

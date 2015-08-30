@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Web;
-using System.Web.UI;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Fields;
 using Sitecore.Links;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Membership
 {
     public partial class LoggedIn : MicrositeSublayoutBase
     {
@@ -14,6 +13,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         {
             if (UserLoggedIntoMicrosite(Page))
             {
+                btnLogout.Text =
+                    Nodes.MicrositesMicrositesDictionaryItem[Enumerators.SitecoreConfig.Fields.Global.LogOut];
                 phLoggedIn.Visible = true;
             }
         }
@@ -22,18 +23,9 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         {
             LogoutUser();
 
-            string url = string.Empty;
-
-            LinkField linkField = Datasource.Fields["Log out redirect location"];
-
-            if (linkField != null && !string.IsNullOrEmpty(linkField.Url))
-            {
-                url = linkField.TargetItem != null ? LinkManager.GetItemUrl(linkField.TargetItem) : linkField.Url;
-            }
-            else
-            {
-                url = Nodes.LoginPageItem != null ? LinkManager.GetItemUrl(Nodes.LoginPageItem) : HttpContext.Current.Request.Url.AbsoluteUri;
-            }
+            string url = Nodes.LoginPageItem != null
+                ? LinkManager.GetItemUrl(Nodes.LoginPageItem)
+                : HttpContext.Current.Request.Url.AbsoluteUri;
 
             Response.Redirect(url);
         }

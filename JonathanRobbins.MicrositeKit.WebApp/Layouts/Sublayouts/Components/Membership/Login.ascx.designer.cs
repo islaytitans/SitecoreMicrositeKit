@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components {
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Membership {
     
     
     public partial class Login {
