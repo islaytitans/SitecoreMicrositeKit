@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VideoWidget.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.VideoWidget" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VideoWidget.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks.VideoWidget" %>
 
 <div class="video">  
     <div class="video-player">

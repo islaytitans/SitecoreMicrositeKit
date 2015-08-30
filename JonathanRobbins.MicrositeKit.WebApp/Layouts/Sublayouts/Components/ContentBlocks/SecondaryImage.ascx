@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SecondaryImage.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.SecondaryImage" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SecondaryImage.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks.SecondaryImage" %>
 <%@ Register TagPrefix="sc" Namespace="Sitecore.Web.UI.WebControls" Assembly="Sitecore.Kernel" %>
 
 <div class="secondary-image">

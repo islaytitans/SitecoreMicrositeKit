@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="H1Banner.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.H1Banner" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="H1Banner.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks.H1Banner" %>
 
 <div class="page-header">
     <div class="inner">

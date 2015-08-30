@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components {
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks {
     
     
-    public partial class MainText {
+    public partial class Date {
         
         /// <summary>
-        /// sctMainText control.
+        /// scdDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Sitecore.Web.UI.WebControls.Text sctMainText;
+        protected global::Sitecore.Web.UI.WebControls.Date scdDate;
     }
 }

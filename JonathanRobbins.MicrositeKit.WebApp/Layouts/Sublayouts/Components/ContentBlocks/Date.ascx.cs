@@ -2,7 +2,7 @@
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks
 {
     public partial class Date : MicrositeSublayoutBase
     {
@@ -10,10 +10,10 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
 
         private void Page_Load(object sender, EventArgs e)
         {
-            SetLabels();
+            SetDateComponent();
         }
 
-        private void SetLabels()
+        private void SetDateComponent()
         {
             string fieldName = scdDate.Field;
             if (!string.IsNullOrEmpty(FieldName))
@@ -21,7 +21,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
                 fieldName = FieldName;
             }
 
-            Item item = RetrieveItemOwnerOfField(fieldName);
+            Item item = ResolveDatasourceOfField(fieldName);
             if (item != null) scdDate.Item = item;
         }
     }

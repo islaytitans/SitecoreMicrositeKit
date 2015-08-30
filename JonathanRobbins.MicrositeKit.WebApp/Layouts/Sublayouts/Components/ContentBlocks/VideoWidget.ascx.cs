@@ -2,7 +2,7 @@
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks
 {
     public partial class VideoWidget : MicrositeSublayoutBase
     {
@@ -12,7 +12,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
             {
                 if (Datasource != null)
                 {
-                    Item videoItem = RetrieveItemOwnerOfField("Youtube video ID");
+                    Item videoItem = ResolveDatasourceOfField("Youtube video ID");
                     if (videoItem != null)
                     {
                         PopulateFields(videoItem);

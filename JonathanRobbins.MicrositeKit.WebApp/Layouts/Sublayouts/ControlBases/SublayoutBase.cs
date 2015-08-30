@@ -48,14 +48,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
         }
 
         //TODO remove
-        public Item RetrieveItemOwnerOfField(string fieldName)
+        public Item ResolveDatasourceOfField(string fieldName)
         {
-            if (Sitecore.Context.Item.Fields[fieldName] != null &&
-                !string.IsNullOrEmpty(Sitecore.Context.Item.Fields[fieldName].Value))
-            {
-                return Sitecore.Context.Item;
-            }
-
             if (Datasource != null && Datasource.Fields[fieldName] != null &&
                 !string.IsNullOrEmpty(Datasource.Fields[fieldName].Value))
             {

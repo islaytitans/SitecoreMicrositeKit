@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components {
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks {
     
     
     public partial class SecondaryImage {

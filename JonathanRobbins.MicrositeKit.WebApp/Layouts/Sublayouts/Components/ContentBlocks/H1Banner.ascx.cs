@@ -2,12 +2,10 @@
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
-using Sitecore;
-using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Web.UI.WebControls;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks
 {
     public partial class H1Banner : MicrositeSublayoutBase
     {
@@ -15,13 +13,13 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
         {
             if (!Page.IsPostBack)
             {
-                BindToObject();
+                BindComponents();
             }
         }
 
-        private void BindToObject()
+        private void BindComponents()
         {
-            Item item = RetrieveItemOwnerOfField(sctTitle.Field);
+            Item item = ResolveDatasourceOfField(sctTitle.Field);
             if (item != null) sctTitle.Item = item;
 
             //TODO wildcard
