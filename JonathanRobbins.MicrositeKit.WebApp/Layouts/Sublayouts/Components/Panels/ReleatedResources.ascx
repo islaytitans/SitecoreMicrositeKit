@@ -1,5 +1,6 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ReleatedResources.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ReleatedResources" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ReleatedResources.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Panels.ReleatedResources" %>
 <%@ Import Namespace="Sitecore.Data.Items" %>
+<%@ Import Namespace="JonathanRobbins.Micrositekit.Business.Extensions" %>
 
 <div class="resources" runat="server" id="divResources">
     <h3>

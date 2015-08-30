@@ -837,7 +837,6 @@
     <Content Include="css\reset.min.css" />
     <Content Include="Layouts\Sublayouts\Components\BlogDetails.ascx" />
     <Content Include="Layouts\Sublayouts\Components\BlogListing.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\CallToAction.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Comments.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentBlocks\Date.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentBlocks\H1Banner.ascx" />
@@ -857,9 +856,10 @@
     <Content Include="Layouts\Sublayouts\Components\Membership\Login.ascx" />
     <Content Include="Layouts\Sublayouts\Components\NewsDetails.ascx" />
     <Content Include="Layouts\Sublayouts\Components\NewsListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Panels\CallToAction.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Panels\PromoPanel.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Panels\ReleatedResources.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\PromoPanel.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\ReleatedResources.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Footer.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Header.ascx" />
@@ -989,13 +989,6 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\BlogListing.ascx.designer.cs">
       <DependentUpon>BlogListing.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\CallToAction.ascx.cs">
-      <DependentUpon>CallToAction.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\CallToAction.ascx.designer.cs">
-      <DependentUpon>CallToAction.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Comments.ascx.cs">
       <DependentUpon>Comments.ascx</DependentUpon>
@@ -1130,26 +1123,33 @@
     <Compile Include="Layouts\Sublayouts\Components\NewsListing.ascx.designer.cs">
       <DependentUpon>NewsListing.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\CallToAction.ascx.cs">
+      <DependentUpon>CallToAction.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\CallToAction.ascx.designer.cs">
+      <DependentUpon>CallToAction.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\PromoPanel.ascx.cs">
+      <DependentUpon>PromoPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\PromoPanel.ascx.designer.cs">
+      <DependentUpon>PromoPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\ReleatedResources.ascx.cs">
+      <DependentUpon>ReleatedResources.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\ReleatedResources.ascx.designer.cs">
+      <DependentUpon>ReleatedResources.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx.cs">
       <DependentUpon>SocialPanel.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx.designer.cs">
       <DependentUpon>SocialPanel.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\PromoPanel.ascx.cs">
-      <DependentUpon>PromoPanel.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\PromoPanel.ascx.designer.cs">
-      <DependentUpon>PromoPanel.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\ReleatedResources.ascx.cs">
-      <DependentUpon>ReleatedResources.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\ReleatedResources.ascx.designer.cs">
-      <DependentUpon>ReleatedResources.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\ControlBases\MicrositeSublayoutBase.cs">
       <SubType>ASPXCodeBehind</SubType>

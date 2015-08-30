@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CallToAction.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.CallToAction" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CallToAction.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Panels.CallToAction" %>
 
 <div class="cta-panel">
     <h2><sc:Text runat="server" ID="sctLegend" Field="Title"/></h2>
