@@ -4,7 +4,7 @@ using Sitecore.Data.Items;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks
 {
-    public partial class VideoWidget : MicrositeSublayoutBase
+    public partial class VideoPlayer : MicrositeSublayoutBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

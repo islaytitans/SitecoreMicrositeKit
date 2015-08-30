@@ -845,7 +845,7 @@
     <Content Include="Layouts\Sublayouts\Components\ContentBlocks\SecondaryImage.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentBlocks\ShortText.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentBlocks\Strapline.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\ContentBlocks\VideoWidget.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\ContentBlocks\VideoPlayer.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanelView.ascx" />
@@ -1046,12 +1046,12 @@
     <Compile Include="Layouts\Sublayouts\Components\ContentBlocks\Strapline.ascx.designer.cs">
       <DependentUpon>Strapline.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\ContentBlocks\VideoWidget.ascx.cs">
-      <DependentUpon>VideoWidget.ascx</DependentUpon>
+    <Compile Include="Layouts\Sublayouts\Components\ContentBlocks\VideoPlayer.ascx.cs">
+      <DependentUpon>VideoPlayer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\ContentBlocks\VideoWidget.ascx.designer.cs">
-      <DependentUpon>VideoWidget.ascx</DependentUpon>
+    <Compile Include="Layouts\Sublayouts\Components\ContentBlocks\VideoPlayer.ascx.designer.cs">
+      <DependentUpon>VideoPlayer.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\Carousel.ascx.cs">
       <DependentUpon>Carousel.ascx</DependentUpon>

@@ -10,7 +10,7 @@
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.ContentBlocks {
     
     
-    public partial class VideoWidget {
+    public partial class VideoPlayer {
         
         /// <summary>
         /// litYoutube control.
