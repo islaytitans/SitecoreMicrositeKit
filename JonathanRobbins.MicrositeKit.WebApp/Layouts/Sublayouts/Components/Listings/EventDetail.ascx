@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EventDetail.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.EventDetail" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EventDetail.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings.EventDetail" %>
 
 <div class="event-details">
     <div class="event-location-time">
@@ -18,26 +18,26 @@
         <div class="address">
             <h3><sc:Text runat="server" id="sctVenueLabel" field="The venue label" /></h3>
             <ul>
-                <asp:placeholder runat="server" id="phAddress1">
+                <asp:PlaceHolder runat="server" id="phAddress1">
                     <li>
                         <sc:Text runat="server" ID="sctAddressLine1" Field="Address 1"/>,
                     </li>
-                </asp:placeholder>
-                <asp:placeholder runat="server" id="phAddress2">
+                </asp:PlaceHolder>
+                <asp:PlaceHolder runat="server" id="phAddress2">
                     <li>
                         <sc:Text runat="server" ID="sctAddressLine2" Field="Address 2"/>,
                     </li>
-                </asp:placeholder>
-                <asp:placeholder runat="server" id="phAddress3">
+                </asp:PlaceHolder>
+                <asp:PlaceHolder runat="server" id="phAddress3">
                     <li>
                         <sc:Text runat="server" ID="sctAddressLine3" Field="Address 3"/>,
                     </li>
-                </asp:placeholder>
-                <asp:placeholder runat="server" id="phPostcode">
+                </asp:PlaceHolder>
+                <asp:PlaceHolder runat="server" id="phPostcode">
                     <li>
                         <sc:Text runat="server" ID="sctPostcode" Field="Postcode"/>
                     </li>
-                </asp:placeholder>
+                </asp:PlaceHolder>
             </ul>
         </div>
     </div>

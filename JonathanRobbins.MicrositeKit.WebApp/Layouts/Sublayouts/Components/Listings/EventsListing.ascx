@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EventsListing.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.EventsListing" %>
-<%@ Register Src="~/Layouts/Sublayouts/Components/EventDetail.ascx" TagPrefix="uc1" TagName="EventDetail" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EventsListing.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings.EventsListing" %>
+<%@ Register Src="~/Layouts/Sublayouts/Components/Listings/EventDetail.ascx" TagPrefix="uc1" TagName="EventDetail" %>
 
 <div id="EventsListing">
     <div class="inner">
@@ -8,7 +8,7 @@
                 <ul>
                     <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
                 </ul>
-                <uc1:eventdetail runat="server" id="EventDetail" />
+                <uc1:EventDetail runat="server" id="EventDetail" />
             </LayoutTemplate>
             <ItemTemplate>
                 <li class="event-item">                

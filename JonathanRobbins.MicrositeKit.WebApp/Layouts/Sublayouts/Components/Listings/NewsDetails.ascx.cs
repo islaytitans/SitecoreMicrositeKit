@@ -3,7 +3,7 @@ using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
 using Sitecore.Data.Items;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings
 {
     public partial class NewsDetails : MicrositeSublayoutBase
     {

@@ -835,9 +835,6 @@
     </Content>
     <Content Include="css\reset.css" />
     <Content Include="css\reset.min.css" />
-    <Content Include="Layouts\Sublayouts\Components\BlogDetails.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\BlogListing.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\Comments.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentBlocks\Date.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentBlocks\H1Banner.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentBlocks\MainText.ascx" />
@@ -849,13 +846,16 @@
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\CollectionPanelView.ascx" />
     <Content Include="Layouts\Sublayouts\Components\ContentShowcases\FeaturedPanel.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\EventDetail.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\EventsListing.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\LibraryListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Listings\BlogDetails.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Listings\BlogListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Listings\Comments.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Listings\EventDetail.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Listings\EventsListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Listings\LibraryListing.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Listings\NewsDetails.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Listings\NewsListing.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Membership\LoggedIn.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Membership\Login.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\NewsDetails.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\NewsListing.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Panels\CallToAction.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Panels\PromoPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Panels\ReleatedResources.ascx" />
@@ -976,27 +976,6 @@
     <Compile Include="Layouts\BrowserLayout.aspx.designer.cs">
       <DependentUpon>BrowserLayout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\BlogDetails.ascx.cs">
-      <DependentUpon>BlogDetails.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\BlogDetails.ascx.designer.cs">
-      <DependentUpon>BlogDetails.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\BlogListing.ascx.cs">
-      <DependentUpon>BlogListing.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\BlogListing.ascx.designer.cs">
-      <DependentUpon>BlogListing.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\Comments.ascx.cs">
-      <DependentUpon>Comments.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\Comments.ascx.designer.cs">
-      <DependentUpon>Comments.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Layouts\Sublayouts\Components\ContentBlocks\Date.ascx.cs">
       <DependentUpon>Date.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1074,26 +1053,61 @@
     <Compile Include="Layouts\Sublayouts\Components\ContentShowcases\FeaturedPanel.ascx.designer.cs">
       <DependentUpon>FeaturedPanel.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\EventDetail.ascx.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Listings\BlogDetails.ascx.cs">
+      <DependentUpon>BlogDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\BlogDetails.ascx.designer.cs">
+      <DependentUpon>BlogDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\BlogListing.ascx.cs">
+      <DependentUpon>BlogListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\BlogListing.ascx.designer.cs">
+      <DependentUpon>BlogListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\Comments.ascx.cs">
+      <DependentUpon>Comments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\Comments.ascx.designer.cs">
+      <DependentUpon>Comments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\EventDetail.ascx.cs">
       <DependentUpon>EventDetail.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\EventDetail.ascx.designer.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Listings\EventDetail.ascx.designer.cs">
       <DependentUpon>EventDetail.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\EventsListing.ascx.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Listings\EventsListing.ascx.cs">
       <DependentUpon>EventsListing.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\EventsListing.ascx.designer.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Listings\EventsListing.ascx.designer.cs">
       <DependentUpon>EventsListing.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\LibraryListing.ascx.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Listings\LibraryListing.ascx.cs">
       <DependentUpon>LibraryListing.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\LibraryListing.ascx.designer.cs">
+    <Compile Include="Layouts\Sublayouts\Components\Listings\LibraryListing.ascx.designer.cs">
       <DependentUpon>LibraryListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\NewsDetails.ascx.cs">
+      <DependentUpon>NewsDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\NewsDetails.ascx.designer.cs">
+      <DependentUpon>NewsDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\NewsListing.ascx.cs">
+      <DependentUpon>NewsListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\Sublayouts\Components\Listings\NewsListing.ascx.designer.cs">
+      <DependentUpon>NewsListing.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Membership\LoggedIn.ascx.cs">
       <DependentUpon>LoggedIn.ascx</DependentUpon>
@@ -1108,20 +1122,6 @@
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Membership\Login.ascx.designer.cs">
       <DependentUpon>Login.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\NewsDetails.ascx.cs">
-      <DependentUpon>NewsDetails.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\NewsDetails.ascx.designer.cs">
-      <DependentUpon>NewsDetails.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\NewsListing.ascx.cs">
-      <DependentUpon>NewsListing.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\NewsListing.ascx.designer.cs">
-      <DependentUpon>NewsListing.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Panels\CallToAction.ascx.cs">
       <DependentUpon>CallToAction.ascx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Comments.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Comments" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Comments.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings.Comments" %>
 <%@ Import Namespace="Sitecore.Data.Items" %>
 
 <div class="comments-panel">
@@ -15,9 +15,9 @@
                 <Views>
                     <asp:View runat="server" ID="vLoggedIn">
                         <asp:Panel runat="server" ID="pnlComment" DefaultButton="btnSubmit" CssClass="comment-box">
-                            <asp:label runat="server" AssociatedControlID="txtCommentBox">
+                            <asp:Label runat="server" AssociatedControlID="txtCommentBox">
                                 <sc:Text runat="server" ID="sctComment" Field="Comment label"/>
-                            </asp:label>
+                            </asp:Label>
                             <asp:TextBox ID="txtCommentBox" runat="server" TextMode="MultiLine" CssClass="text-box" />
                             <asp:Button runat="server" ID="btnSubmit" OnClick="btnSubmit_OnClick" CssClass="button"/>
                         </asp:Panel>
@@ -48,9 +48,9 @@
                                 <asp:HyperLink runat="server" ID="hlRespond" Text='<%# DataSource["Respond"] %>' ClientIDMode="Static" CssClass="link opener"/>
                                 <asp:PlaceHolder runat="server" ID="phRespondAction">
                                     <asp:Panel runat="server" ID="pnlComment" DefaultButton="btnSubmitResponse" CssClass="hidden-panel">
-                                        <asp:label ID="Label1" runat="server" AssociatedControlID="txtReponseBox">
+                                        <asp:Label ID="Label1" runat="server" AssociatedControlID="txtReponseBox">
                                             <sc:Text runat="server" ID="sctResponseLabel" Field="Comment label"/>
-                                        </asp:label>
+                                        </asp:Label>
                                         <asp:TextBox ID="txtReponseBox" runat="server" TextMode="MultiLine" CssClass="text-box" />
                                         <asp:Button runat="server" ID="btnSubmitResponse" CommandName='<%# ResponseCommandArguement %>' Text='<%# DataSource["Submit comment"] %>' CssClass="button"/>
                                     </asp:Panel>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.Micrositekit.Business.Feedback;
 using JonathanRobbins.MicrositeKit.CMS.Items;
@@ -22,7 +21,7 @@ using StructureMap;
 
 //using scSearchContrib.Searcher.Parameters;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings
 {
     public partial class Comments : MicrositeSublayoutBase
     {

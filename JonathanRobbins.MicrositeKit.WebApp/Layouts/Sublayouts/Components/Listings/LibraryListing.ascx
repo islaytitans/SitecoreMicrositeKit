@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LibraryListing.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.LibraryListing" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LibraryListing.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings.LibraryListing" %>
 
 <div class="library-listing">
     <div class="inner">

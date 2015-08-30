@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components {
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings {
     
     
-    public partial class EventsListing {
+    public partial class NewsDetails {
         
         /// <summary>
-        /// lvEvents control.
+        /// sctDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvEvents;
+        protected global::Sitecore.Web.UI.WebControls.Date sctDate;
     }
 }

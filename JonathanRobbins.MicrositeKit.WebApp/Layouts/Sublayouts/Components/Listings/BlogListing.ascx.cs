@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
@@ -17,7 +16,7 @@ using Sitecore.Web.UI.WebControls;
 using StructureMap;
 using Image = Sitecore.Web.UI.WebControls.Image;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings
 {
     public partial class BlogListing : MicrositeSublayoutBase
     {

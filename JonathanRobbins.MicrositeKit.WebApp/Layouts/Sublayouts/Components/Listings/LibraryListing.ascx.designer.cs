@@ -7,108 +7,81 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components {
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings {
     
     
-    public partial class Comments {
+    public partial class LibraryListing {
         
         /// <summary>
-        /// phMessaging control.
+        /// sctLegend control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phMessaging;
+        protected global::Sitecore.Web.UI.WebControls.Text sctLegend;
         
         /// <summary>
-        /// sctError control.
+        /// sctHelp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Sitecore.Web.UI.WebControls.Text sctError;
+        protected global::Sitecore.Web.UI.WebControls.Text sctHelp;
         
         /// <summary>
-        /// mvCommentBox control.
+        /// cblResourceFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView mvCommentBox;
+        protected global::System.Web.UI.WebControls.CheckBoxList cblResourceFilter;
         
         /// <summary>
-        /// vLoggedIn control.
+        /// btnReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View vLoggedIn;
+        protected global::System.Web.UI.WebControls.Button btnReset;
         
         /// <summary>
-        /// pnlComment control.
+        /// btnFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlComment;
+        protected global::System.Web.UI.WebControls.Button btnFilter;
         
         /// <summary>
-        /// sctComment control.
+        /// sctStrapline control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Sitecore.Web.UI.WebControls.Text sctComment;
+        protected global::Sitecore.Web.UI.WebControls.Text sctStrapline;
         
         /// <summary>
-        /// txtCommentBox control.
+        /// sctShortText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCommentBox;
+        protected global::Sitecore.Web.UI.WebControls.Text sctShortText;
         
         /// <summary>
-        /// btnSubmit control.
+        /// lvResources control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// vAnon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View vAnon;
-        
-        /// <summary>
-        /// sctLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Sitecore.Web.UI.WebControls.Text sctLogin;
-        
-        /// <summary>
-        /// rptComments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptComments;
+        protected global::System.Web.UI.WebControls.ListView lvResources;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using JonathanRobbins.Micrositekit.Business.Extensions;
 using JonathanRobbins.MicrositeKit.CMS.Extensions;
@@ -12,7 +11,6 @@ using JonathanRobbins.MicrositeKit.Enumerators.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
 using JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases;
-using Sitecore.Analytics.Core.RangeScheduler;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
@@ -20,7 +18,7 @@ using Sitecore.Links;
 using Sitecore.Web.UI.WebControls;
 using StructureMap;
 
-namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components
+namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings
 {
     public partial class LibraryListing : MicrositeSublayoutBase
     {

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NewsListing.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.NewsListing" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NewsListing.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings.NewsListing" %>
 
 
 <div id="NewsListing">

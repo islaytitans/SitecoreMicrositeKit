@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BlogDetails.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.BlogDetails" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BlogDetails.ascx.cs" Inherits="JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings.BlogDetails" %>
 
 <sc:Date runat="server" ID="sctDate" Field="Date" Format="ddd d MMMM" />
 <sc:Text runat="server" ID="sctTitle" Field="Title" />
