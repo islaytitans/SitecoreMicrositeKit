@@ -858,7 +858,7 @@
     <Content Include="Layouts\Sublayouts\Components\Membership\Login.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Panels\CallToAction.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Panels\PromoPanel.ascx" />
-    <Content Include="Layouts\Sublayouts\Components\Panels\ReleatedResources.ascx" />
+    <Content Include="Layouts\Sublayouts\Components\Panels\RelatedResources.ascx" />
     <Content Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Breadcrumb.ascx" />
     <Content Include="Layouts\Sublayouts\Fixed\Footer.ascx" />
@@ -1137,12 +1137,12 @@
     <Compile Include="Layouts\Sublayouts\Components\Panels\PromoPanel.ascx.designer.cs">
       <DependentUpon>PromoPanel.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\Panels\ReleatedResources.ascx.cs">
-      <DependentUpon>ReleatedResources.ascx</DependentUpon>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\RelatedResources.ascx.cs">
+      <DependentUpon>RelatedResources.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\Sublayouts\Components\Panels\ReleatedResources.ascx.designer.cs">
-      <DependentUpon>ReleatedResources.ascx</DependentUpon>
+    <Compile Include="Layouts\Sublayouts\Components\Panels\RelatedResources.ascx.designer.cs">
+      <DependentUpon>RelatedResources.ascx</DependentUpon>
     </Compile>
     <Compile Include="Layouts\Sublayouts\Components\Panels\SocialPanel.ascx.cs">
       <DependentUpon>SocialPanel.ascx</DependentUpon>

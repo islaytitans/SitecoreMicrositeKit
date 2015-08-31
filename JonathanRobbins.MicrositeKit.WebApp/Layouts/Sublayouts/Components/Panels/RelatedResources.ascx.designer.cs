@@ -10,7 +10,7 @@
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Panels {
     
     
-    public partial class ReleatedResources {
+    public partial class RelatedResources {
         
         /// <summary>
         /// divResources control.

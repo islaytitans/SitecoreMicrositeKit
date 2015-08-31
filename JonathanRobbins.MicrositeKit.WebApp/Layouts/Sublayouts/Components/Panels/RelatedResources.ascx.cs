@@ -9,7 +9,7 @@ using Sitecore.Data.Items;
 
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Panels
 {
-    public partial class ReleatedResources : MicrositeSublayoutBase
+    public partial class RelatedResources : MicrositeSublayoutBase
     {
         private IEnumerable<MediaItem> _relatedResourcesDatasource;
         protected IEnumerable<MediaItem> RelatedResourcesDatasource
