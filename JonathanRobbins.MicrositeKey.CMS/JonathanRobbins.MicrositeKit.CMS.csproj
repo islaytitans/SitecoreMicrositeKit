@@ -67,7 +67,9 @@
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Items\ItemComparer.cs" />
     <Compile Include="Items\Nodes.cs" />
+    <Compile Include="Links\WildCardLinkManager.cs" />
     <Compile Include="Pipelines\GetRenderingDatasource\GetDatasourceLocations.cs" />
+    <Compile Include="Pipelines\HttpRequest\WildCardItemResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search\SearchUtility.cs" />
   </ItemGroup>

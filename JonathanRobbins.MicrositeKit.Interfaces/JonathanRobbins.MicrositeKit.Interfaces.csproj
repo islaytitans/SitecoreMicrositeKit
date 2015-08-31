@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Business\Feedback\ICommentcreator.cs" />
     <Compile Include="CMS\Items\INodes.cs" />
+    <Compile Include="CMS\Links\IWildCardLinkManager.cs" />
     <Compile Include="CMS\Search\ISearchUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

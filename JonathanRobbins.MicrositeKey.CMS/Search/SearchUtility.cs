@@ -23,7 +23,12 @@ namespace JonathanRobbins.MicrositeKit.CMS.Search
         {
             get
             {
-                return _index ?? ContentSearchManager.GetIndex("sitecore_web_index");
+                if (_index == null)
+                {
+                    _index = ContentSearchManager.GetIndex("sitecore_web_index");
+                }
+
+                return _index;
             }
         }
 
