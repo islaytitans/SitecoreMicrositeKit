@@ -46,7 +46,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Pane
 
         private void PopulateRepeater()
         {
-            if (RelatedResourcesDatasource.Any())
+            if (RelatedResourcesDatasource != null && RelatedResourcesDatasource.Any())
             {
                 divResources.Visible = true;
 
