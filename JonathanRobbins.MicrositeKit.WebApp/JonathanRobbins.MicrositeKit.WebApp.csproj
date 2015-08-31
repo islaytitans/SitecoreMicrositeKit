@@ -684,6 +684,7 @@
     <Content Include="App_Config\Include\ListManagement\Sitecore.ListManagement.Solr.IndexConfiguration.config.disabled" />
     <Content Include="App_Config\Include\LiveMode.config.example" />
     <Content Include="App_Config\Include\ScalabilitySettings.config.example" />
+    <Content Include="App_Config\Include\zzMircosites.Lucene.WildCardIndexConfiguration.config" />
     <None Include="App_Config\Include\Sitecore.Analytics.Automation.TimeoutProcessing.config" />
     <None Include="App_Config\Include\Sitecore.Analytics.Compatibility.config" />
     <None Include="App_Config\Include\Sitecore.Analytics.config" />
@@ -945,6 +946,8 @@
     <Content Include="css\reset.less" />
     <Content Include="App_Config\Include\zzMircosites.config" />
     <Content Include="packages.config" />
+    <Content Include="App_Config\Include\zzMicrosites.Lucene.Index.WildCards.Master.config" />
+    <Content Include="App_Config\Include\zzMicrosites.Lucene.Index.WildCards.Web.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

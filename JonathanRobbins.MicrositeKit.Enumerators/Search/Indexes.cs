@@ -17,5 +17,7 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.Search
         public static string AdvancedEventsBlogsNews = "advancedEventsBlogsNews";
         public static string Web = "sitecore_web_index";
         public static string Site = "site";
+        public static string WildCardWeb = "microsite_wildcard_index_web";
+        public static string WildCardMaster = "microsite_wildcard_index_master";           
     }
 }
