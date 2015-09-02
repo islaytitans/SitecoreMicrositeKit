@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JonathanRobbins.MicrositeKit.CMS.Links;
+using JonathanRobbins.MicrositeKit.Interfaces.CMS.Links;
 using Sitecore;
+using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Pipelines.HttpRequest;
 
@@ -18,11 +21,18 @@ namespace JonathanRobbins.MicrositeKit.CMS.Pipelines.HttpRequest
 
             Assert.ArgumentNotNull(args, "args");
 
-            //TODO check for wildcard page
+            IWildCardLinkManager wildCardLinkManager = new WildCardLinkManager();
+
             if (Context.Item != null 
                 || Context.Database == null 
-                || args.Url.ItemPath.Length == 0) 
+                || args.Url.ItemPath.Length == 0
+                || !wildCardLinkManager.IsWildCardItem(Context.Item)) 
                 return;
+
+            Item wildCardItem = wildCardLinkManager.GetItem(args.Url.FilePath);
+
+            if (wildCardItem != null)
+                Context.Item = wildCardItem;
         }
     }
 }
