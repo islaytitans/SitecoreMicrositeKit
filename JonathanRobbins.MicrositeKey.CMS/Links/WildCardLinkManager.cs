@@ -31,6 +31,12 @@ namespace JonathanRobbins.MicrositeKit.CMS.Links
 
             var uri = new Uri(LinkManager.GetItemUrl(item));
 
+            // Need to get Details page
+
+            // Pass in details page?
+
+            // Pass name of item to details page
+
             //TODO appent name of item to last segment
 
             return uri.ToString();
