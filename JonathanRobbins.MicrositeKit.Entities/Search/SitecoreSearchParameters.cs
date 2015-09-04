@@ -12,6 +12,7 @@ namespace JonathanRobbins.MicrositeKit.Entities.Search
     [Serializable]
     public class SitecoreSearchParameters
     {
+        public string Term { get; set; }
         public ID Location { get; set; }
         public IEnumerable<ID> Templates { get; set; }
 
@@ -23,6 +24,7 @@ namespace JonathanRobbins.MicrositeKit.Entities.Search
 
         public SitecoreSearchParameters()
         {
+            Term = String.Empty;
             Location = Sitecore.ItemIDs.ContentRoot;
             Templates = new List<ID>();
             IndexName = Indexes.Web;
