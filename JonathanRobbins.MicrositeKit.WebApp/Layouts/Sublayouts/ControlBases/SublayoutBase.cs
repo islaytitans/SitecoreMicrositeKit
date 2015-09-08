@@ -4,7 +4,9 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using JonathanRobbins.MicrositeKit.CMS.Links;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
+using JonathanRobbins.MicrositeKit.Interfaces.CMS.Links;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Security.Authentication;
@@ -15,6 +17,8 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
 {
     public class SublayoutBase : UserControl
     {
+        public IWildCardLinkManager WildCardLinkManager = new WildCardLinkManager();
+
         public Sublayout Sublayout
         {
             get { return Parent as Sublayout; }
@@ -37,10 +41,20 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.ControlBases
             {
                 if (_datasource == null)
                 {
-                    _datasource = Sitecore.Context.Item;
-
                     if (Sublayout != null && !string.IsNullOrEmpty(Sublayout.DataSource))
+                    {
                         _datasource = Sitecore.Context.Database.GetItem(Sublayout.DataSource);
+                    }
+                    
+                    if (_datasource == null && WildCardLinkManager.IsWildCardItem(Sitecore.Context.Item))
+                    {
+                        _datasource = WildCardLinkManager.GetWildCardItem(Sitecore.Context.Request.FilePath);
+                    }
+                    
+                    if (_datasource == null)
+                    {
+                        _datasource = Sitecore.Context.Item;
+                    }
                 }
                 return _datasource;
             }

@@ -11,6 +11,6 @@ namespace JonathanRobbins.MicrositeKit.Interfaces.CMS.Links
     {
         bool IsWildCardItem(Item item);
         string GetWildCardUrl(Item item);
-        Item GetItem(string wildCardUrl);
+        Item GetWildCardItem(string wildCardPath);
     }
 }

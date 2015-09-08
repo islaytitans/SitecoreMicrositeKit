@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,23 +57,33 @@ namespace JonathanRobbins.MicrositeKit.CMS.Links
             return uri.ToString();
         }
 
-        public Item GetItem(string wildCardUrl)
+        public Item GetWildCardItem(string wildCardPath)
         {
-            Assert.IsNotNullOrEmpty(wildCardUrl, "wildCardUrl");
+            Assert.IsNotNullOrEmpty(wildCardPath, "wildCardPath");
 
-            Uri uri = new Uri(wildCardUrl);
             var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
 
             var sitecoreSearchParameters = new SitecoreSearchParameters()
             {
                 IndexName = Sitecore.Context.Database.Name.Equals("web", StringComparison.InvariantCultureIgnoreCase) ? Indexes.WildCardWeb : Indexes.WildCardMaster,
-                Term = uri.Segments.LastOrDefault(),
+                Term = DetermineTerm(wildCardPath),
                 Templates = DetermineContentType(Sitecore.Context.Item.TemplateID)
             };
 
             var searchResults = searchUtility.Search(sitecoreSearchParameters);
 
             return searchResults.ResultsCollection.FirstOrDefault();
+        }
+
+        private string DetermineTerm(string wildCardPath)
+        {
+            Assert.IsNotNullOrEmpty(wildCardPath, "wildCardPath");
+
+            string term = wildCardPath.Split(new []{"/"}, StringSplitOptions.RemoveEmptyEntries).Last();
+
+            term = WebUtility.HtmlDecode(term);
+
+            return term.Replace("-", string.Empty);
         }
 
         private IEnumerable<ID> DetermineContentType(ID templateId)

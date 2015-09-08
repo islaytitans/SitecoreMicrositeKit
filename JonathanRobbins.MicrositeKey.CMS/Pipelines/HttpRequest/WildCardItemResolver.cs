@@ -23,13 +23,12 @@ namespace JonathanRobbins.MicrositeKit.CMS.Pipelines.HttpRequest
 
             IWildCardLinkManager wildCardLinkManager = new WildCardLinkManager();
 
-            if (Context.Item != null 
-                || Context.Database == null 
+            if (Context.Database == null 
                 || args.Url.ItemPath.Length == 0
                 || !wildCardLinkManager.IsWildCardItem(Context.Item)) 
                 return;
 
-            Item wildCardItem = wildCardLinkManager.GetItem(args.Url.FilePath);
+            Item wildCardItem = wildCardLinkManager.GetWildCardItem(args.Url.FilePath);
 
             if (wildCardItem != null)
                 Context.Item = wildCardItem;
