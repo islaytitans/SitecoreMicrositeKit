@@ -13,10 +13,10 @@ namespace JonathanRobbins.MicrositeKit.Entities.Search
     public class SitecoreSearchParameters
     {
         public string Term { get; set; }
-        public ID Location { get; set; }
+        public List<ID> Ancestors { get; set; }
         public IEnumerable<ID> Templates { get; set; }
 
-        public string IndexName { get; set; }
+        //TODO remove
         /// <summary>
         /// FieldValue, FieldName
         /// </summary>
@@ -24,12 +24,10 @@ namespace JonathanRobbins.MicrositeKit.Entities.Search
 
         public SitecoreSearchParameters()
         {
-            Term = String.Empty;
-            Location = Sitecore.ItemIDs.ContentRoot;
+            Term = string.Empty;
+            Ancestors = new List<ID>();
             Templates = new List<ID>();
-            IndexName = Indexes.Web;
             PostFieldFilters = new Dictionary<string, string>();
         }
-
     }
 }

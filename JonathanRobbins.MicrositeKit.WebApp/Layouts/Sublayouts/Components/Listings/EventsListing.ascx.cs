@@ -42,14 +42,20 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
         private void SearchAndBindEvents()
         {
-            var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
+            string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
+
+            var searchManager =
+                new SearchManager(new ContentSearch(indexName));
 
             var sitecoreSearchParameters = CreateEventsSearchParameters();
 
-            var searchResults = searchUtility.Search(sitecoreSearchParameters);
+            var searchResults = searchManager.Search(sitecoreSearchParameters);
 
             var itemComparer = new ItemComparer();
-            var resultsCollection = searchResults.ResultsCollection.ToList();
+            var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
             resultsCollection.Sort(itemComparer.CompareStartDate);
             resultsCollection.Reverse();
 
@@ -77,7 +83,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
             return new SitecoreSearchParameters()
             {
                 Templates = searchTemplates,
-                IndexName = Indexes.Web,
                 PostFieldFilters = fieldDictionary,
             };
         }

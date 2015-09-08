@@ -57,20 +57,21 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
         /// <param name="commentModel"></param>
         private void SearchCommentsAndBind(Item commentItem = null)
         {
-            ObjectFactory.Initialize(x =>
-            {
-                x.For<ISearchUtility>().Use<SearchUtility>();
-            });
+            string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
 
-            var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
+            var searchManager =
+                new SearchManager(new ContentSearch(indexName));
 
             var sitecoreSearchParameters = CreateCommentSearchParameters();
 
-            var searchResults = searchUtility.Search(sitecoreSearchParameters);
+            var searchResults = searchManager.Search(sitecoreSearchParameters);
 
             var itemComparer = new ItemComparer();
 
-            List<Item> results = searchResults.ResultsCollection.ToList();
+            List<Item> results = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
 
             if (commentItem != null && !results.Any(i => i.ID == commentItem.ID))
             {
@@ -177,7 +178,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
             return new SitecoreSearchParameters()
             {
                 Templates = searchTemplates,
-                IndexName = Indexes.Web,
                 PostFieldFilters = fieldDictionary,
             };
         }

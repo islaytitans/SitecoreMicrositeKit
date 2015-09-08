@@ -11,6 +11,7 @@ using JonathanRobbins.MicrositeKit.Enumerators.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Links;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
+using Sitecore.ContentSearch.Linq;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
@@ -61,18 +62,29 @@ namespace JonathanRobbins.MicrositeKit.CMS.Links
         {
             Assert.IsNotNullOrEmpty(wildCardPath, "wildCardPath");
 
-            var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
+            Item matchedItem = null;
 
             var sitecoreSearchParameters = new SitecoreSearchParameters()
             {
-                IndexName = Sitecore.Context.Database.Name.Equals("web", StringComparison.InvariantCultureIgnoreCase) ? Indexes.WildCardWeb : Indexes.WildCardMaster,
                 Term = DetermineTerm(wildCardPath),
                 Templates = DetermineContentType(Sitecore.Context.Item.TemplateID)
             };
 
-            var searchResults = searchUtility.Search(sitecoreSearchParameters);
+            string indexName = Sitecore.Context.Database.Name.Equals("web", StringComparison.InvariantCultureIgnoreCase)
+                ? Indexes.WildCardWeb
+                : Indexes.WildCardMaster;
 
-            return searchResults.ResultsCollection.FirstOrDefault();
+            var searchManager =
+                new SearchManager(new ContentSearch(indexName));
+
+            var searchResults = searchManager.Search(sitecoreSearchParameters);
+
+            if (searchResults.Hits.FirstOrDefault() != null)
+            {
+                matchedItem = searchResults.Hits.FirstOrDefault().Document.GetItem();
+            }
+
+            return matchedItem;
         }
 
         private string DetermineTerm(string wildCardPath)
@@ -83,7 +95,7 @@ namespace JonathanRobbins.MicrositeKit.CMS.Links
 
             term = WebUtility.HtmlDecode(term);
 
-            return term.Replace("-", string.Empty);
+            return term.Replace("-", " ");
         }
 
         private IEnumerable<ID> DetermineContentType(ID templateId)

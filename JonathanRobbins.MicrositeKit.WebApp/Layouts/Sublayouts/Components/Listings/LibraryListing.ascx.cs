@@ -92,19 +92,25 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
         private void SearchAndBindResources()
         {
-            var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
+            string indexName = Sitecore.Context.Database.Name.Equals("web",
+                StringComparison.InvariantCultureIgnoreCase)
+                ? Indexes.Web
+                : Indexes.Master;
+
+            var searchManager =
+                new SearchManager(new ContentSearch(indexName));
 
             var sitecoreSearchParameters = CreateResourceSearchParameters();
 
-            var searchResults = new SearchResults();
+            var searchResults = new SearchResultsCollection<CustomSearchResultItem>();
 
             if (sitecoreSearchParameters.PostFieldFilters.Any())
             {
-                searchResults = searchUtility.Search(sitecoreSearchParameters);
+                searchResults = searchManager.Search(sitecoreSearchParameters);
             }
 
             var itemComparer = new ItemComparer();
-            var resultsCollection = searchResults.ResultsCollection.ToList();
+            var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
             resultsCollection.Sort(itemComparer.CompareCreatedDate);
             resultsCollection.Reverse();
 
@@ -120,8 +126,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
             return new SitecoreSearchParameters()
             {
-                IndexName = Indexes.Web,
-                Location = Sitecore.ItemIDs.MediaLibraryRoot,
+                Ancestors = new List<ID>() { Sitecore.ItemIDs.MediaLibraryRoot },
                 PostFieldFilters = fieldDictionary
             };
         }

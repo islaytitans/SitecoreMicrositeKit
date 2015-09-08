@@ -101,7 +101,7 @@ namespace JonathanRobbins.MicrositeKit.CMS.Search
                     var predicate = PredicateBuilder.True<SearchResultItem>();
                     predicate = predicate.And(t => t.Language == Sitecore.Context.Language.Name);
 
-                    predicate = predicate.And(t => t.Paths.Contains(searchParameters.Location));
+                    //predicate = predicate.And(t => t.Paths.Contains(searchParameters.Location));
 
                     if (searchParameters.Templates.Any())
                     {

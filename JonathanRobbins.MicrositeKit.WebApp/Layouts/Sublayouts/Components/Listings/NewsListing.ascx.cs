@@ -41,14 +41,20 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
         private void SearchAndBindNews()
         {
-            var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
+            string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
+
+            var searchManager =
+                        new SearchManager(new ContentSearch(indexName));
 
             var sitecoreSearchParameters = CreateNewsSearchParameters();
 
-            var searchResults = searchUtility.Search(sitecoreSearchParameters);
+            var searchResults = searchManager.Search(sitecoreSearchParameters);
 
             var itemComparer = new ItemComparer();
-            var resultsCollection = searchResults.ResultsCollection.ToList();
+            var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
             resultsCollection.Sort(itemComparer.CompareDate);
             resultsCollection.Reverse();
 
@@ -78,7 +84,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
             return new SitecoreSearchParameters()
             {
-                IndexName = Indexes.Web,
                 Templates = newsTemplates,
                 PostFieldFilters = fieldDictionary,
             };

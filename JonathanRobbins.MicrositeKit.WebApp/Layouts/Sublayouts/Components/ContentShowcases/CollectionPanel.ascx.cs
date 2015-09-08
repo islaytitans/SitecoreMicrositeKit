@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CsQuery.ExtensionMethods;
 using JonathanRobbins.MicrositeKit.CMS.Extensions;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
@@ -32,22 +33,27 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Cont
                 }
                 else
                 {
-                    var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
+                    string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
+
+                    var searchManager =
+                        new SearchManager(new ContentSearch(indexName));
 
                     var sitecoreSearchParameters = new SitecoreSearchParameters()
                     {
                         Templates = new List<ID>
-                    {
-                        Templates.MicroSiteEventId,
-                        Templates.MicroSiteBlogId,
-                        Templates.MicroSiteNewsId
-                    },
-                        IndexName = Indexes.Web
+                        {
+                            Templates.MicroSiteEventId,
+                            Templates.MicroSiteBlogId,
+                            Templates.MicroSiteNewsId
+                        },
                     };
 
-                    var searchResults = searchUtility.Search(sitecoreSearchParameters);
+                    var searchResults = searchManager.Search(sitecoreSearchParameters);
 
-                    var items = searchResults.ResultsCollection.ToList();
+                    var items = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
 
                     var itemComparer = new ItemComparer();
                     items.Sort(itemComparer.CompareCreatedDate);

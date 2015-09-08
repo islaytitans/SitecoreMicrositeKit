@@ -5,6 +5,7 @@ using System.Web.UI.WebControls;
 using JonathanRobbins.MicrositeKit.CMS.Items;
 using JonathanRobbins.MicrositeKit.CMS.Search;
 using JonathanRobbins.MicrositeKit.Entities.Search;
+using JonathanRobbins.MicrositeKit.Enumerators.Search;
 using JonathanRobbins.MicrositeKit.Enumerators.Settings.ArtefactNames;
 using JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Guids;
 using JonathanRobbins.MicrositeKit.Interfaces.CMS.Search;
@@ -38,14 +39,20 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
         private void SearchAndBindBlogs()
         {
-            var searchUtility = ObjectFactory.GetInstance<ISearchUtility>();
+            string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
+
+            var searchManager =
+                new SearchManager(new ContentSearch(indexName));
 
             var sitecoreSearchParameters = CreateBlogsSearchParameters();
 
-            var searchResults = searchUtility.Search(sitecoreSearchParameters);
+            var searchResults = searchManager.Search(sitecoreSearchParameters);
 
             var itemComparer = new ItemComparer();
-            var resultsCollection = searchResults.ResultsCollection.ToList();
+            var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
             resultsCollection.Sort(itemComparer.CompareDate);
             resultsCollection.Reverse();
 
