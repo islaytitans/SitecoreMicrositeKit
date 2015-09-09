@@ -9,29 +9,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetUpLabels();
-            if (!Page.IsPostBack)
-            {
-                
-            }
-        }
-
-        private void SetUpLabels()
-        {
-            string blogItemId = ApplyParameterIfPresent(QueryStrings.Guid);
-
-            if (!string.IsNullOrEmpty(blogItemId))
-            {
-                Item blogItem = Sitecore.Context.Database.GetItem(blogItemId);
-                if (blogItem == null) return;
-
-                sctDate.Item = blogItem;
-                sctTitle.Item = blogItem;
-                sctStrapline.Item = blogItem;
-                sctShortText.Item = blogItem;
-                sctMainText.Item = blogItem;
-                sctImage.Item = blogItem;
-            }
+            BindSitecoreControls();
         }
     }
 }

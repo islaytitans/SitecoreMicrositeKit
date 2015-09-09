@@ -18,48 +18,52 @@ using Sitecore.Web.UI.WebControls;
 using StructureMap;
 using Image = Sitecore.Web.UI.WebControls.Image;
 
-//using scSearchContrib.Searcher.Parameters;
-
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings
 {
     public partial class EventsListing : MicrositeSublayoutBase
     {
-        public EventsListing()
+        private IEnumerable<Item> _eventsDatasource;
+        public IEnumerable<Item> EventsDatasource
         {
-            ObjectFactory.Initialize(x =>
+            get
             {
-                x.For<ISearchUtility>().Use<SearchUtility>();
-            });
-        }
+                if (_eventsDatasource == null)
+                {
+                    string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
+
+                    var searchManager =
+                        new SearchManager(new ContentSearch(indexName));
+
+                    var sitecoreSearchParameters = CreateEventsSearchParameters();
+
+                    var searchResults = searchManager.Search(sitecoreSearchParameters);
+
+                    var itemComparer = new ItemComparer();
+                    var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
+                    resultsCollection.Sort(itemComparer.CompareStartDate);
+                    resultsCollection.Reverse();
+
+                    _eventsDatasource = resultsCollection;
+                }
+
+                return _eventsDatasource;
+            }
+        } 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                SearchAndBindEvents();
+                BindEvents();
             }
         }
 
-        private void SearchAndBindEvents()
+        private void BindEvents()
         {
-            string indexName = Sitecore.Context.Database.Name.Equals("web",
-                        StringComparison.InvariantCultureIgnoreCase)
-                        ? Indexes.Web
-                        : Indexes.Master;
-
-            var searchManager =
-                new SearchManager(new ContentSearch(indexName));
-
-            var sitecoreSearchParameters = CreateEventsSearchParameters();
-
-            var searchResults = searchManager.Search(sitecoreSearchParameters);
-
-            var itemComparer = new ItemComparer();
-            var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
-            resultsCollection.Sort(itemComparer.CompareStartDate);
-            resultsCollection.Reverse();
-
-            lvEvents.DataSource = resultsCollection;
+            lvEvents.DataSource = EventsDatasource;
             lvEvents.DataBind();
         }
 

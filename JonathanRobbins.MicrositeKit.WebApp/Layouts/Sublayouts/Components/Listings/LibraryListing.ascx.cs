@@ -22,39 +22,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 {
     public partial class LibraryListing : MicrositeSublayoutBase
     {
-        public LibraryListing()
-        {
-            ObjectFactory.Initialize(x =>
-            {
-                x.For<ISearchUtility>().Use<SearchUtility>();
-            });
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            SetUpLabels();
-            if (!Page.IsPostBack)
-            {
-                Assert.IsNotNull(Datasource, "Datasource is not set to the label set of the Library Widget");
-                BindFilter();
-                PreselectItems();
-                SearchAndBindResources();
-            }
-        }
-
-        private void BindFilter()
-        {
-            cblResourceFilter.DataSource = ResourceTypes;
-            cblResourceFilter.DataValueField = "Key";
-            cblResourceFilter.DataTextField = "Value";
-            cblResourceFilter.DataBind();
-        }
-
-        private void PreselectItems()
-        {
-            Enumerable.Cast<ListItem>(cblResourceFilter.Items).All(li => li.Selected = true);
-        }
-
         protected Dictionary<ID, string> ResourceTypes
         {
             get
@@ -79,42 +46,77 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
             }
         }
 
+        private IEnumerable<Item> _mediaDatasource;
+        public IEnumerable<Item> MediaDatasource
+        {
+            get
+            {
+                if (_mediaDatasource == null)
+                {
+                    string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
+
+                    var searchManager =
+                        new SearchManager(new ContentSearch(indexName));
+
+                    var sitecoreSearchParameters = CreateResourceSearchParameters();
+
+                    var searchResults = new SearchResultsCollection<CustomSearchResultItem>();
+
+                    if (sitecoreSearchParameters.PostFieldFilters.Any())
+                    {
+                        searchResults = searchManager.Search(sitecoreSearchParameters);
+                    }
+
+                    var itemComparer = new ItemComparer();
+                    var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
+                    resultsCollection.Sort(itemComparer.CompareCreatedDate);
+                    resultsCollection.Reverse();
+
+                    _mediaDatasource = resultsCollection;
+                }
+
+                return _mediaDatasource;
+            }
+        } 
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            BindSitecoreControls();
+            SetUpLabels();
+            if (!Page.IsPostBack)
+            {
+                BindFilter();
+                PreselectItems();
+                BindResources();
+            }
+        }
+
         private void SetUpLabels()
         {
-            sctLegend.Item = Datasource;
-            sctHelp.Item = Datasource;
-            sctStrapline.Item = Datasource;
-            sctShortText.Item = Datasource;
-
             btnReset.Text = Datasource["Reset button text"];
             btnFilter.Text = Datasource["Filter button text"];
         }
 
-        private void SearchAndBindResources()
+        private void BindFilter()
         {
-            string indexName = Sitecore.Context.Database.Name.Equals("web",
-                StringComparison.InvariantCultureIgnoreCase)
-                ? Indexes.Web
-                : Indexes.Master;
+            cblResourceFilter.DataSource = ResourceTypes;
+            cblResourceFilter.DataValueField = "Key";
+            cblResourceFilter.DataTextField = "Value";
+            cblResourceFilter.DataBind();
+        }
 
-            var searchManager =
-                new SearchManager(new ContentSearch(indexName));
+        private void PreselectItems()
+        {
+            Enumerable.Cast<ListItem>(cblResourceFilter.Items).All(li => li.Selected = true);
+        }
 
-            var sitecoreSearchParameters = CreateResourceSearchParameters();
-
-            var searchResults = new SearchResultsCollection<CustomSearchResultItem>();
-
-            if (sitecoreSearchParameters.PostFieldFilters.Any())
-            {
-                searchResults = searchManager.Search(sitecoreSearchParameters);
-            }
-
-            var itemComparer = new ItemComparer();
-            var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
-            resultsCollection.Sort(itemComparer.CompareCreatedDate);
-            resultsCollection.Reverse();
-
-            lvResources.DataSource = resultsCollection;
+        private void BindResources()
+        {
+            lvResources.DataSource = MediaDatasource;
             lvResources.DataBind();
         }
 
@@ -137,41 +139,45 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
             {
                 var sctNoResults = (Text)e.Item.FindControl("sctNoResults");
                 if (sctNoResults != null) sctNoResults.DataSource = Datasource.ID.ToString();
-
             }
             else if (e.Item.ItemType == ListViewItemType.DataItem)
             {
-
                 var item = e.Item.DataItem as Item;
+                if (item == null)
+                    return;
 
-                if (item != null)
+                var mediaItem = (MediaItem) item;
+
+                var sctTitle = (Text) e.Item.FindControl("sctTitle");
+                var sctCategoryLabel = (Text) e.Item.FindControl("sctCategoryLabel");
+                var litCategories = (Literal) e.Item.FindControl("litCategories");
+                var sctFileDetailsLabel = (Text) e.Item.FindControl("sctFileDetailsLabel");
+                var sctShortText = (Text) e.Item.FindControl("sctShortText");
+                var hlDownload = (HyperLink) e.Item.FindControl("hlDownload");
+
+                if (sctTitle != null)
                 {
-                    var mediaItem = (MediaItem)item;
+                    sctTitle.Item = mediaItem;
+                }
+                if (sctCategoryLabel != null) sctCategoryLabel.Item = Datasource;
+                if (litCategories != null)
+                {
+                    var items = item.Fields[Enumerators.SitecoreConfig.Fields.Global.Categories].GetItems();
+                    string categories = items.Aggregate(string.Empty, (current, i) => current + (i.Name + ","));
 
-                    var sctTitle = (Text)e.Item.FindControl("sctTitle");
-                    var sctCategoryLabel = (Text)e.Item.FindControl("sctCategoryLabel");
-                    var litCategories = (Literal)e.Item.FindControl("litCategories");
-                    var sctFileDetailsLabel = (Text)e.Item.FindControl("sctFileDetailsLabel");
-                    var sctShortText = (Text)e.Item.FindControl("sctShortText");
-                    var hlDownload = (HyperLink)e.Item.FindControl("hlDownload");
-
-                    if (sctTitle != null) { sctTitle.Item = mediaItem; }
-                    if (sctCategoryLabel != null) sctCategoryLabel.Item = Datasource;
-                    if (litCategories != null)
-                    {
-                        var items = item.Fields[Enumerators.SitecoreConfig.Fields.Global.Categories].GetItems();
-                        string categories = items.Aggregate(string.Empty, (current, i) => current + (i.Name + ","));
-
-                        litCategories.Text = categories.RemoveTrailingComma();
-                    }
-                    if (sctFileDetailsLabel != null) sctFileDetailsLabel.Item = Datasource;
-                    if (sctShortText != null) { sctShortText.Item = mediaItem; }
-                    if (hlDownload != null)
-                    {
-                        hlDownload.Text = Datasource["Download button text"];
-                        hlDownload.Target = "_blank";
-                        hlDownload.NavigateUrl = Sitecore.StringUtil.EnsurePrefix('/', Sitecore.Resources.Media.MediaManager.GetMediaUrl(mediaItem));
-                    }
+                    litCategories.Text = categories.RemoveTrailingComma();
+                }
+                if (sctFileDetailsLabel != null) sctFileDetailsLabel.Item = Datasource;
+                if (sctShortText != null)
+                {
+                    sctShortText.Item = mediaItem;
+                }
+                if (hlDownload != null)
+                {
+                    hlDownload.Text = Datasource["Download button text"];
+                    hlDownload.Target = "_blank";
+                    hlDownload.NavigateUrl = Sitecore.StringUtil.EnsurePrefix('/',
+                        Sitecore.Resources.Media.MediaManager.GetMediaUrl(mediaItem));
                 }
             }
         }
@@ -185,7 +191,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
         protected void btnFilter_OnClick(object sender, EventArgs e)
         {
-            SearchAndBindResources();
+            BindResources();
         }
     }
 }
