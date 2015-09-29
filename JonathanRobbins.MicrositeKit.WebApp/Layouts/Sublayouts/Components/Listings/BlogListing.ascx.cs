@@ -21,6 +21,38 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 {
     public partial class BlogListing : MicrositeSublayoutBase
     {
+        private IEnumerable<Item> _blogs;
+        public IEnumerable<Item> Blogs
+        {
+            get
+            {
+                if (_blogs == null)
+                {
+                    //TODO dedicated indexes
+                    string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
+
+                    var searchManager =
+                        new SearchManager(new ContentSearch(indexName));
+
+                    var sitecoreSearchParameters = CreateBlogsSearchParameters();
+
+                    var searchResults = searchManager.Search(sitecoreSearchParameters);
+
+                    var itemComparer = new ItemComparer();
+                    var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
+                    resultsCollection.Sort(itemComparer.CompareDate);
+                    resultsCollection.Reverse();
+
+                    _blogs = resultsCollection;
+                }
+
+                return _blogs;
+            }
+        }
+
         public BlogListing()
         {
             ObjectFactory.Initialize(x =>
@@ -33,36 +65,18 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
         {
             if (!Page.IsPostBack)
             {
-                SearchAndBindBlogs();
+                BindBlogs();
             }
         }
 
-        private void SearchAndBindBlogs()
+        private void BindBlogs()
         {
-            string indexName = Sitecore.Context.Database.Name.Equals("web",
-                        StringComparison.InvariantCultureIgnoreCase)
-                        ? Indexes.Web
-                        : Indexes.Master;
-
-            var searchManager =
-                new SearchManager(new ContentSearch(indexName));
-
-            var sitecoreSearchParameters = CreateBlogsSearchParameters();
-
-            var searchResults = searchManager.Search(sitecoreSearchParameters);
-
-            var itemComparer = new ItemComparer();
-            var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
-            resultsCollection.Sort(itemComparer.CompareDate);
-            resultsCollection.Reverse();
-
-            lvBlogs.DataSource = resultsCollection;
+            lvBlogs.DataSource = Blogs;
             lvBlogs.DataBind();
         }
 
         private SitecoreSearchParameters CreateBlogsSearchParameters()
         {
-
             var searchTemplates = new List<ID> { Templates.MicroSiteBlogListingId };
 
             return new SitecoreSearchParameters()
@@ -76,64 +90,57 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
             if (e.Item.ItemType == ListViewItemType.DataItem)
             {
                 var item = e.Item.DataItem as Item;
-                if (item != null)
+                if (item == null)
+                    return;
+
+                var sciImage = (Image) e.Item.FindControl("sciImage");
+                var phComments = (PlaceHolder) e.Item.FindControl("phComments");
+                var litCommentCount = (Literal) e.Item.FindControl("litCommentCount");
+                var hlViewBlog = (HyperLink) e.Item.FindControl("hlViewBlog");
+                var hlImage = (HyperLink) e.Item.FindControl("hlImage");
+                var hlTitle = (HyperLink) e.Item.FindControl("hlTitle");
+
+                if (hlViewBlog != null)
                 {
-                    var scdDate = (Sitecore.Web.UI.WebControls.Date)e.Item.FindControl("scdDate");
-                    var sciImage = (Image)e.Item.FindControl("sciImage");
-                    var sctTitle = (Text)e.Item.FindControl("sctTitle");
-                    var sctAuthor = (Text)e.Item.FindControl("sctAuthor");
-                    var sctShortText = (Text)e.Item.FindControl("sctShortText");
-                    var phComments = (PlaceHolder)e.Item.FindControl("phComments");
-                    var sctCommentsLabel = (Text)e.Item.FindControl("sctCommentsLabel");
-                    var litCommentCount = (Literal)e.Item.FindControl("litCommentCount");
-                    var hlViewBlog = (HyperLink)e.Item.FindControl("hlViewBlog");
-                    var hlImage = (HyperLink)e.Item.FindControl("hlImage");
-                    var hlTitle = (HyperLink)e.Item.FindControl("hlTitle");
+                    Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
+                        .FirstOrDefault(
+                            x =>
+                                x.TemplateID ==
+                                Templates.MicroSiteBlogDetailsId);
 
-                    if (scdDate != null) scdDate.Item = item;
-                    if (sctTitle != null) sctTitle.Item = item;
-                    if (sctAuthor != null) sctAuthor.Item = item;
-                    if (sctShortText != null) sctShortText.Item = item;
-                    if (hlViewBlog != null)
+                    string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" +
+                                 item.ID.ToString();
+
+                    if (Datasource != null) hlViewBlog.Text = Datasource[Enumerators.SitecoreConfig.Fields.Global.ViewBlog];
+                    hlViewBlog.NavigateUrl = url;
+                    hlImage.NavigateUrl = url;
+                    hlTitle.NavigateUrl = url;
+                }
+                if (sciImage != null)
+                {
+                    var imageField = (Sitecore.Data.Fields.ImageField) item.Fields[Enumerators.SitecoreConfig.Fields.Global.Image];
+
+                    if (imageField != null && imageField.MediaItem != null)
                     {
-                        Item destinationItem = Nodes.MicrositeHomeItem.Axes.GetDescendants()
-                                                           .FirstOrDefault(
-                                                               x =>
-                                                               x.TemplateID ==
-                                                               Templates.MicroSiteBlogDetailsId);
-
-                        string url = LinkManager.GetItemUrl(destinationItem) + "?" + QueryStrings.Guid + "=" + item.ID.ToString();
-
-                        if (Datasource != null) hlViewBlog.Text = Datasource["View blog"];
-                        hlViewBlog.NavigateUrl = url;
-                        hlImage.NavigateUrl = url;
-                        hlTitle.NavigateUrl = url;
+                        sciImage.Item = item;
+                        sciImage.DataBind();
                     }
-                    if (sciImage != null)
+                }
+                if (phComments != null && litCommentCount != null)
+                {
+                    int count;
+                    bool success = Int32.TryParse(item[Enumerators.SitecoreConfig.Fields.Global.CommentCounter],
+                        out count);
+
+                    if (success && count > 0)
                     {
-                        var imageField = (Sitecore.Data.Fields.ImageField)item.Fields["Image"];
-
-                        if (imageField != null && imageField.MediaItem != null)
-                        {
-                            sciImage.Item = item;
-                            sciImage.DataBind();
-                        }
+                        litCommentCount.Text = count.ToString();
                     }
-                    if (phComments != null && sctCommentsLabel != null && litCommentCount != null)
+                    else
                     {
-                        int count;
-                        bool success = Int32.TryParse(item[Enumerators.SitecoreConfig.Fields.Global.CommentCounter], out count);
-
-                        if (success && count > 0)
-                        {
-                            sctCommentsLabel.Item = Datasource;
-                            litCommentCount.Text = count.ToString();
-                        }
-                        else
-                        {
-                            phComments.Visible = false;
-                        }
+                        phComments.Visible = false;
                     }
+
                 }
             }
         }

@@ -23,6 +23,8 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Fields
         public static string StartTime = "Start time";
         public static string Date = "Date";
         public static string Categories = "Categories";
+        public static string Image = "Image";
+        public static string ViewBlog = "View blog";
 
         public static string CreatedDate = "__Created";
         public static string WorkflowState = "__Workflow state";
@@ -58,5 +60,6 @@ namespace JonathanRobbins.MicrositeKit.Enumerators.SitecoreConfig.Fields
         public static string StartDate = "Start date";
         public static string Panels = "Panels";
         public static string Resources = "Resources";
+        
     }
 }
