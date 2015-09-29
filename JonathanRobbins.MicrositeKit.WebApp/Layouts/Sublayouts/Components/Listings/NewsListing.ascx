@@ -39,7 +39,7 @@
             
         </div>    --%>
 
-        <asp:ListView runat="server" ID="lvNews" OnItemDataBound="lvNews_OnItemDataBound">
+        <asp:ListView runat="server" ID="lvNews" OnItemDataBound="lvNews_OnItemDataBound" ItemType="Sitecore.Data.Items.Item">
             <LayoutTemplate>
                 <ul>
                     <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
@@ -52,12 +52,12 @@
                             <asp:HyperLink runat="server" ID="hlImage" ><sc:Image runat="server" ID="sciImage" Field="Image" /></asp:HyperLink>
                         </div>
                         <div class="news-text">
-                            <h2><asp:HyperLink runat="server" ID="hlTitle"><sc:Text runat="server" ID="sctTitle" Field="Title" /></asp:HyperLink></h2>
+                            <h2><asp:HyperLink runat="server" ID="hlTitle"><sc:Text runat="server" ID="sctTitle" Field="Title" Item="<%# Item %>" /></asp:HyperLink></h2>
                             <div class="author-date-holder">
-                                <span class="author"><sc:Text runat="server" ID="sctFirstName" Field="First name" /> <sc:Text runat="server" ID="sctLastName" Field="Last name" /></span>
-                                <span class="date"><sc:Date runat="server" ID="scdDate" Field="Date" Format="dd/MM/yyyy" /></span>
+                                <span class="author"><sc:Text runat="server" ID="sctFirstName" Field="First name" Item="<%# Item %>" /> <sc:Text runat="server" ID="sctLastName" Field="Last name" Item="<%# Item %>" /></span>
+                                <span class="date"><sc:Date runat="server" ID="scdDate" Field="Date" Format="dd/MM/yyyy" Item="<%# Item %>" /></span>
                             </div>
-                            <sc:Text runat="server" ID="sctShortText" Field="Short text" />
+                            <sc:Text runat="server" ID="sctShortText" Field="Short text" Item="<%# Item %>" />
                             <asp:HyperLink runat="server" ID="hlReadMore" CssClass="link" />
                         </div>
                     </div>

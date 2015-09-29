@@ -17,12 +17,42 @@ using Sitecore.Links;
 using Sitecore.Web.UI.WebControls;
 using StructureMap;
 
-//using scSearchContrib.Searcher.Parameters;
-
 namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.Listings
 {
     public partial class NewsListing : MicrositeSublayoutBase
     {
+        private IEnumerable<Item> _news;
+        public IEnumerable<Item> News
+        {
+            get
+            {
+                if (_news == null)
+                {
+                    //TODO create unique index
+                    string indexName = Sitecore.Context.Database.Name.Equals("web",
+                        StringComparison.InvariantCultureIgnoreCase)
+                        ? Indexes.Web
+                        : Indexes.Master;
+
+                    var searchManager =
+                                new SearchManager(new ContentSearch(indexName));
+
+                    var sitecoreSearchParameters = CreateNewsSearchParameters();
+
+                    var searchResults = searchManager.Search(sitecoreSearchParameters);
+
+                    var itemComparer = new ItemComparer();
+                    var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
+                    resultsCollection.Sort(itemComparer.CompareDate);
+                    resultsCollection.Reverse();
+
+                    _news = resultsCollection;
+                }
+
+                return _news;
+            }
+        }
+
         public NewsListing()
         {
             ObjectFactory.Initialize(x =>
@@ -31,34 +61,17 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
             });
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_PreRender(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                SearchAndBindNews();
+                BindNews();
             }
         }
 
-        private void SearchAndBindNews()
+        private void BindNews()
         {
-            string indexName = Sitecore.Context.Database.Name.Equals("web",
-                        StringComparison.InvariantCultureIgnoreCase)
-                        ? Indexes.Web
-                        : Indexes.Master;
-
-            var searchManager =
-                        new SearchManager(new ContentSearch(indexName));
-
-            var sitecoreSearchParameters = CreateNewsSearchParameters();
-
-            var searchResults = searchManager.Search(sitecoreSearchParameters);
-
-            var itemComparer = new ItemComparer();
-            var resultsCollection = searchResults.Hits.Select(h => h.Document.GetItem()).ToList();
-            resultsCollection.Sort(itemComparer.CompareDate);
-            resultsCollection.Reverse();
-
-            lvNews.DataSource = resultsCollection.ToList();
+            lvNews.DataSource = News;
             lvNews.DataBind();
         }
 
@@ -97,18 +110,13 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
                 if (item != null)
                 {
                     var sciImage = (Sitecore.Web.UI.WebControls.Image)e.Item.FindControl("sciImage");
-                    var sctTitle = (Text)e.Item.FindControl("sctTitle");
-                    var sctFirstName = (Text)e.Item.FindControl("sctFirstName");
-                    var sctLastName = (Text)e.Item.FindControl("sctLastName");
-                    var scdDate = (Sitecore.Web.UI.WebControls.Date)e.Item.FindControl("scdDate");
-                    var sctShortText = (Text)e.Item.FindControl("sctShortText");
                     var hlReadMore = (HyperLink)e.Item.FindControl("hlReadMore");
                     var hlImage = (HyperLink)e.Item.FindControl("hlImage");
                     var hlTitle = (HyperLink)e.Item.FindControl("hlTitle");
 
                     if (sciImage != null)
                     {
-                        var imageField = (Sitecore.Data.Fields.ImageField)item.Fields["Image"];
+                        var imageField = (Sitecore.Data.Fields.ImageField)item.Fields[Enumerators.SitecoreConfig.Fields.Global.Image];
 
                         if (imageField != null && imageField.MediaItem != null)
                         {
@@ -119,12 +127,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
                             sciImage.Visible = false;
                         }
                     }
-
-                    if (sctTitle != null) sctTitle.Item = item;
-                    if (sctFirstName != null) sctFirstName.Item = item;
-                    if (sctLastName != null) sctLastName.Item = item;
-                    if (scdDate != null) scdDate.Item = item;
-                    if (sctShortText != null) sctShortText.Item = item;
 
                     if (hlReadMore != null && hlImage != null && hlTitle != null)
                     {
