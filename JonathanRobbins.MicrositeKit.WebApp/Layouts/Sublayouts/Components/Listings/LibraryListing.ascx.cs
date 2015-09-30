@@ -30,7 +30,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
                 Item categorisationItem =
                     Nodes.MicrositeSharedSettingsItem.GetChildren()
-                        .FirstOrDefault(x => x.TemplateID == Templates.MicrositeClassificationFolderId);
+                        .FirstOrDefault(x => x.TemplateID == Templates.MicrositeMediaClassificationFolderId);
 
                 if (categorisationItem != null)
                 {
@@ -53,6 +53,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
             {
                 if (_mediaDatasource == null)
                 {
+                    //TODO unique index
                     string indexName = Sitecore.Context.Database.Name.Equals("web",
                         StringComparison.InvariantCultureIgnoreCase)
                         ? Indexes.Web
@@ -83,7 +84,7 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
         } 
 
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_PreRender(object sender, EventArgs e)
         {
             BindSitecoreControls();
             SetUpLabels();
@@ -135,51 +136,33 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
         protected void lvResources_OnItemDataBound(object sender, ListViewItemEventArgs e)
         {
-            if (e.Item.ItemType == ListViewItemType.EmptyItem)
+            if (e.Item.ItemType != ListViewItemType.DataItem)
+                return;
+
+            var item = e.Item.DataItem as Item;
+            if (item == null)
+                return;
+
+            var mediaItem = (MediaItem) item;
+
+            var litCategories = (Literal) e.Item.FindControl("litCategories");
+            var hlDownload = (HyperLink) e.Item.FindControl("hlDownload");
+
+            if (litCategories != null)
             {
-                var sctNoResults = (Text)e.Item.FindControl("sctNoResults");
-                if (sctNoResults != null) sctNoResults.DataSource = Datasource.ID.ToString();
+                var items = item.Fields[Enumerators.SitecoreConfig.Fields.Global.Categories].GetItems();
+                string categories = items.Aggregate(string.Empty, (current, i) => current + (i.Name + ","));
+
+                litCategories.Text = categories.RemoveTrailingComma();
             }
-            else if (e.Item.ItemType == ListViewItemType.DataItem)
+            if (hlDownload != null)
             {
-                var item = e.Item.DataItem as Item;
-                if (item == null)
-                    return;
-
-                var mediaItem = (MediaItem) item;
-
-                var sctTitle = (Text) e.Item.FindControl("sctTitle");
-                var sctCategoryLabel = (Text) e.Item.FindControl("sctCategoryLabel");
-                var litCategories = (Literal) e.Item.FindControl("litCategories");
-                var sctFileDetailsLabel = (Text) e.Item.FindControl("sctFileDetailsLabel");
-                var sctShortText = (Text) e.Item.FindControl("sctShortText");
-                var hlDownload = (HyperLink) e.Item.FindControl("hlDownload");
-
-                if (sctTitle != null)
-                {
-                    sctTitle.Item = mediaItem;
-                }
-                if (sctCategoryLabel != null) sctCategoryLabel.Item = Datasource;
-                if (litCategories != null)
-                {
-                    var items = item.Fields[Enumerators.SitecoreConfig.Fields.Global.Categories].GetItems();
-                    string categories = items.Aggregate(string.Empty, (current, i) => current + (i.Name + ","));
-
-                    litCategories.Text = categories.RemoveTrailingComma();
-                }
-                if (sctFileDetailsLabel != null) sctFileDetailsLabel.Item = Datasource;
-                if (sctShortText != null)
-                {
-                    sctShortText.Item = mediaItem;
-                }
-                if (hlDownload != null)
-                {
-                    hlDownload.Text = Datasource["Download button text"];
-                    hlDownload.Target = "_blank";
-                    hlDownload.NavigateUrl = Sitecore.StringUtil.EnsurePrefix('/',
-                        Sitecore.Resources.Media.MediaManager.GetMediaUrl(mediaItem));
-                }
+                hlDownload.Text = Datasource["Download button text"];
+                hlDownload.Target = "_blank";
+                hlDownload.NavigateUrl = Sitecore.StringUtil.EnsurePrefix('/',
+                    Sitecore.Resources.Media.MediaManager.GetMediaUrl(mediaItem));
             }
+
         }
 
         protected void btnReset_OnClick(object sender, EventArgs e)

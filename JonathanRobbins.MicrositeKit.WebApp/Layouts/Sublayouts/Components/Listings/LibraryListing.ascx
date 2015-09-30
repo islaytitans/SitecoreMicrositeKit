@@ -22,24 +22,24 @@
                 <sc:Text ID="sctShortText" Field="Short text" runat="server" />
             </div>
             </div>
-            <asp:ListView runat="server" ID="lvResources" OnItemDataBound="lvResources_OnItemDataBound">
+            <asp:ListView runat="server" ID="lvResources" OnItemDataBound="lvResources_OnItemDataBound" ItemType="Sitecore.Data.Items.Item">
                 <LayoutTemplate>                    
                     <asp:PlaceHolder runat="server" ID="itemPlaceholder" />                    
                 </LayoutTemplate>
                 <ItemTemplate>
                     <div class="library-item">
                         <div class="item-content">
-                            <h2><sc:Text runat="server" ID="sctTitle" Field="Title"/></h2>
+                            <h2><sc:Text runat="server" ID="sctTitle" Field="Title" <%# Item %>/></h2>
                             <div class="categorys">
-                                <span class="cat-label"><sc:Text runat="server" ID="sctCategoryLabel" Field="Category"/></span><span><asp:Literal runat="server" ID="litCategories" /></span>
+                                <span class="cat-label"><sc:Text runat="server" ID="sctCategoryLabel" Field="Category" <%# Datasource %>/></span><span><asp:Literal runat="server" ID="litCategories" /></span>
                             </div>
-                            <p><sc:Text runat="server" ID="sctFileDetailsLabel" Field="File details"/><sc:Text runat="server" ID="sctShortText" Field="Description"/></p>
+                            <p><sc:Text runat="server" ID="sctFileDetailsLabel" Field="File details" <%# Datasource %>/><sc:Text runat="server" ID="sctShortText" Field="Description" <%# Item %>/></p>
                             <asp:HyperLink runat="server" ID="hlDownload" CssClass="link" />
                         </div>
                     </div>
                 </ItemTemplate>
                 <EmptyDataTemplate>
-                    <sc:Text runat="server" ID="sctNoResults" Field="No results"/>
+                    <sc:Text runat="server" ID="sctNoResults" Field="No results" Item="<%# Datasource %>"/>
                 </EmptyDataTemplate>
             </asp:ListView>
         </div>
