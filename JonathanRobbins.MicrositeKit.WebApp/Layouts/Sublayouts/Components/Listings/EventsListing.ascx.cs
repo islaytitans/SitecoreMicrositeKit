@@ -84,12 +84,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
                 var item = e.Item.DataItem as Item;
                 if (item != null)
                 {
-                    var scdDate = (Sitecore.Web.UI.WebControls.Date)e.Item.FindControl("scdDate");
-                    var sctTitle = (Text)e.Item.FindControl("sctTitle");
-                    var sctTime = (Text)e.Item.FindControl("sctTime");
-                    var scdTimeStart = (Sitecore.Web.UI.WebControls.Date)e.Item.FindControl("scdTimeStart");
-                    var scdTimeEnd = (Sitecore.Web.UI.WebControls.Date)e.Item.FindControl("scdTimeEnd");
-                    var sctShortText = (Text)e.Item.FindControl("sctShortText");
                     var hlViewEvent = (HyperLink)e.Item.FindControl("hlViewEvent");
                     var sciImage = (Image)e.Item.FindControl("sciImage");
                     var phAddressLine1 = (PlaceHolder)e.Item.FindControl("phAddressLine1");
@@ -102,13 +96,6 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
                     var sctAddressPostcode = (Text)e.Item.FindControl("sctAddressPostcode");
                     var hlImage = (HyperLink)e.Item.FindControl("hlImage");
                     var hlTitle = (HyperLink)e.Item.FindControl("hlTitle");
-
-                    if (scdDate != null) scdDate.Item = item;
-                    if (sctTitle != null) sctTitle.Item = item;
-                    if (sctTime != null) sctTime.Item = Datasource;
-                    if (scdTimeStart != null) scdTimeStart.Item = item;
-                    if (scdTimeEnd != null) scdTimeEnd.Item = item;
-                    if (sctShortText != null) sctShortText.Item = item;
 
                     if (hlViewEvent != null && hlImage != null && hlTitle != null)
                     {

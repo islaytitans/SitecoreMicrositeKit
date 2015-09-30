@@ -3,7 +3,7 @@
 
 <div id="EventsListing">
     <div class="inner">
-        <asp:ListView runat="server" ID="lvEvents" OnItemDataBound="lvEvents_OnItemDataBound">
+        <asp:ListView runat="server" ID="lvEvents" OnItemDataBound="lvEvents_OnItemDataBound" ItemType="Sitecore.Data.Items.Item">
             <LayoutTemplate>
                 <ul>
                     <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
@@ -14,13 +14,13 @@
                 <li class="event-item">                
                     <div class="event-content">
                         <div class="date">
-                            <span><sc:Date runat="server" ID="scdDate" Format="ddd d MMMM yyyy" Field="Start time"/></span>
+                            <span><sc:Date runat="server" ID="scdDate" Format="ddd d MMMM yyyy" Field="Start time" Item="<%# Item %>"/></span>
                         </div>
-                        <h2><asp:HyperLink runat="server" ID="hlTitle" ><sc:Text runat="server" ID="sctTitle" Field="Title" /></asp:HyperLink></h2>                        
+                        <h2><asp:HyperLink runat="server" ID="hlTitle" ><sc:Text runat="server" ID="sctTitle" Field="Title" Item="<%# Item %>"/></asp:HyperLink></h2>                        
                         <span class="time">
-                            <sc:Text runat="server" ID="sctTime" Field="Time" /> <sc:Date runat="server" ID="scdTimeStart" Format="HH:mm" Field="Start time"/> - <sc:Date runat="server" ID="scdTimeEnd" Format="HH:mm" Field="End time"/>
+                            <sc:Text runat="server" ID="sctTime" Field="Time" Item="<%# Datasource %>"/> <sc:Date runat="server" ID="scdTimeStart" Format="HH:mm" Field="Start time" Item="<%# Item %>"/> - <sc:Date runat="server" ID="scdTimeEnd" Format="HH:mm" Field="End time" Item="<%# Item %>"/>
                         </span>
-                        <sc:Text runat="server" ID="sctShortText" Field="Short text"/>
+                        <sc:Text runat="server" ID="sctShortText" Field="Short text" Item="<%# Item %>"/>
                         <asp:HyperLink runat="server" ID="hlViewEvent" class="link"/>
                     </div>
                     <div class="venue-details">
