@@ -69,25 +69,11 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Components.List
 
         private SitecoreSearchParameters CreateEventsSearchParameters()
         {
-            Item siteClassificationItem = Nodes.MicrositeLocalSettingsItem.Axes.GetDescendants().FirstOrDefault(x => x.TemplateID == Templates.MicroSiteClassificationTemplateId);
-            var fieldDictionary = new Dictionary<string, string>();
-
-            if (siteClassificationItem != null)
-            {
-                IEnumerable<Item> classes = siteClassificationItem.Fields[Enumerators.SitecoreConfig.Fields.Global.Classification].GetItems();
-
-                foreach (var @class in classes)
-                {
-                    fieldDictionary.Add(@class.ID.ToString(), Enumerators.SitecoreConfig.Fields.Global.Classification);
-                }
-            }
-
             var searchTemplates = new List<ID> { Templates.MicroSiteEventListingId };
 
             return new SitecoreSearchParameters()
             {
                 Templates = searchTemplates,
-                PostFieldFilters = fieldDictionary,
             };
         }
 
