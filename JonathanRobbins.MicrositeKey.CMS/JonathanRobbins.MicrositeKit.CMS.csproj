@@ -61,6 +61,7 @@
       <HintPath>..\packages\structuremap.3.1.6.186\lib\net40\StructureMap.Net4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -78,6 +79,7 @@
     <Compile Include="Pipelines\GetRenderingDatasource\GetDatasourceLocations.cs" />
     <Compile Include="Pipelines\HttpRequest\WildCardItemResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\SiteProvider\DynamicSiteProvider.cs" />
     <Compile Include="Search\ContentSearch.cs" />
     <Compile Include="Search\SearchManager.cs" />
     <Compile Include="Search\SearchUtility.cs" />
