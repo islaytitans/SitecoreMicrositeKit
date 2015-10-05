@@ -55,12 +55,14 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
 
         private void BindSiteLogo()
         {
-            SiteLogo.DataSource = SiteLogoDatasource.ID.ToString();
+            if (SiteLogoDatasource != null)
+                SiteLogo.DataSource = SiteLogoDatasource.ID.ToString();
         }
 
         private void BindMegaNav()
         {
-            MainNav.DataSource = MegaNavigationDatasource.ID.ToString();
+            if (MegaNavigationDatasource != null)
+                MainNav.DataSource = MegaNavigationDatasource.ID.ToString();
         }
     }
 }

@@ -23,7 +23,10 @@ namespace JonathanRobbins.MicrositeKit.WebApp.Layouts.Sublayouts.Fixed
                 {
                     var mlf = (MultilistField) Datasource.Fields[Enumerators.SitecoreConfig.Fields.Global.LinkItems];
 
-                    _navigationDatasource = mlf.GetItems().Where(DisplayItemInNavigation);
+                    if (mlf != null)
+                    {
+                        _navigationDatasource = mlf.GetItems().Where(DisplayItemInNavigation);
+                    }
                 }
 
                 return _navigationDatasource;

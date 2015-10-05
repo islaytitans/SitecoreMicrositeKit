@@ -131,7 +131,7 @@ namespace JonathanRobbins.MicrositeKit.CMS.Providers.SiteProvider
 
                 var site = new Site(item[Enumerators.SitecoreConfig.Fields.Global.SiteName], properties);
 
-                site.SetSiteItemId(item.ID);
+                //site.SetSiteItemId(item.ID);
 
                 return site;
             }
